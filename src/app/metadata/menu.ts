@@ -1,17 +1,23 @@
 import { RouteInfo } from "./RouteInfo";
 
-export const MENU:RouteInfo[] = [{
-    path:"/samples",
+export const MENU:RouteInfo[] = [
+{
+    path:"/dashboard",
+    title: "Strona Głowna",
+    type:"link",
+    icontype:'dashboard'
+},{
+    path:"/samples/tree",
     title: "Wg urządzenia",
     type:"link",
-    icontype:'dashboard'
+    icontype:'storage'
 },{
-    path:"/samples",
+    path:"/samples/all",
     title: "Wszystkie",
     type:"link",
-    icontype:'dashboard'
+    icontype:'view_headline'
 },{
-    path:"/samples",
+    path:"/",
     title: "Pogrupowanie",
     type:"sub",
     icontype:'apps',
@@ -20,4 +26,5 @@ export const MENU:RouteInfo[] = [{
         {path:"/samples", title:"Z nieprzeczytanym raportem", ab:"N"},
         {path:"/samples", title:"Z nieprzeczytanym raportem ze statusem Uwaga", ab:"NU"},
     ]
-}]
+}
+]

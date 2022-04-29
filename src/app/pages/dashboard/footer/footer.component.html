@@ -1,1 +1,34 @@
-<p>footer works!</p>
+
+<footer class="footer">
+    <div class="container-fluid">
+        <nav class="pull-left">
+            <ul>
+                <li>
+                    <a href="https://www.analizyolejowe.pl">
+                      analizyolejowe.pl
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/our-team">
+                      Nasz zespół
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/news">
+                      Aktualności
+                    </a>
+                  </li>
+                  <li>
+                    <a href="/license">
+                      Licencja
+                    </a>
+                  </li>
+            </ul>
+        </nav>
+        <div class="copyright pull-right">
+            &copy;
+            {{date | date: 'yyyy'}}, made with <i class="material-icons">favorite</i> by
+            <a href="https://www.ecol.com.pl" target="_blank">Ecol</a> for you :)
+          </div>
+    </div>
+</footer>

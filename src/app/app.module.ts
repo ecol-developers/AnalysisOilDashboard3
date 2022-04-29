@@ -8,9 +8,10 @@ import { SidebarComponent } from './pages/dashboard/sidebar/sidebar.component';
 import { FooterComponent } from './pages/dashboard/footer/footer.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { AppRoutingModule } from './app-routing.module';
-import { SamplesComponent } from './pages/samples/samples/samples.component';
-import { SampleDetailsComponent } from './pages/samples/sample-details/sample-details.component';
+import { SamplesComponent } from './pages/dashboard/samples/samples/samples.component';
 import { SampleDetailComponent } from './pages/dashboard/samples/sample-detail/sample-detail.component';
+import { MainpageComponent } from './pages/dashboard/mainpage/mainpage.component';
+
 
 @NgModule({
     declarations: [
@@ -22,8 +23,8 @@ import { SampleDetailComponent } from './pages/dashboard/samples/sample-detail/s
         FooterComponent,
         NotFoundComponent,
         SamplesComponent,
-        SampleDetailsComponent,
-        SampleDetailComponent
+        SampleDetailComponent,
+        MainpageComponent
      ],
     imports:[
         BrowserModule,

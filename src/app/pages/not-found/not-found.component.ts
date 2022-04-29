@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { data } from 'jquery';
 
 @Component({
   selector: 'app-not-found',
@@ -7,9 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class NotFoundComponent implements OnInit {
 
+
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
