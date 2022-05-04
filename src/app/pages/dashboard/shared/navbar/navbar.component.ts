@@ -55,8 +55,6 @@ export class NavbarComponent implements OnInit {
     return "Strona główna";
   }
 
-
-
   sidebarOpen() {
     var $toggle = document.getElementsByClassName('navbar-toggler')[0];
       const toggleButton = this.toggleButton;

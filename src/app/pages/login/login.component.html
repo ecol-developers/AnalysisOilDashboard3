@@ -1,1 +1,47 @@
-<p>login works!</p>
+<div class="wrapper wrapper-full-page">
+    <div class="login-page header-filter" filter-color="black" style="background-image: url('./assets/img/login.jpg'); background-size: cover; background-position: top center;">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-4 col-md-6 col-sm-6 ml-auto mr-auto">
+            <form class="form" #loginForm = "ngForm" (ngSubmit)="login()">
+              <div class="card card-login">
+                <div class="card-header card-header-info text-center">
+                  <h4 class="card-title">analizyolejowe.pl</h4>
+                </div>
+                <div class="card-body ">
+                  <p class="card-description text-center">Logowanie do panelu klienta</p>
+                  <span class="bmd-form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="material-icons">face</i>
+                        </span>
+                      </div>
+                      <input type="text" [(ngModel)]="loginObj.email" name="userName" class="form-control" placeholder="Nazwa użytkownika...">
+                    </div>
+                  </span>
+                
+                  <span class="bmd-form-group">
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">
+                          <i class="material-icons">lock_outline</i>
+                        </span>
+                      </div>
+                      <input type="password" class="form-control" [(ngModel)]="loginObj.password" name="password" placeholder="Hasło...">
+                    </div>
+                  </span>
+                </div>
+                <div class="card-footer justify-content-center">
+                  <button type="submit" class="btn btn-rose btn-link btn-lg">Zaloguj</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+      <app-footer></app-footer>
+    </div>
+  </div>
+
+  

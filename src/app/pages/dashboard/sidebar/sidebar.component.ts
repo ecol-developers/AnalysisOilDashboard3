@@ -11,6 +11,7 @@ declare const $: any;
 })
 export class SidebarComponent implements OnInit {
   public menuItems:RouteInfo[];
+  userName:string;
 
   constructor() { }
 
@@ -24,6 +25,7 @@ export class SidebarComponent implements OnInit {
 
   ngOnInit(): void {
     this.menuItems = MENU;
+    this.userName = localStorage.getItem("userName");
   }
 
 }

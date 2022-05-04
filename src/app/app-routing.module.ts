@@ -9,11 +9,11 @@ import { NotFoundComponent } from './pages/not-found/not-found.component';
 
 
 const routes: Routes = [
-  {path:'', redirectTo:'dashboard', pathMatch:'full'},
+   {path:'', redirectTo:'login', pathMatch:'full'},
+   {path:'login', component:LoginComponent},
   {path:'', component:LayoutComponent, children:[
-    {path:'', loadChildren:() => import('./pages/dashboard/dashboard.module').then(m=>m.DashboardModule)}
+     {path:'', loadChildren:() => import('./pages/dashboard/dashboard.module').then(m=>m.DashboardModule)}
   ]},
-  {path:'login', component:LoginComponent},
   {path:'**', component:NotFoundComponent}
   ];
 

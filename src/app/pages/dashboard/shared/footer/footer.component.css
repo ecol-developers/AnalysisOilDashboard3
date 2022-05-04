@@ -1,0 +1,14 @@
+element {
+    --ecolcolor: #005397;
+}
+
+.footer{
+    display: inline;
+    font-size: smaller;
+}
+
+.footer a {
+    padding-right: 15px;
+    text-decoration: none;
+    color: #005397;
+}

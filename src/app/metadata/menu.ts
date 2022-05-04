@@ -8,12 +8,12 @@ export const MENU:RouteInfo[] = [
     icontype:'dashboard'
 },{
     path:"/samples/tree",
-    title: "Wg urządzenia",
+    title: "Urządzenia",
     type:"link",
     icontype:'storage'
 },{
     path:"/samples/all",
-    title: "Wszystkie",
+    title: "Próbki",
     type:"link",
     icontype:'view_headline'
 },{
@@ -23,8 +23,18 @@ export const MENU:RouteInfo[] = [
     icontype:'apps',
     collapse:"Pogrupowanie",
     children: [
-        {path:"/samples", title:"Z nieprzeczytanym raportem", ab:"N"},
-        {path:"/samples", title:"Z nieprzeczytanym raportem ze statusem Uwaga", ab:"NU"},
+        {path:"/samples", title:"Nieprzeczytane raporty", ab:"NR"},
+        {path:"/samples", title:"Raporty ze statusem UWAGA", ab:"RU"},
+    ]
+},{
+    path:"/",
+    title: "Administrator",
+    type:"sub",
+    icontype:'laptop_chromebook',
+    collapse:"Administrator",
+    children: [
+        {path:"/samples", title:"Statystyki", ab:"S"},
+        {path:"/samples", title:"Użytkownicy", ab:"U"},
     ]
 }
 ]

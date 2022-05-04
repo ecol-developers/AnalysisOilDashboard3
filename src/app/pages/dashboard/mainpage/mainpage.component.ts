@@ -100,17 +100,20 @@ startAnimationForLineChart(chart: any) {
       ]
     };
 
-    const samplesSuccessCountByMonthChartOptions = {
-      lineSmooth: Chartist.Interpolation.cardinal({
-          tension: 0
-      }),
-      low: 0,
-      high: 50, // creative tim: we recommend you to set the high sa the biggest value + something for a better look
-      chartPadding: { top: 0, right: 0, bottom: 0, left: 0},
+    const samplesSuccessCountByMonthChart = new Chartist.Line('#samplesSuccessCountByMonthChart', samplesSuccessCountByMonthChartData);
+    this.startAnimationForLineChart(samplesSuccessCountByMonthChart);
+
+    //warning
+    const samplesWarningCountByMonthChartData = {
+      labels: ['Sty', 'Lut', 'Mar', 'Kwi', 'Maj', 'Cze', 'Lip', 'Sie', 'Wrz', 'Paź', 'Lis', 'Gru'],
+      series: [
+        [542, 443, 320, 780, 553, 453, 326, 434, 568, 350, 300, 100]
+      ]
     };
 
-    const samplesSuccessCountByMonthChart = new Chartist.Line('#samplesSuccessCountByMonthChart', samplesSuccessCountByMonthChartData, samplesSuccessCountByMonthChartOptions);
-    this.startAnimationForLineChart(samplesSuccessCountByMonthChart);
+    const samplesWarningCountByMonthChart = new Chartist.Line('#samplesWarningCountByMonthChart', samplesWarningCountByMonthChartData);
+    this.startAnimationForLineChart(samplesWarningCountByMonthChart);
+
 
   }
 
