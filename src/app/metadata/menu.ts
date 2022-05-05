@@ -1,11 +1,16 @@
 import { RouteInfo } from "./RouteInfo";
 
-export const MENU:RouteInfo[] = [
+export const Menu:RouteInfo[] = [
 {
-    path:"/dashboard",
+    path:"/dashboard/mainpage",
     title: "Strona Głowna",
     type:"link",
     icontype:'dashboard'
+},{
+    path:"/dashboard/samples",
+    title: "Próbki beta",
+    type:"link",
+    icontype:'storage'
 },{
     path:"/samples/tree",
     title: "Urządzenia",
@@ -16,7 +21,8 @@ export const MENU:RouteInfo[] = [
     title: "Próbki",
     type:"link",
     icontype:'view_headline'
-},{
+},
+{
     path:"/",
     title: "Pogrupowanie",
     type:"sub",
@@ -26,15 +32,36 @@ export const MENU:RouteInfo[] = [
         {path:"/samples", title:"Nieprzeczytane raporty", ab:"NR"},
         {path:"/samples", title:"Raporty ze statusem UWAGA", ab:"RU"},
     ]
-},{
-    path:"/",
-    title: "Administrator",
-    type:"sub",
-    icontype:'laptop_chromebook',
-    collapse:"Administrator",
-    children: [
-        {path:"/samples", title:"Statystyki", ab:"S"},
-        {path:"/samples", title:"Użytkownicy", ab:"U"},
-    ]
 }
+]
+
+export const AdminMenu:RouteInfo[] = [
+            {
+                path:"/",
+                title: "Administracja",
+                type:"sub",
+                icontype:'apps',
+                collapse:"Administracja",
+                children: [
+                    {path:"/samples", title:"Użytkownicy", ab:"NR"},
+                    {path:"/samples", title:"Statystyki", ab:"RU"},
+                ]
+            }
+        ];
+
+
+export const UserMenu:RouteInfo[] = [
+    {
+        path:"",
+        title: "",
+        type:"",
+        icontype:"",
+        collapse:"",
+        children: [
+            {path:"/myProfile", title:"Mój Profil", ab:"MP"},
+            {path:"/editProfile", title:"Edycja Profilu", ab:"EP"},
+            {path:"/settings", title:"Ustawienia", ab:"U"},
+            {path:"", title:"Wyloguj", ab:"W", action:"logout"},
+        ]
+    }
 ]

@@ -6,16 +6,15 @@ import { SamplesComponent } from './pages/dashboard/samples/samples/samples.comp
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 
-
-
 const routes: Routes = [
-   {path:'', redirectTo:'login', pathMatch:'full'},
-   {path:'login', component:LoginComponent},
-  {path:'', component:LayoutComponent, children:[
-     {path:'', loadChildren:() => import('./pages/dashboard/dashboard.module').then(m=>m.DashboardModule)}
-  ]},
+  {path:'', redirectTo:'login', pathMatch:'full'},
+  {path:'login', component:LoginComponent},
+  {path:'dashboard', component:LayoutComponent, children:[
+    {path:'mainpage', component:MainpageComponent},
+    {path:'samples', component:SamplesComponent}
+    ]},
   {path:'**', component:NotFoundComponent}
-  ];
+ ];
 
   @NgModule({
     imports:[RouterModule.forRoot(routes, {useHash:true})],
