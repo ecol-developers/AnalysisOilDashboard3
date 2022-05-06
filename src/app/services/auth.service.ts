@@ -5,25 +5,25 @@ import { catchError, Observable, tap, throwError } from 'rxjs';
 import { Login } from '../models/login';
 import { loginJwt } from '../models/loginJwt';
 import {JwtHelperService} from '@auth0/angular-jwt';
+import { SharedService } from '../shared/shared.service';
+import { endpointPath } from '../shared/globals';
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService {
 
- 
-  endpoint:string = "https://localhost:44387";
-
   constructor(
     private http:HttpClient,
-    private router:Router
+    private router:Router,
+    private sharedService:SharedService
     ) { }
 
   Login(loginObj: Login):Observable<loginJwt>  {
     if (loginObj.email && loginObj.password){
 
-    return this.http.post<loginJwt>(this.endpoint+"/User/GenerateJwt",loginObj)
-                  .pipe(tap(console.log), catchError(this.handleError));
+    return this.http.post<loginJwt>(endpointPath+"/User/GenerateJwt",loginObj)
+                  .pipe(tap(console.log), catchError(this.sharedService.handleError));
      }
      else
         return  throwError("Jedno z wymaganych pól jest puste!")
@@ -46,16 +46,7 @@ export class AuthService {
       return !this.isLoggedIn();
   }
 
-   private handleError(error:HttpErrorResponse): Observable<never>{
-    console.error(
-      "Name: "+error.name+"\n"+
-      "Meaasage: "+error.message+" \n"+
-      "Return code: "+error.status+" \n"
-    );   
-    return throwError("Błąd logowania: "+ error.statusText+" kod: "+error.status);
-   }
-
-   SaveJwtToken(jwt: string): void {
+  SaveJwtToken(jwt: string): void {
       localStorage.setItem("token",jwt)
       let decodate = JSON.parse(window.atob(jwt.split('.')[1]))
       localStorage.setItem("clientId",decodate['clientId']);

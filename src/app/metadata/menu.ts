@@ -8,21 +8,15 @@ export const Menu:RouteInfo[] = [
     icontype:'dashboard'
 },{
     path:"/dashboard/samples",
-    title: "Próbki beta",
+    title: "Lista próbek",
     type:"link",
     icontype:'storage'
 },{
-    path:"/samples/tree",
-    title: "Urządzenia",
+    path:"/dashboard/equipments",
+    title: "Próbki wg urządzenia",
     type:"link",
     icontype:'storage'
 },{
-    path:"/samples/all",
-    title: "Próbki",
-    type:"link",
-    icontype:'view_headline'
-},
-{
     path:"/",
     title: "Pogrupowanie",
     type:"sub",
@@ -32,8 +26,7 @@ export const Menu:RouteInfo[] = [
         {path:"/samples", title:"Nieprzeczytane raporty", ab:"NR"},
         {path:"/samples", title:"Raporty ze statusem UWAGA", ab:"RU"},
     ]
-}
-]
+}]
 
 export const AdminMenu:RouteInfo[] = [
             {
@@ -43,8 +36,8 @@ export const AdminMenu:RouteInfo[] = [
                 icontype:'apps',
                 collapse:"Administracja",
                 children: [
-                    {path:"/samples", title:"Użytkownicy", ab:"NR"},
-                    {path:"/samples", title:"Statystyki", ab:"RU"},
+                    {path:"/users", title:"Użytkownicy", ab:"NR"},
+                    {path:"/statistics", title:"Statystyki", ab:"RU"},
                 ]
             }
         ];

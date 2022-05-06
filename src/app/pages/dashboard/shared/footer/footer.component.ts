@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { versionApp } from 'src/app/shared/globals';
 
 @Component({
   selector: 'app-footer',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent implements OnInit {
   date:Date = new Date();
+  public version = versionApp;
+
   constructor() { }
 
   ngOnInit(): void {
