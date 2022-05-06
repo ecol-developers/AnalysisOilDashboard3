@@ -13,7 +13,8 @@ import { SampleDetailComponent } from './pages/dashboard/samples/sample-detail/s
 import { MainpageComponent } from './pages/dashboard/mainpage/mainpage.component';
 import { FixedpluginModule } from './pages/dashboard/shared/fixedplugin/fixedplugin.module';
 import { FormsModule} from "@angular/forms";
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { AuthconfigInterceptor } from './shared/authconfig.interceptor';
 
 
 @NgModule({
@@ -36,7 +37,13 @@ import { HttpClientModule } from '@angular/common/http';
         FormsModule,
         HttpClientModule
     ],
-    providers : [],
+    providers : [
+        {
+            provide:HTTP_INTERCEPTORS,
+            useClass:AuthconfigInterceptor,
+            multi:true
+        }
+    ],
     bootstrap:    [ AppComponent ]
 })
 export class AppModule { }

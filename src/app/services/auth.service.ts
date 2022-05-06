@@ -1,10 +1,10 @@
-import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { HttpClient} from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, Observable, tap, throwError } from 'rxjs';
 import { Login } from '../models/login';
 import { loginJwt } from '../models/loginJwt';
-import {JwtHelperService} from '@auth0/angular-jwt';
+import { JwtHelperService } from '@auth0/angular-jwt';
 import { SharedService } from '../shared/shared.service';
 import { endpointPath } from '../shared/globals';
 
@@ -20,6 +20,9 @@ export class AuthService {
     ) { }
 
   Login(loginObj: Login):Observable<loginJwt>  {
+    localStorage.clear();
+    console.log("logowanie! token: "+localStorage.getItem("token"));
+
     if (loginObj.email && loginObj.password){
 
     return this.http.post<loginJwt>(endpointPath+"/User/GenerateJwt",loginObj)
@@ -32,6 +35,7 @@ export class AuthService {
 
    Logout() {
     localStorage.clear();
+    localStorage.removeItem("token");
     this.router.navigate["/login"];
   }
 
@@ -54,6 +58,7 @@ export class AuthService {
       localStorage.setItem("userId", decodate['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier']);
       localStorage.setItem("userRole", decodate['http://schemas.microsoft.com/ws/2008/06/identity/claims/role']);
       localStorage.setItem("tokenExp", decodate['exp']);
+      console.log("saveJwt"+localStorage.getItem("token"));
       if(this.isLoggedIn())
           this.router.navigate(["/dashboard/mainpage"]);
   }

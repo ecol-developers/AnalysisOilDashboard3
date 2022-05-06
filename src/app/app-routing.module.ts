@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { EquipmentsComponent } from './pages/dashboard/equipments/equipments.component';
 import { LayoutComponent } from './pages/dashboard/layout/layout.component';
 import { MainpageComponent } from './pages/dashboard/mainpage/mainpage.component';
 import { SamplesComponent } from './pages/dashboard/samples/samples/samples.component';
@@ -11,7 +12,8 @@ const routes: Routes = [
   {path:'login', component:LoginComponent},
   {path:'dashboard', component:LayoutComponent, children:[
     {path:'mainpage', component:MainpageComponent},
-    {path:'samples', component:SamplesComponent}
+    {path:'samples', component:SamplesComponent},
+    {path:'equipments', component:EquipmentsComponent}
     ]},
   {path:'**', component:NotFoundComponent}
  ];
