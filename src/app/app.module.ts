@@ -15,6 +15,9 @@ import { FixedpluginModule } from './pages/dashboard/shared/fixedplugin/fixedplu
 import { FormsModule} from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthconfigInterceptor } from './shared/authconfig.interceptor';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatTreeModule } from '@angular/material/tree';
+import { EquipmentsComponent } from './pages/dashboard/equipments/equipments.component';
 
 
 @NgModule({
@@ -28,14 +31,17 @@ import { AuthconfigInterceptor } from './shared/authconfig.interceptor';
         NotFoundComponent,
         SamplesComponent,
         SampleDetailComponent,
-        MainpageComponent
+        MainpageComponent,
+        EquipmentsComponent
      ],
     imports:[
         BrowserModule,
         AppRoutingModule,
         FixedpluginModule,
         FormsModule,
-        HttpClientModule
+        HttpClientModule,
+        BrowserAnimationsModule,
+        MatTreeModule
     ],
     providers : [
         {

@@ -18,4 +18,5 @@ export class EquipmentsService {
     return res;
   }
 
+
 }
