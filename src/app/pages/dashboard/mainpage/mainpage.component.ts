@@ -1,5 +1,5 @@
 import { Component, OnInit, SimpleChange } from '@angular/core';
-import { SimpleTable } from 'src/app/metadata/simpleTable';
+import { DataTable } from 'src/app/metadata/dataTable';
 import * as Chartist from 'chartist';
 
 @Component({
@@ -9,7 +9,7 @@ import * as Chartist from 'chartist';
 })
 export class MainpageComponent implements OnInit {
 
-  public summaryData:SimpleTable;
+  public summaryData:DataTable;
 
   startAnimationForBarChart(chart: any) {
     let seq2: any, delays2: any, durations2: any;

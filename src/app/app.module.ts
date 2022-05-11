@@ -18,6 +18,7 @@ import { AuthconfigInterceptor } from './shared/authconfig.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatTreeModule } from '@angular/material/tree';
 import { EquipmentsComponent } from './pages/dashboard/equipments/equipments.component';
+import { MatProgressBarModule } from '@angular/material/progress-bar'; 
 
 
 @NgModule({
@@ -41,7 +42,8 @@ import { EquipmentsComponent } from './pages/dashboard/equipments/equipments.com
         FormsModule,
         HttpClientModule,
         BrowserAnimationsModule,
-        MatTreeModule
+        MatTreeModule,
+        MatProgressBarModule
     ],
     providers : [
         {

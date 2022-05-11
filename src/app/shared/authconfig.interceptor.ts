@@ -15,15 +15,14 @@ export class AuthconfigInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
     const token = localStorage.getItem("token");
-    console.log("interceptor!!!!!! :"+token);
-
+    console.log(token);
+    
     if(token){
 
       //tutaj bedzie sprawdzanie waznosci tokenu, jezeli stary to połączenie po nowy z uzyciem refreshToken i ponowne uruchomienie requesta
       const cloned = request.clone({
           headers:request.headers.set("Authorization", "Bearer "+token)
         });
-        console.log(cloned);
         return next.handle(cloned);
     }
 

@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component,OnInit } from '@angular/core';
 import { EquipmentTree } from 'src/app/models/equipmentTree';
 import { EquipmentsService } from 'src/app/services/equipments.service';
 import {FlatTreeControl} from '@angular/cdk/tree';

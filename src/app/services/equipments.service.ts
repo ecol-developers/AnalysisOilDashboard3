@@ -13,10 +13,12 @@ export class EquipmentsService {
 
   refreshTreeEquipment():Observable<EquipmentTree>{
     let clientId = localStorage.getItem("clientId");
-    let endpoint = endpointPath+"/Equipment/GetTreeEquipmentByClientId/"+clientId;
-    let res = this.http.get<EquipmentTree>(endpoint);
-    return res;
+    if(clientId !== ""){
+        let endpoint = endpointPath+"/Equipment/GetTreeEquipmentByClientId/"+clientId;
+        let res = this.http.get<EquipmentTree>(endpoint);
+        return res;
+    }
+  
   }
-
 
 }
