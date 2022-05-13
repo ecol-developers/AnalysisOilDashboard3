@@ -1,7 +1,7 @@
-export interface loginMd{
+export interface LoginMd {
     login:string;
-    hashName:string;
+    hashName?:string;
     hashedPassword:string;
-    app:string;
-    instance:string;
+    app?:string;
+    instance?:string;
 }

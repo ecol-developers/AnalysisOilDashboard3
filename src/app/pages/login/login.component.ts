@@ -1,7 +1,6 @@
-import { Component, OnInit } from '@angular/core';
-import { onErrorResumeNext } from 'rxjs';
+import { Component } from '@angular/core';
 import { Login } from 'src/app/models/login';
-import { loginJwt } from 'src/app/models/loginJwt';
+import { LoginResultMd } from 'src/app/models/loginResultMd';
 import { AuthService } from 'src/app/services/auth.service';
 
 
@@ -22,7 +21,7 @@ export class LoginComponent {
    login(){ 
      this.service.Login(this.loginObj).subscribe(
        {
-         next: (res:loginJwt) =>(this.service.SaveJwtToken(res.jwt)
+         next: (res:LoginResultMd) =>(this.service.SaveJwtToken(res)
          ),
          error: (err:string) => (
           this.errorMessage = err

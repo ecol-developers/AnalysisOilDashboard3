@@ -1,4 +1,4 @@
-export interface loginJwt{
+export interface LoginJwt{
     jwt:string;
   }
   

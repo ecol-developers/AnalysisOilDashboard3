@@ -3,7 +3,8 @@ import {
   HttpRequest,
   HttpHandler,
   HttpEvent,
-  HttpInterceptor
+  HttpInterceptor,
+  HttpHeaders
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
@@ -15,14 +16,12 @@ export class AuthconfigInterceptor implements HttpInterceptor {
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
     const token = localStorage.getItem("token");
-    console.log(token);
-    
     if(token){
-
       //tutaj bedzie sprawdzanie waznosci tokenu, jezeli stary to połączenie po nowy z uzyciem refreshToken i ponowne uruchomienie requesta
-      const cloned = request.clone({
+        const cloned = request.clone({
           headers:request.headers.set("Authorization", "Bearer "+token)
         });
+
         return next.handle(cloned);
     }
 

@@ -1,8 +1,10 @@
-import { authorizationTokenMd } from "./authorizationTokenMD";
+import { AuthorizationTokenMd } from "./authorizationTokenMD";
 
-export interface loginResultMd{
+export interface LoginResultMd{
     userId:number;
     userLogin:string;
-    accessToken: authorizationTokenMd;
-    refreshToken: authorizationTokenMd;
+    accessToken: AuthorizationTokenMd;
+    refreshToken: AuthorizationTokenMd;
+    clientId?:number;
+    
 }
