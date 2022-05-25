@@ -53,8 +53,7 @@ export const UserMenu:RouteInfo[] = [
         children: [
             {path:"/myProfile", title:"Mój Profil", ab:"MP"},
             {path:"/editProfile", title:"Edycja Profilu", ab:"EP"},
-            {path:"/settings", title:"Ustawienia", ab:"U"},
-            {path:"", title:"Wyloguj", ab:"W", action:"logout"},
+            {path:"/settings", title:"Ustawienia", ab:"U"}
         ]
     }
 ]

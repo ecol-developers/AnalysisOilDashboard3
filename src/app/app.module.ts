@@ -16,9 +16,10 @@ import { FormsModule} from "@angular/forms";
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthconfigInterceptor } from './shared/authconfig.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { MatTreeModule } from '@angular/material/tree';
 import { EquipmentsComponent } from './pages/dashboard/equipments/equipments.component';
-import { MatProgressBarModule } from '@angular/material/progress-bar'; 
+import { TreeModule } from 'primeng/tree';
+import { TableModule } from 'primeng/table';
+import { ButtonModule } from 'primeng/button';
 
 
 @NgModule({
@@ -42,8 +43,9 @@ import { MatProgressBarModule } from '@angular/material/progress-bar';
         FormsModule,
         HttpClientModule,
         BrowserAnimationsModule,
-        MatTreeModule,
-        MatProgressBarModule
+        TreeModule,
+        TableModule,
+        ButtonModule
     ],
     providers : [
         {

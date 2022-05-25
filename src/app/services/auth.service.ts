@@ -3,11 +3,11 @@ import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { catchError, Observable, tap, throwError } from 'rxjs';
 import { Login } from '../models/login';
-import { JwtHelperService } from '@auth0/angular-jwt';
 import { SharedService } from '../shared/shared.service';
 import { endpointPath } from '../shared/globals';
 import { LoginResultMd } from '../models/loginResultMd';
 import { LoginMd } from '../models/loginMd';
+import { User } from '../models/user';
 
 
 @Injectable({
@@ -17,24 +17,33 @@ import { LoginMd } from '../models/loginMd';
 
 export class AuthService {
 
+  GetUserLogin(): string {
+    return localStorage.getItem("userLogin");
+  }
+
+
   constructor(
     private http:HttpClient,
-    private router:Router,
     private sharedService:SharedService
     ) { }
 
   Login(loginObj: Login):Observable<LoginResultMd>  {
-    localStorage.clear(); //do usuniecia
-    if (loginObj.login && loginObj.password){
-      let loginMdObj = this.getLoginMdObj(loginObj);
-      
-      return this.http.post<LoginResultMd>(endpointPath+"/User/LoginUR",loginMdObj)
-                  .pipe(tap(console.log), catchError(this.sharedService.handleError));
-     }
-     else
-        return  throwError("Jedno z wymaganych pól jest puste!")
 
+      let loginMdObj = this.getLoginMdObj(loginObj);
+      return this.http.post<LoginResultMd>(endpointPath+"/User/LoginUR",loginMdObj)
+                  .pipe(catchError(this.sharedService.handleError));
    }
+
+   refreshToken(refreshToken:string):Observable<LoginResultMd>{
+    return this.http.post<LoginResultMd>(endpointPath+"/User/RefreshToken",refreshToken)
+                .pipe(tap(console.log),catchError(this.sharedService.handleError));
+    //  this.http.post<LoginResultMd>(endpointPath+"/User/RefreshToken",refreshToken)
+    //           .subscribe({
+    //             next:(res:LoginResultMd)=>(
+    //                this.SaveJwtToken(res)
+    //             )
+    //           })
+  }
 
   getLoginMdObj(obj: Login):LoginMd {
     let loginObj: LoginMd = {
@@ -44,16 +53,15 @@ export class AuthService {
     return loginObj;
   }
 
-   Logout() {
-    localStorage.clear();
-    localStorage.removeItem("token");
-    this.router.navigate["/login"];
+  Logout(){
+      localStorage.removeItem("token");
+      localStorage.removeItem("refreshToken");
+      localStorage.clear();
   }
 
+
   public isLoggedIn(){
-      const helper = new JwtHelperService();
-      let exp = localStorage.getItem("token");
-      let isExpiration = !helper.isTokenExpired(exp);
+      let isExpiration = this.isExpired();
       return isExpiration;
   }
 
@@ -61,17 +69,29 @@ export class AuthService {
       return !this.isLoggedIn();
   }
 
-  SaveJwtToken(res: LoginResultMd): void {
+  SaveJwtToken(res: LoginResultMd) {
       localStorage.setItem("token",res.accessToken.value)
+      localStorage.setItem("refreshToken",res.refreshToken.value);
       let decodate = JSON.parse(window.atob(res.accessToken.value.split('.')[1]))
       localStorage.setItem("clientId",res.clientId.toString());
-      // localStorage.setItem("userName", decodate['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/name']);
-      localStorage.setItem("userId", decodate['http://schemas.xmlsoap.org/ws/2005/05/identity/claims/nameidentifier']);
       localStorage.setItem("tokenExp", decodate['exp']);
-      console.log(decodate);
-
-      if(this.isLoggedIn())
-          this.router.navigate(["/dashboard/mainpage"]);
+      localStorage.setItem("userId", res.userId.toString());
   }
+
+  public isExpired():boolean{
+    if(localStorage.getItem("refreshToken")){
+      let exp =parseInt(localStorage.getItem("tokenExp"));
+      let actualDate = (new Date().getTime()+1)/1000;
+      console.log("exp: "+exp+" actualDate:"+actualDate+" różnica: "+(exp-actualDate).toString());
+      if(exp>=actualDate)
+          return true;
+      else
+          return false;
+    }
+   
+    return false;
+  }
+
+
 
 }

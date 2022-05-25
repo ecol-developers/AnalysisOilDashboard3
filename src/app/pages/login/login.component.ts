@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Login } from 'src/app/models/login';
 import { LoginResultMd } from 'src/app/models/loginResultMd';
 import { AuthService } from 'src/app/services/auth.service';
+import { LoginService } from 'src/app/services/login.service';
 
 
 @Component({
@@ -11,17 +12,20 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class LoginComponent {
  loginObj:Login = {};
- errorMessage:string="";
+ errorMessage:string;
  
 
-  constructor( private service:AuthService) {
+  constructor( 
+    private auth:AuthService,
+    private service:LoginService) {
 
    }
 
    login(){ 
-     this.service.Login(this.loginObj).subscribe(
+     this.auth.Login(this.loginObj).subscribe(
        {
-         next: (res:LoginResultMd) =>(this.service.SaveJwtToken(res)
+         next: (res:LoginResultMd) =>(
+           this.service.login(res)
          ),
          error: (err:string) => (
           this.errorMessage = err

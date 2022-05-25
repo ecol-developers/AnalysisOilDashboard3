@@ -1,64 +1,94 @@
 import { Component,OnInit } from '@angular/core';
-import { EquipmentTree } from 'src/app/models/equipmentTree';
 import { EquipmentsService } from 'src/app/services/equipments.service';
-import {FlatTreeControl} from '@angular/cdk/tree';
-import { MatTreeFlatDataSource, MatTreeFlattener } from '@angular/material/tree';
-
-
-// interface ExampleFlatNode {
-//   expandable: boolean;
-//   name: string;
-//   level: number;
-// }
+import { TreeNode} from 'primeng/api';
+import { Sample } from 'src/app/models/sample';
+import { SamplesService } from 'src/app/services/samples.service';
+import { SampleDetail } from 'src/app/models/sampleDetail';
+import { animate, state, style, transition, trigger } from '@angular/animations';
+import { SampleAttachment } from 'src/app/models/sampleAttachment';
 
 
 @Component({
   selector: 'app-equipments',
   templateUrl: './equipments.component.html',
-  styleUrls: ['./equipments.component.css']
+  styleUrls: ['./equipments.component.css'],
+  animations: [
+    trigger('rowExpansionTrigger', [
+        state('void', style({
+            transform: 'translateX(-10%)',
+            opacity: 0
+        })),
+        state('active', style({
+            transform: 'translateX(0)',
+            opacity: 1
+        })),
+        transition('* <=> *', animate('400ms cubic-bezier(0.86, 0, 0.07, 1)'))
+    ])
+]
 })
 export class EquipmentsComponent implements OnInit  {
   
-  public tree:EquipmentTree;
-
-  // private _transformer = (node: EquipmentTree, level: number) => {
-  //   return {
-  //     expandable: !!node.equipments && node.equipments.length > 0,
-  //     name: node.clientName,
-  //     level: level,
-  //   };
-  // };
-
-
-  // treeControl = new FlatTreeControl<ExampleFlatNode>(
-  //   node => node.level,
-  //   node => node.expandable
-  // );
-
-  // treeFlattener = new MatTreeFlattener(
-  //   this._transformer,
-  //   node => node.level,
-  //   node => node.expandable,
-  //   node => node.equipments
-  // );
-
-  // dataSource = new MatTreeFlatDataSource(this.treeControl, this.treeFlattener);
-
+  tree:TreeNode[];
+  samples:Sample[];
+  details:SampleDetail[];
+  selectedEquipment:TreeNode;
+  treeLoading:boolean;
+  tableLoading:boolean;
 
   constructor(
-    private service:EquipmentsService
+    private service:EquipmentsService,
+    private sampleService:SamplesService
   ) { }
 
 
   ngOnInit(): void {
+   this.getEquipmentTree();
+  }
 
-    // this.dataSource.data = this.service.refreshTreeEquipment();
-
-    this.service.refreshTreeEquipment().subscribe({
-      next:(res:EquipmentTree)=>{
+  getEquipmentTree(){
+    this.treeLoading = true;
+    this.service.GetEquipmentTree().subscribe({
+      next:(res:TreeNode<any>[])=>{
         this.tree = res;
+      },
+      complete:()=>{
+        this.treeLoading= false;
+      }
+
+    });
+  }
+
+  getSampleByEquipmentId(id:number){
+    this.tableLoading = true;
+    this.sampleService.GetListByEquipmentId(id).subscribe({
+      next:(res:Sample[])=>{
+        this.samples = res;
+      },
+      complete:()=>{
+        this.tableLoading= false;
       }
     });
   }
 
+  selectEquipment(event){
+      console.log("wybrano urz: ",event.node.key,";");
+      let eqId = event.node.key;
+      if(eqId>0){
+        this.getSampleByEquipmentId(eqId);
+      }
+      
+  }
+
+  downloadReport(sampleId:number){
+    this.sampleService.DownloadReport(sampleId).subscribe({
+      next:(res:SampleAttachment)=>{
+        const source = `data:application/pdf;base64,${res.file}`;
+        const link = document.createElement("a");
+        link.href = source;
+        link.download = `${res.name}.pdf`
+        link.click();
+
+      }
+    })
+  }
 }

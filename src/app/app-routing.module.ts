@@ -6,14 +6,16 @@ import { MainpageComponent } from './pages/dashboard/mainpage/mainpage.component
 import { SamplesComponent } from './pages/dashboard/samples/samples/samples.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
+import { AuthGuard } from './shared/auth.guard';
+import { LoginGuard } from './shared/login.guard';
 
 const routes: Routes = [
   {path:'', redirectTo:'login', pathMatch:'full'},
-  {path:'login', component:LoginComponent},
-  {path:'dashboard', component:LayoutComponent, children:[
-    {path:'mainpage', component:MainpageComponent},
-    {path:'samples', component:SamplesComponent},
-    {path:'equipments', component:EquipmentsComponent}
+  {path:'login', component:LoginComponent,canActivate:[LoginGuard]},
+  {path:'dashboard', component:LayoutComponent, canActivate:[AuthGuard], children:[
+    {path:'mainpage', component:MainpageComponent, canActivate:[AuthGuard]},
+    {path:'samples', component:SamplesComponent, canActivate:[AuthGuard]},
+    {path:'equipments', component:EquipmentsComponent, canActivate:[AuthGuard]}
     ]},
   {path:'**', component:NotFoundComponent}
  ];

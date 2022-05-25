@@ -15,11 +15,10 @@
         <div class="user-info">
             <a data-toggle="collapse" href="#collapseExample" class="collapsed">
                 <span>
-                    {{userName}}
+                    {{user.login}}
                     <b class="caret"></b><br>
-                    {{userId}}<br>
-                    {{userRole}}<br>
-                    {{clientId}}
+                    {{user.name}} {{user.surname}}
+                 
                 </span>
             </a>
             <div class="collapse" id="collapseExample">
@@ -30,30 +29,13 @@
                         <span class="sidebar-normal">{{item.title}}</span>
                     </a>
                 </li>
-                    <!-- <li class="nav-item">
-                        <a href="javascript:void(0)" class="nav-link">
-                            <span class="sidebar-mini">MP</span>
-                            <span class="sidebar-normal">Mój profil</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="javascript:void(0)" class="nav-link">
-                            <span class="sidebar-mini">EP</span>
-                            <span class="sidebar-normal">Edycja profilu</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a href="javascript:void(0)" class="nav-link">
-                            <span class="sidebar-mini">U</span>
-                            <span class="sidebar-normal">Ustawienia</span>
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                      <a href="" (click)="logout()" class="nav-link">
-                          <span class="sidebar-mini">W</span>
-                          <span class="sidebar-normal">Wyloguj</span>
-                      </a>
-                  </li> -->
+                <li class="nav-item">
+                  <a routerLink="" (click)="logout()" class="nav-link">
+                      <span class="sidebar-mini"></span>
+                      <span class="sidebar-normal">Wyloguj</span>
+                  </a>
+              </li>
+                   
                 </ul>
             </div>
         </div>

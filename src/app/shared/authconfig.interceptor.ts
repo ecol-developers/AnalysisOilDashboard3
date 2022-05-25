@@ -7,22 +7,32 @@ import {
   HttpHeaders
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { AuthService } from '../services/auth.service';
+import { LoginResultMd } from '../models/loginResultMd';
 
 @Injectable()
 export class AuthconfigInterceptor implements HttpInterceptor {
 
-  constructor() {}
+  constructor(private authService:AuthService) {}
 
   intercept(request: HttpRequest<unknown>, next: HttpHandler): Observable<HttpEvent<unknown>> {
 
-    const token = localStorage.getItem("token");
+    var token = localStorage.getItem("token");
     if(token){
-      //tutaj bedzie sprawdzanie waznosci tokenu, jezeli stary to połączenie po nowy z uzyciem refreshToken i ponowne uruchomienie requesta
-        const cloned = request.clone({
-          headers:request.headers.set("Authorization", "Bearer "+token)
-        });
 
-        return next.handle(cloned);
+        // if(!this.authService.isExpired()){
+        //   this.authService.refreshToken(localStorage.getItem("refreshToken"))
+        //             .subscribe({
+        //               next:(res:LoginResultMd)=>this.authService.SaveJwtToken(res)
+        //             });
+
+        // }
+          const cloned = request.clone({
+            headers:request.headers.set("Authorization", "Bearer "+token)
+          });
+  
+          return next.handle(cloned);
+        
     }
 
     return next.handle(request);

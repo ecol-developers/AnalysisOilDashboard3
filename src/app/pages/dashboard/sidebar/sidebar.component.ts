@@ -1,7 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { tap } from 'rxjs';
 import { AdminMenu, Menu, UserMenu } from 'src/app/metadata/menu';
 import { RouteInfo } from 'src/app/metadata/RouteInfo';
+import { User } from 'src/app/models/user';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 declare const $: any;
 
@@ -10,26 +14,26 @@ declare const $: any;
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent implements OnInit {
+export class SidebarComponent implements OnInit{
   public menuItems:RouteInfo[];
   public userMenuItems:RouteInfo[];
-  userName:string;
-  userId:string;
-  userRole:string;
-  clientId:string;
+  public user:User;
 
-  constructor(private authService:AuthService) { }
+  constructor(
+    private authService:AuthService,
+    private userService:UserService
+    ) { }
+
+
 
   ngOnInit(): void {
     this.menuItems = Menu;
-    this.userName = localStorage.getItem("userName");
-    this.userId = localStorage.getItem("userId");
-    this.userRole = localStorage.getItem("userRole");
-    this.clientId = localStorage.getItem("clientId");
+    this.user = this.userService.GetLocalStorageUserData();
+    console.log("xxlogin:",this.user.login,";")
 
-    if( this.userRole === "Admin"){
-      this.menuItems = this.menuItems.concat(AdminMenu);
-    }
+    // if( this.userRole === "Admin"){
+    //   this.menuItems = this.menuItems.concat(AdminMenu);
+    // }
 
     this.userMenuItems = UserMenu;
   }
