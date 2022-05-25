@@ -12,7 +12,7 @@ export class SamplesService {
 
   constructor(private http:HttpClient) { }
 
-  getDataByClientId():Observable<Sample[]>{
+  GetListByClientId():Observable<Sample[]>{
     let clientId = localStorage.getItem("clientId");
     if(clientId){
       let endpoint = endpointPath+"/Sample/GetListByClientId/"+clientId;

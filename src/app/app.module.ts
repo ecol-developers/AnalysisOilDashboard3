@@ -23,6 +23,7 @@ import { ButtonModule } from 'primeng/button';
 import { SummarySampleTableComponent } from './components/mainpage/summary-sample-table/summary-sample-table.component';
 import { SummarySampleDoughnutCahrtComponent } from './components/mainpage/summary-sample-doughnut-cahrt/summary-sample-doughnut-cahrt.component';
 import { ChartModule } from 'primeng/chart';
+import { SampleTableComponent } from './components/samples/sample-table/sample-table.component';
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { ChartModule } from 'primeng/chart';
         MainpageComponent,
         EquipmentsComponent,
         SummarySampleTableComponent,
-        SummarySampleDoughnutCahrtComponent
+        SummarySampleDoughnutCahrtComponent,
+        SampleTableComponent
      ],
     imports:[
         BrowserModule,
