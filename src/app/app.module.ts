@@ -20,6 +20,9 @@ import { EquipmentsComponent } from './pages/dashboard/equipments/equipments.com
 import { TreeModule } from 'primeng/tree';
 import { TableModule } from 'primeng/table';
 import { ButtonModule } from 'primeng/button';
+import { SummarySampleTableComponent } from './components/mainpage/summary-sample-table/summary-sample-table.component';
+import { SummarySampleDoughnutCahrtComponent } from './components/mainpage/summary-sample-doughnut-cahrt/summary-sample-doughnut-cahrt.component';
+import { ChartModule } from 'primeng/chart';
 
 
 @NgModule({
@@ -34,7 +37,9 @@ import { ButtonModule } from 'primeng/button';
         SamplesComponent,
         SampleDetailComponent,
         MainpageComponent,
-        EquipmentsComponent
+        EquipmentsComponent,
+        SummarySampleTableComponent,
+        SummarySampleDoughnutCahrtComponent
      ],
     imports:[
         BrowserModule,
@@ -45,7 +50,8 @@ import { ButtonModule } from 'primeng/button';
         BrowserAnimationsModule,
         TreeModule,
         TableModule,
-        ButtonModule
+        ButtonModule,
+        ChartModule
     ],
     providers : [
         {

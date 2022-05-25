@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import { Observable, tap } from 'rxjs';
 import { DataChart } from '../metadata/dataChart';
 import { MainPageChart } from '../models/mainPageChart';
+import { MainPageSamplePercentInfo } from '../models/mainPageSamplePercentInfo';
 import { MainPageSummaryClient } from '../models/mainPageSummaryClient';
+import { MainPageSummarySampleStatusInfo } from '../models/mainPageSummarySampleStatusInfo';
 import { User } from '../models/user';
 import { endpointPath } from '../shared/globals';
 
@@ -86,6 +88,18 @@ GetSummaryInfoAboutByClient(clientId: number): MainPageSummaryClient {
             });
 
   return this.mainPageSummaryClient;
+}
+
+GetSummaryInfoAboutSampleStateByClient():Observable<MainPageSummarySampleStatusInfo>{
+  let clientId = localStorage.getItem("clientId");
+  let endpoint = endpointPath+"/MainPage/GetSummaryInfoAboutSampleStateByClient/"+clientId;
+  return this.http.get<MainPageSummarySampleStatusInfo>(endpoint);
+}
+
+GetSummaryInfoAboutSampleNoteByClient():Observable<MainPageSamplePercentInfo[]>{
+  let clientId = localStorage.getItem("clientId");
+  let endpoint = endpointPath+"/MainPage/GetSummaryInfoAboutSampleNoteByClient/"+clientId;
+  return this.http.get<MainPageSamplePercentInfo[]>(endpoint).pipe(tap(console.log));
 }
 
 }

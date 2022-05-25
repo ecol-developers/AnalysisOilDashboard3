@@ -25,12 +25,13 @@
                         </div>
                         <div class="col-md-9 ml-auto mr-auto">
                           <p-table [value]="samples" 
+                                   [rowsPerPageOptions]="[10,25,50]"
                                    [loading]="tableLoading" 
                                    [paginator]="true"
                                    [rows]="10"
                                    [showCurrentPageReport]="true"
+                                   styleClass="p-datatable-striped"
                                    currentPageReportTemplate="Przedstawiono {first} do {last} z {totalRecords} próbek laboratoryjnych"
-                                   [rowsPerPageOptions]="[10,25,50]"
                                    responsiveLayout="scroll">
                             <ng-template pTemplate="header">
                                 <tr>

@@ -71,12 +71,12 @@ export class EquipmentsComponent implements OnInit  {
   }
 
   selectEquipment(event){
-      console.log("wybrano urz: ",event.node.key,";");
-      let eqId = event.node.key;
-      if(eqId>0){
-        this.getSampleByEquipmentId(eqId);
+      if(event.node.data === "Equipment"){
+        let eqId = event.node.key;
+        if(eqId>0){
+          this.getSampleByEquipmentId(eqId);
+        }
       }
-      
   }
 
   downloadReport(sampleId:number){
@@ -87,7 +87,6 @@ export class EquipmentsComponent implements OnInit  {
         link.href = source;
         link.download = `${res.name}.pdf`
         link.click();
-
       }
     })
   }

@@ -9,10 +9,12 @@ import { versionApp } from 'src/app/shared/globals';
 export class FooterComponent implements OnInit {
   date:Date = new Date();
   public version = versionApp;
+  clientId:string;
 
   constructor() { }
 
   ngOnInit(): void {
+    this.clientId = localStorage.getItem("clientId");
   }
 
 }
