@@ -30,6 +30,7 @@ export class SampleTableComponent implements OnChanges {
 
   @Input() equipmentId?:number;
   @Input() showAll?:boolean;
+  @Input() type?:string;
 
 
   constructor(  
@@ -40,15 +41,31 @@ export class SampleTableComponent implements OnChanges {
      if(!this.showAll && this.equipmentId>0 )
        this.getSampleByEquipmentId(this.equipmentId);
 
-     if(this.showAll)
-        this.getListByClientId();
+     if(this.showAll){
+      this.getListByClientId(this.type);
+     }
+        
   }
 
-  getListByClientId(){
+  getListByClientId(type?:string){
     this.tableLoading = true;
     this.sampleService.GetListByClientId().subscribe({
       next:(res:Sample[])=>{
         this.samples = res;
+        switch (type) {
+          case "warning":
+              this.samples = res.filter((obj)=>obj.noteName === 'UWAGA');
+          break;
+          case "advice":
+                this.samples = res.filter((obj)=>obj.noteName === 'WSKAZÓWKA');
+          break;
+          case "normal":
+            this.samples = res.filter((obj)=>obj.noteName === 'W NORMIE');
+          break;
+          default:
+            this.samples = res;
+          break;
+        }
       },
       complete:()=>{
         this.tableLoading= false;

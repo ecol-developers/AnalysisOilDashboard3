@@ -8,7 +8,7 @@ export const Menu:RouteInfo[] = [
     icontype:'dashboard'
 },{
     path:"/dashboard/samples",
-    title: "Lista próbek",
+    title: "Lista wszystkich próbek",
     type:"link",
     icontype:'storage'
 },{
@@ -17,14 +17,15 @@ export const Menu:RouteInfo[] = [
     type:"link",
     icontype:'storage'
 },{
-    path:"/",
+    path:"/dashboard/group",
     title: "Pogrupowanie",
     type:"sub",
     icontype:'apps',
     collapse:"Pogrupowanie",
     children: [
-        {path:"/samples", title:"Nieprzeczytane raporty", ab:"NR"},
-        {path:"/samples", title:"Raporty ze statusem UWAGA", ab:"RU"},
+        {path:"warning", title:"Raporty ze statusem UWAGA", ab:"RU"},
+        {path:"advice", title:"Raporty ze statusem WSKAZÓWKA", ab:"RW"},
+        {path:"normal", title:"Raporty ze statusem W NORMIE", ab:"RN"},
     ]
 }]
 
@@ -36,8 +37,8 @@ export const AdminMenu:RouteInfo[] = [
                 icontype:'apps',
                 collapse:"Administracja",
                 children: [
-                    {path:"/users", title:"Użytkownicy", ab:"NR"},
-                    {path:"/statistics", title:"Statystyki", ab:"RU"},
+                    {path:"/users", title:"Użytkownicy", ab:"AU"},
+                    {path:"/statistics", title:"Statystyki", ab:"AS"},
                 ]
             }
         ];
@@ -52,7 +53,6 @@ export const UserMenu:RouteInfo[] = [
         collapse:"",
         children: [
             {path:"/myProfile", title:"Mój Profil", ab:"MP"},
-            {path:"/editProfile", title:"Edycja Profilu", ab:"EP"},
             {path:"/settings", title:"Ustawienia", ab:"U"}
         ]
     }

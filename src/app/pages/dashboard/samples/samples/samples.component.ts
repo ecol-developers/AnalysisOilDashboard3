@@ -1,14 +1,20 @@
-import { Component } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-samples',
   templateUrl: './samples.component.html',
   styleUrls: ['./samples.component.css']
 })
-export class SamplesComponent {
+export class SamplesComponent implements  DoCheck {
+  type:string;
 
-  constructor() { }
+  constructor(
+    private route:ActivatedRoute) {}
 
+  ngDoCheck(): void {
+    this.type=this.route.snapshot.paramMap.get("id");
+  }
   }
 
 

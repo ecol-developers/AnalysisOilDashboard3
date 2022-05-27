@@ -32,7 +32,7 @@ export class SidebarComponent implements OnInit{
     console.log("xxlogin:",this.user.login,";")
 
     // if( this.userRole === "Admin"){
-    //   this.menuItems = this.menuItems.concat(AdminMenu);
+       this.menuItems = this.menuItems.concat(AdminMenu);
     // }
 
     this.userMenuItems = UserMenu;

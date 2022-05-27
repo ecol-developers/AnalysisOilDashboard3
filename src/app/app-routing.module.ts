@@ -15,7 +15,8 @@ const routes: Routes = [
   {path:'dashboard', component:LayoutComponent, canActivate:[AuthGuard], children:[
     {path:'mainpage', component:MainpageComponent, canActivate:[AuthGuard]},
     {path:'samples', component:SamplesComponent, canActivate:[AuthGuard]},
-    {path:'equipments', component:EquipmentsComponent, canActivate:[AuthGuard]}
+    {path:'equipments', component:EquipmentsComponent, canActivate:[AuthGuard]},
+    {path:'group/:id', component:SamplesComponent, canActivate:[AuthGuard]}
     ]},
   {path:'**', component:NotFoundComponent}
  ];

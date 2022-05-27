@@ -7,12 +7,12 @@
                 <div class="card-icon">
                   <i class="material-icons">storage</i>
                 </div>
-                <h4 class="card-title">Lista wszystkich próbek</h4>
+                <h4 class="card-title">Lista wszystkich próbek ({{type}})</h4>
               </div>
                 <div class="card-body">
                   <div class="row">
                     <div class="col-md-12">
-                      <app-sample-table [showAll]="true"></app-sample-table>
+                      <app-sample-table [showAll]="true" [type]="type"></app-sample-table>
                     </div>
                   </div>
                 </div>

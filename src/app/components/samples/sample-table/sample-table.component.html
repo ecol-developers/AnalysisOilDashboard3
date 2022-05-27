@@ -1,24 +1,34 @@
-<p-table [value]="samples" 
-[rowsPerPageOptions]="[10,25,50]"
-[loading]="tableLoading" 
-[paginator]="true"
-[rows]="10"
-[showCurrentPageReport]="true"
-styleClass="p-datatable-striped"
-currentPageReportTemplate="Przedstawiono {first} do {last} z {totalRecords} próbek laboratoryjnych"
-responsiveLayout="scroll">
+<p-table #dt [value]="samples" 
+    [rowsPerPageOptions]="[10,25,50]"
+    [loading]="tableLoading" 
+    [paginator]="true"
+    [rows]="10"
+    [showCurrentPageReport]="true"
+    dataKey="id"
+    styleClass="p-datatable-striped"
+    currentPageReportTemplate="Przedstawiono {first} do {last} z {totalRecords} próbek laboratoryjnych"
+    responsiveLayout="scroll"
+    >
+<!-- <ng-template pTemplate="caption">
+        <div class="flex">
+            <span class="p-input-icon-left ml-auto">
+                <i class="pi pi-search"></i>
+                <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Szukaj..." />
+            </span>
+        </div>
+</ng-template> -->
 <ng-template pTemplate="header">
-<tr>
- <th style="width: 3rem"></th>
- <th pSortableColumn="sampleNumber">Numer <p-sortIcon field="sampleNumber"></p-sortIcon></th>
- <th pSortableColumn="sampleDate">Data <p-sortIcon field="sampleDate"></p-sortIcon></th>
- <th pSortableColumn="reason">Powód wykonania <p-sortIcon field="reason"></p-sortIcon></th>
- <th pSortableColumn="lubricantName">Nazwa oleju <p-sortIcon field="lubricantName"></p-sortIcon></th>
- <th pSortableColumn="equipmentName">Nazwa urządzenia <p-sortIcon field="equipmentName"></p-sortIcon></th>
- <th pSortableColumn="nodeName">Nazwa oddziału <p-sortIcon field="nodeName"></p-sortIcon></th>
- <th pSortableColumn="noteName">Uwagi <p-sortIcon field="noteName"></p-sortIcon></th>
- <th style="width: 4rem"></th>
-</tr>
+    <tr>
+        <th style="width: 3rem"></th>
+        <th pSortableColumn="sampleNumber">Numer <p-sortIcon field="sampleNumber"></p-sortIcon></th>
+        <th pSortableColumn="sampleDate">Data <p-sortIcon field="sampleDate"></p-sortIcon></th>
+        <th pSortableColumn="reason">Powód wykonania <p-sortIcon field="reason"></p-sortIcon></th>
+        <th pSortableColumn="lubricantName">Nazwa oleju <p-sortIcon field="lubricantName"></p-sortIcon></th>
+        <th pSortableColumn="equipmentName">Nazwa urządzenia <p-sortIcon field="equipmentName"></p-sortIcon></th>
+        <th pSortableColumn="nodeName">Nazwa oddziału <p-sortIcon field="nodeName"></p-sortIcon></th>
+        <th pSortableColumn="noteName">Uwagi <p-sortIcon field="noteName"></p-sortIcon></th>
+        <th style="width: 4rem"></th>
+    </tr>
 </ng-template>
 <ng-template pTemplate="body" let-sample let-expanded="expanded">
 <tr>
@@ -35,34 +45,34 @@ responsiveLayout="scroll">
  <td><p-button type="button" (click)="downloadReport(sample.id)" icon="pi pi-file-pdf"></p-button></td>
 </tr>
 </ng-template>
-<!-- <ng-template pTemplate="rowexpansion" let-sampleDetail>
-<tr>
-<td colspan="7">
- <div class="p-3">
-     <p-table [value]="details" >
-         <ng-template pTemplate="header">
-             <tr>
-                 <th pSortableColumn="symbol">Symbol <p-sortIcon field="symbol"></p-sortIcon></th>
-                 <th pSortableColumn="order">Lp <p-sortIcon field="order"></p-sortIcon></th>
-                 <th pSortableColumn="name">Nazwa <p-sortIcon field="name"></p-sortIcon></th>
-                 <th pSortableColumn="standard">Norma <p-sortIcon field="standard"></p-sortIcon></th>
-                 <th pSortableColumn="resultAlfa">Wynik <p-sortIcon field="resultAlfa"></p-sortIcon></th>
-                 
-             </tr>
-         </ng-template>
-         <ng-template pTemplate="body" let-detail>
-             <tr>
-                 <td>{{detail.symbol}}</td>
-                 <td>{{detail.order}}</td>
-                 <td>{{detail.name}}</td>
-                 <td>{{detail.standard}}</td>
-                 <td>{{detail.resultAlfa}}</td>
-                
-             </tr>
-         </ng-template>
-     </p-table>
- </div>
-</td>
-</tr>
-</ng-template> -->
+<ng-template pTemplate="rowexpansion" let-sampleDetail>
+    <tr>
+    <td colspan="7">
+        <div class="p-3">
+            <p-table [value]="details" >
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th pSortableColumn="symbol">Symbol <p-sortIcon field="symbol"></p-sortIcon></th>
+                        <th pSortableColumn="order">Lp <p-sortIcon field="order"></p-sortIcon></th>
+                        <th pSortableColumn="name">Nazwa <p-sortIcon field="name"></p-sortIcon></th>
+                        <th pSortableColumn="standard">Norma <p-sortIcon field="standard"></p-sortIcon></th>
+                        <th pSortableColumn="resultAlfa">Wynik <p-sortIcon field="resultAlfa"></p-sortIcon></th>
+                        
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-detail>
+                    <tr>
+                        <td>{{detail.symbol}}</td>
+                        <td>{{detail.order}}</td>
+                        <td>{{detail.name}}</td>
+                        <td>{{detail.standard}}</td>
+                        <td>{{detail.resultAlfa}}</td>
+                        
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
+    </td>
+    </tr>
+</ng-template>
 </p-table>
