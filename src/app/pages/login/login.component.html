@@ -4,11 +4,44 @@
       <form class="form" #loginForm = "ngForm" (ngSubmit)="login()">
         <div class="card card-login">
           <div class="card-header card-header-info text-center">
-            <h4 class="card-title">analizyolejowe.pl</h4>
+            <h4 class="card-title"> 
+              
+              <span style="float: left;">
+                <img src="/assets/img/Ecol_logo_white_transparent.png" style="width: 50px;">
+              </span>
+              analizyolejowe.pl</h4>
           </div>
           <div class="card-body ">
             <p class="card-description text-center">Logowanie do panelu klienta</p>
-            <span class="bmd-form-group">
+            <div class="row form-group">
+              <div class="col-sm">
+                <div class="p-inputgroup">
+                  <span class="p-inputgroup-addon">
+                      <i class="pi pi-user"></i>
+                  </span>
+                  <span class="p-float-label">
+                      <input type="text" id="inputgroup" pInputText [(ngModel)]="loginObj.login" name="userName"  required> 
+                      <label for="inputgroup">Nazwa użytkownika</label>
+                  </span>
+              </div>
+              </div>
+              
+            </div>
+            <div class="row form-group">
+              <div class="col-sm">
+                <div class="p-inputgroup">
+                  <span class="p-inputgroup-addon">
+                      <i class="pi pi-lock"></i>
+                  </span>
+                  <span class="p-float-label">
+                      <input type="password" id="inputgroup" pInputText [(ngModel)]="loginObj.password" name="password"  required> 
+                      <label for="inputgroup">Hasło</label>
+                  </span>
+              </div>
+              </div>
+              
+            </div>
+            <!-- <span class="bmd-form-group">
               <div class="input-group">
                 <div class="input-group-prepend">
                   <span class="input-group-text">
@@ -27,7 +60,7 @@
                 </div>
                 <input type="password" class="form-control" [(ngModel)]="loginObj.password" name="password" placeholder="Hasło..." required>
               </div>
-            </span>
+            </span> -->
           </div>
           <div class="card-footer justify-content-center">
               <p-button label="Zaloguj" type="submit"[disabled]="loginForm.invalid"></p-button>

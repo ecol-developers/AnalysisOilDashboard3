@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from 'src/app/services/auth.service';
 
 const misc: any = {
   navbar_menu_visible: 0,
@@ -20,7 +21,7 @@ export class NavbarComponent implements OnInit {
   clientName:string;
 
 
-  constructor() { }
+  constructor( private authService:AuthService) { }
 
   ngOnInit(): void {
       this.clientName = localStorage.getItem("clientName");
@@ -131,5 +132,9 @@ export class NavbarComponent implements OnInit {
         this.sidebarClose();
     }
 }
+
+public logout(){
+    this.authService.Logout();
+  }
 
 }

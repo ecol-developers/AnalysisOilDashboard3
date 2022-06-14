@@ -29,8 +29,7 @@ export class SidebarComponent implements OnInit{
   ngOnInit(): void {
     this.menuItems = Menu;
     this.user = this.userService.GetLocalStorageUserData();
-    console.log("__login ngOnInit:",this.user.login,";")
-
+    
     //  if( this.userRole === "Admin"){
         this.menuItems = this.menuItems.concat(AdminMenu);
     //  }
