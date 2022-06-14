@@ -46,14 +46,14 @@ export const AdminMenu:RouteInfo[] = [
 
 export const UserMenu:RouteInfo[] = [
     {
-        path:"",
+        path:"/dashboard/user",
         title: "",
         type:"",
         icontype:"",
         collapse:"",
         children: [
-            {path:"/myProfile", title:"Mój Profil", ab:"MP"},
-            {path:"/settings", title:"Ustawienia", ab:"U"}
+            {path:"myProfile", title:"Mój Profil", ab:"MP"},
+            {path:"settings", title:"Ustawienia", ab:"U"}
         ]
     }
 ]

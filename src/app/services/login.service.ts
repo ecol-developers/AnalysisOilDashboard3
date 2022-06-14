@@ -25,7 +25,10 @@ export class LoginService {
           next:(res:User)=>{
             this.userService.SetLocalStorageUserData(res);
           },
-          complete:()=> this.router.navigate(["/dashboard/mainpage"])
+          complete:()=> {
+            console.log("__navigate to mainpage");
+            this.router.navigate(["/dashboard/mainpage"])
+          }
         } );
      }
     }

@@ -6,15 +6,11 @@ import { versionApp } from 'src/app/shared/globals';
   templateUrl: './footer.component.html',
   styleUrls: ['./footer.component.css']
 })
-export class FooterComponent implements OnInit {
+export class FooterComponent{
   date:Date = new Date();
   public version = versionApp;
-  clientId:string;
-
   constructor() { }
 
-  ngOnInit(): void {
-    this.clientId = localStorage.getItem("clientId");
-  }
+
 
 }

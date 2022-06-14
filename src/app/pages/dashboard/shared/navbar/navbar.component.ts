@@ -17,11 +17,14 @@ export class NavbarComponent implements OnInit {
   private sidebarVisible: boolean;
   mobile_menu_visible: any = 0;
   private toggleButton: any;
+  clientName:string;
 
 
   constructor() { }
 
   ngOnInit(): void {
+      this.clientName = localStorage.getItem("clientName");
+      console.log("__Odswiezenie navbar: klientid 1:"+ localStorage.getItem("clientId"));
   }
 
 

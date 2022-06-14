@@ -1,6 +1,6 @@
 export interface MainPageSummaryClient{
-    equipmentCount:number,
-    sampleCount:number,
-    sampleReportNotReadCount:number,
-    sampleReportNotReadForWarningSampleCount:number
+    equipmentCount?:number,
+    sampleCount?:number,
+    sampleReportNotReadCount?:number,
+    sampleReportNotReadForWarningSampleCount?:number
 }

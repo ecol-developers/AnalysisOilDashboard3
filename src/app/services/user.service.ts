@@ -32,6 +32,9 @@ async GetUserDataByIdSync(){
         localStorage.setItem("userName", res.name);
         localStorage.setItem("userSurname", res.surname);
         localStorage.setItem("userEmail", res.email);
+        localStorage.setItem("clientId", res.clientId.toString());
+        localStorage.setItem("clientName", res.clientName);
+
   }
 
   GetLocalStorageUserData():User{

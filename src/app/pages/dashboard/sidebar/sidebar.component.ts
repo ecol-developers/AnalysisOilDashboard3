@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, OnInit } from '@angular/core';
+import { AfterContentInit, AfterViewChecked, AfterViewInit, ApplicationRef, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
 import { tap } from 'rxjs';
 import { AdminMenu, Menu, UserMenu } from 'src/app/metadata/menu';
@@ -29,16 +29,16 @@ export class SidebarComponent implements OnInit{
   ngOnInit(): void {
     this.menuItems = Menu;
     this.user = this.userService.GetLocalStorageUserData();
-    console.log("xxlogin:",this.user.login,";")
+    console.log("__login ngOnInit:",this.user.login,";")
 
-    // if( this.userRole === "Admin"){
-       this.menuItems = this.menuItems.concat(AdminMenu);
-    // }
+    //  if( this.userRole === "Admin"){
+        this.menuItems = this.menuItems.concat(AdminMenu);
+    //  }
 
     this.userMenuItems = UserMenu;
   }
 
-  
+
   isMobileMenu(){
     if($(window).width()>991){
       return false;

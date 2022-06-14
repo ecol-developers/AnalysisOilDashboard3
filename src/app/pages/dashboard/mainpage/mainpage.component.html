@@ -3,7 +3,7 @@
       <div class="row">
         <div class="col-md-12">
             <div class="card">
-              <div class="card-header card-header-success card-header-icon">
+              <div class="card-header card-header-info card-header-icon">
                 <div class="card-icon">
                   <i class="material-icons"></i>
                 </div>
@@ -80,17 +80,17 @@
       <div class="row">
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="card card-stats">
-            <div class="card-header card-header-warning card-header-icon">
+            <div class="card-header card-header-info card-header-icon">
               <div class="card-icon">
                 <i class="material-icons">storage</i>
               </div>
               <p class="card-category">Ilość wszystkich urządzeń</p>
-              <h3 class="card-title">{{mainPageSummaryClient.equipmentCount}}</h3>
+              <h3 class="card-title">{{mainPageSummaryClient?.equipmentCount}}</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
                 <i class="material-icons text-info">zoom_in</i>
-                <a href="#pablo">Pokaż szczegóły...</a>
+                <a href="/#/dashboard/equipments">Pokaż szczegóły...</a>
               </div>
             </div>
           </div>
@@ -102,46 +102,46 @@
                   <i class="material-icons">view_headline</i>
                 </div>
                 <p class="card-category">Ilość wszystkich przebadanych próbek</p>
-                <h3 class="card-title">{{mainPageSummaryClient.sampleCount}}</h3>
+                <h3 class="card-title">{{mainPageSummaryClient?.sampleCount}}</h3>
               </div>
               <div class="card-footer">
                 <div class="stats">
                   <i class="material-icons text-info">zoom_in</i>
-                  <a href="#pablo">Pokaż szczegóły...</a>
+                  <a href="/#/dashboard/samples">Pokaż szczegóły...</a>
                 </div>
               </div>
             </div>
           </div>
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="card card-stats">
-            <div class="card-header card-header-rose card-header-icon">
+            <div class="card-header card-header-info card-header-icon">
               <div class="card-icon">
                 <i class="material-icons">volume_down</i>
               </div>
-              <p class="card-category">Ilość nieprzeczytanych raportów laboratoryjnych</p>
-              <h3 class="card-title">{{mainPageSummaryClient.sampleReportNotReadCount}}</h3>
+              <p class="card-category">Ilość nieprzeczytanych raportów laboratoryjnych w statusie 'WSKAZÓWKA'</p>
+              <h3 class="card-title">{{mainPageSummaryClient?.sampleReportNotReadCount}}</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
                 <i class="material-icons text-info">zoom_in</i>
-                  <a href="#pablo">Pokaż szczegóły...</a>
+                <a href="/#/dashboard/group/advice">Pokaż szczegóły...</a>
               </div>
             </div>
           </div>
         </div>
         <div class="col-lg-3 col-md-6 col-sm-6">
           <div class="card card-stats">
-            <div class="card-header card-header-rose card-header-icon">
+            <div class="card-header card-header-info card-header-icon">
               <div class="card-icon">
                 <i class="material-icons">volume_up</i>
               </div>
               <p class="card-category">Ilość nieprzeczytanych raportów laboratoryjnych w statusie 'UWAGA'</p>
-              <h3 class="card-title">{{mainPageSummaryClient.sampleReportNotReadForWarningSampleCount}}</h3>
+              <h3 class="card-title">{{mainPageSummaryClient?.sampleReportNotReadForWarningSampleCount}}</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
                 <i class="material-icons text-info">zoom_in</i>
-                  <a href="#pablo">Pokaż szczegóły...</a>
+                <a href="/#/dashboard/group/warning">Pokaż szczegóły...</a>
               </div>
             </div>
           </div>

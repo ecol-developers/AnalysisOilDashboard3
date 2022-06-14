@@ -5,6 +5,5 @@ export interface LoginResultMd{
     userLogin:string;
     accessToken: AuthorizationTokenMd;
     refreshToken: AuthorizationTokenMd;
-    clientId?:number;
     
 }

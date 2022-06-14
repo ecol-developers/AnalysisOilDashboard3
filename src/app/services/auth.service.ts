@@ -73,7 +73,6 @@ export class AuthService {
       localStorage.setItem("token",res.accessToken.value)
       localStorage.setItem("refreshToken",res.refreshToken.value);
       let decodate = JSON.parse(window.atob(res.accessToken.value.split('.')[1]))
-      localStorage.setItem("clientId",res.clientId.toString());
       localStorage.setItem("tokenExp", decodate['exp']);
       localStorage.setItem("userId", res.userId.toString());
   }
