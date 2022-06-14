@@ -4,8 +4,6 @@ import { MyProfileComponent } from './user/my-profile/my-profile.component';
 
 @NgModule({
   declarations: [
-  
-    MyProfileComponent
   ],
   imports: [
     CommonModule

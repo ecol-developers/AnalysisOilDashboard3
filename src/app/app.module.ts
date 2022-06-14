@@ -24,6 +24,8 @@ import { SummarySampleTableComponent } from './components/mainpage/summary-sampl
 import { SummarySampleDoughnutCahrtComponent } from './components/mainpage/summary-sample-doughnut-cahrt/summary-sample-doughnut-cahrt.component';
 import { ChartModule } from 'primeng/chart';
 import { SampleTableComponent } from './components/samples/sample-table/sample-table.component';
+import { InputTextModule } from 'primeng/inputtext';
+import { MyProfileComponent } from './pages/dashboard/user/my-profile/my-profile.component';
 
 
 @NgModule({
@@ -41,7 +43,8 @@ import { SampleTableComponent } from './components/samples/sample-table/sample-t
         EquipmentsComponent,
         SummarySampleTableComponent,
         SummarySampleDoughnutCahrtComponent,
-        SampleTableComponent
+        SampleTableComponent,
+        MyProfileComponent
      ],
     imports:[
         BrowserModule,
@@ -53,7 +56,8 @@ import { SampleTableComponent } from './components/samples/sample-table/sample-t
         TreeModule,
         TableModule,
         ButtonModule,
-        ChartModule
+        ChartModule,
+        InputTextModule
     ],
     providers : [
         {

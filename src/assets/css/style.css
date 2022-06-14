@@ -4,3 +4,8 @@
     background-size: cover; 
     background-position: top center; 
 }
+
+.input-full-width {
+    width: 100%;
+    min-width: 204px;
+}
