@@ -1,0 +1,19 @@
+.sample-badge {
+    padding: 5px;
+}
+
+.sample-badge-advice{
+    background-color:#ffcc33;
+}
+
+.sample-badge-warning{
+    background-color:#f77970;
+}
+
+.sample-badge-normal{
+    background-color:#70e450;
+}
+
+.sample-badge-without{
+    background-color:#ececec;
+}

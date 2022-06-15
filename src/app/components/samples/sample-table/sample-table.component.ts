@@ -1,9 +1,12 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Table } from 'primeng/table';
 import { Sample } from 'src/app/models/sample';
 import { SampleAttachment } from 'src/app/models/sampleAttachment';
 import { SampleDetail } from 'src/app/models/sampleDetail';
 import { SamplesService } from 'src/app/services/samples.service';
+import { SampleDetailService } from 'src/app/services/sample-detail.service';
+import { sample } from 'rxjs';
 
 @Component({
   selector: 'app-sample-table',
@@ -25,7 +28,6 @@ import { SamplesService } from 'src/app/services/samples.service';
 })
 export class SampleTableComponent implements OnChanges {
   samples:Sample[];
-  details:SampleDetail[];
   tableLoading:boolean;
 
   @Input() equipmentId?:number;
@@ -34,16 +36,16 @@ export class SampleTableComponent implements OnChanges {
 
 
   constructor(  
-    private sampleService:SamplesService
+    private sampleService:SamplesService,
+    private sampleDetailService:SampleDetailService
     ) { }
 
   ngOnChanges(changes: SimpleChanges): void {
      if(!this.showAll && this.equipmentId>0 )
        this.getSampleByEquipmentId(this.equipmentId);
 
-     if(this.showAll){
+     if(this.showAll)
       this.getListByClientId(this.type);
-     }
         
   }
 
@@ -51,6 +53,7 @@ export class SampleTableComponent implements OnChanges {
     this.tableLoading = true;
     this.sampleService.GetListByClientId().subscribe({
       next:(res:Sample[])=>{
+        console.log(res);
         this.samples = res;
         switch (type) {
           case "warning":
@@ -68,6 +71,7 @@ export class SampleTableComponent implements OnChanges {
         }
       },
       complete:()=>{
+        console.log(this.samples);
         this.tableLoading= false;
       }
     });
@@ -96,5 +100,19 @@ export class SampleTableComponent implements OnChanges {
       }
     })
   }
+
+  clear(table: Table) {
+    table.clear();
+}
+
+expendSampleDetail(row:Sample){
+  this.sampleDetailService.getBySampleId(row.id).subscribe({
+    next:(res:SampleDetail[])=> {
+      row.details = res;
+    }
+  });
+
+
+}
 
 }

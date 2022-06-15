@@ -1,6 +1,6 @@
 .main_login_page{
     height: 100vh; 
-    background-image: url('./assets/img/ao_bg2.jpg'); 
+    /* background-image: url('./assets/img/ao_bg2.jpg');  */
     background-size: cover; 
     background-position: top center; 
 }
@@ -9,3 +9,4 @@
     width: 100%;
     min-width: 204px;
 }
+

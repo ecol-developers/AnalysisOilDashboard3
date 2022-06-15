@@ -1,4 +1,4 @@
-import { AfterContentChecked, AfterContentInit, Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, DoCheck } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({

@@ -1,3 +1,5 @@
+import { SampleDetail } from "./sampleDetail";
+
 export interface Sample{
     id: number,
     sampleNumber?: string,
@@ -6,6 +8,9 @@ export interface Sample{
     reason?: string,
     lubricantName?: string,
     noteName?: string,
+    noteNameEn?:string
     equipmentName?:string,
-    nodeName?:string
+    nodeName?:string,
+    details?:SampleDetail[]
+    
 }

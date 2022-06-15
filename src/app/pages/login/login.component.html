@@ -41,33 +41,13 @@
               </div>
               
             </div>
-            <!-- <span class="bmd-form-group">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="material-icons">face</i>
-                  </span>
-                </div>
-                <input type="text" [(ngModel)]="loginObj.login" name="userName" class="form-control" placeholder="Nazwa użytkownika..." required>
-              </div>
-            </span>
-            <span class="bmd-form-group">
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">
-                    <i class="material-icons">lock_outline</i>
-                  </span>
-                </div>
-                <input type="password" class="form-control" [(ngModel)]="loginObj.password" name="password" placeholder="Hasło..." required>
-              </div>
-            </span> -->
-          </div>
-          <div class="card-footer justify-content-center">
-              <p-button label="Zaloguj" type="submit"[disabled]="loginForm.invalid"></p-button>
-              <p-button label="Zapomniałem hasła" styleClass="p-button-link"></p-button>
           </div>
           <div class="card-footer justify-content-center" *ngIf="errorMessage">
               <span style="color: red; font-size: small;">{{errorMessage}}</span>
+          </div>
+          <div class="card-footer justify-content-center">
+            <p-button label="Zaloguj" type="submit"[disabled]="loginForm.invalid"></p-button>
+            <p-button label="Zapomniałem hasła" styleClass="p-button-link"></p-button>
           </div>
         </div>
       </form>

@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { Observable, tap, } from 'rxjs';
 import { Sample } from '../models/sample';
 import { SampleAttachment } from '../models/sampleAttachment';
 import { endpointPath } from '../shared/globals';
@@ -16,7 +16,8 @@ export class SamplesService {
     let clientId = localStorage.getItem("clientId");
     if(clientId){
       let endpoint = endpointPath+"/Sample/GetListByClientId/"+clientId;
-      return this.http.get<Sample[]>(endpoint);    
+      console.log(endpoint);
+      return this.http.get<Sample[]>(endpoint);
     }
   }
   

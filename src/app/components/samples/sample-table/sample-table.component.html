@@ -1,55 +1,85 @@
-<p-table #dt [value]="samples" 
+
+<p-table #dt1 
+    [value]="samples" 
     [rowsPerPageOptions]="[10,25,50]"
     [loading]="tableLoading" 
     [paginator]="true"
     [rows]="10"
     [showCurrentPageReport]="true"
+    [globalFilterFields]="['sampleNumber','sampleDate','reason','lubricantName','equipmentName','nodeName', 'noteName']"
     dataKey="id"
     styleClass="p-datatable-striped"
     currentPageReportTemplate="Przedstawiono {first} do {last} z {totalRecords} próbek laboratoryjnych"
     responsiveLayout="scroll"
     >
-<!-- <ng-template pTemplate="caption">
-        <div class="flex">
-            <span class="p-input-icon-left ml-auto">
+<ng-template pTemplate="caption">
+        <div class="p-d-flex">
+            <button pButton label="Wyczyść filtry" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clear(dt1)"></button>
+            <span class="p-input-icon-left p-ml-auto">
                 <i class="pi pi-search"></i>
-                <input pInputText type="text" (input)="dt.filterGlobal($event.target.value, 'contains')" placeholder="Szukaj..." />
+                <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Szukaj..." />
             </span>
         </div>
-</ng-template> -->
+</ng-template>
 <ng-template pTemplate="header">
     <tr>
         <th style="width: 3rem"></th>
-        <th pSortableColumn="sampleNumber">Numer <p-sortIcon field="sampleNumber"></p-sortIcon></th>
-        <th pSortableColumn="sampleDate">Data <p-sortIcon field="sampleDate"></p-sortIcon></th>
-        <th pSortableColumn="reason">Powód wykonania <p-sortIcon field="reason"></p-sortIcon></th>
-        <th pSortableColumn="lubricantName">Nazwa oleju <p-sortIcon field="lubricantName"></p-sortIcon></th>
-        <th pSortableColumn="equipmentName">Nazwa urządzenia <p-sortIcon field="equipmentName"></p-sortIcon></th>
-        <th pSortableColumn="nodeName">Nazwa oddziału <p-sortIcon field="nodeName"></p-sortIcon></th>
-        <th pSortableColumn="noteName">Uwagi <p-sortIcon field="noteName"></p-sortIcon></th>
+        <th pSortableColumn="sampleNumber">Numer 
+            <p-sortIcon field="sampleNumber"></p-sortIcon>
+            <p-columnFilter type="text" field="sampleNumber" display="menu" ></p-columnFilter>
+        </th>
+        <th pSortableColumn="sampleDate">Data 
+            <p-sortIcon field="sampleDate"></p-sortIcon>
+            <p-columnFilter type="date" field="sampleDate" display="menu" ></p-columnFilter>
+        </th>
+        <th pSortableColumn="reason">Powód wykonania 
+            <p-sortIcon field="reason"></p-sortIcon>
+            <p-columnFilter type="text" field="reason" display="menu" ></p-columnFilter>
+        </th>
+        <th pSortableColumn="lubricantName">Nazwa oleju 
+            <p-sortIcon field="lubricantName"></p-sortIcon>
+            <p-columnFilter type="text" field="lubricantName" display="menu" ></p-columnFilter>
+        </th>
+        <th pSortableColumn="equipmentName">Nazwa urządzenia 
+            <p-sortIcon field="equipmentName"></p-sortIcon>
+            <p-columnFilter type="text" field="equipmentName" display="menu" ></p-columnFilter>
+        </th>
+        <th pSortableColumn="nodeName">Nazwa oddziału 
+            <p-sortIcon field="nodeName"></p-sortIcon>
+            <p-columnFilter type="text" field="nodeName" display="menu" ></p-columnFilter>
+        </th>
+        <th pSortableColumn="noteName">Uwagi 
+            <p-sortIcon field="noteName"></p-sortIcon>
+            <p-columnFilter type="text" field="noteName" display="menu" ></p-columnFilter>
+        </th>
         <th style="width: 4rem"></th>
     </tr>
 </ng-template>
-<ng-template pTemplate="body" let-sample let-expanded="expanded">
-<tr>
+<ng-template pTemplate="body" let-sample let-expanded="expanded" >
+<tr >
  <td>
-   <button type="button" pButton pRipple [pRowToggler]="sampleDetail" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
+   <button type="button" pButton pRipple (click)="expendSampleDetail(sample)"  [pRowToggler]="sample" class="p-button-text p-button-rounded p-button-plain" [icon]="expanded ? 'pi pi-chevron-down' : 'pi pi-chevron-right'"></button>
  </td>
  <td>{{sample.sampleNumber}}</td>
- <td>{{sample.sampleDate | date:"yyyy/MM/dd"}}</td>
+ <td>{{sample.sampleDate | date:"yyyy-MM-dd"}}</td>
  <td>{{sample.reason}}</td>
  <td>{{sample.lubricantName}}</td>
  <td>{{sample.equipmentName}}</td>
  <td>{{sample.nodeName}}</td>
- <td><span [class]="'order-badge order-' + sample.noteName.toLowerCase()">{{sample.noteName}}</span></td>
+ <td><span [class]="'sample-badge sample-badge-' + sample.noteNameEn.toLowerCase()">{{sample.noteName}}</span></td>
  <td><p-button type="button" (click)="downloadReport(sample.id)" icon="pi pi-file-pdf"></p-button></td>
 </tr>
 </ng-template>
-<ng-template pTemplate="rowexpansion" let-sampleDetail>
+<ng-template pTemplate="emptymessage">
     <tr>
-    <td colspan="7">
-        <div class="p-3">
-            <p-table [value]="details" >
+        <td colspan="6">Brak próbek dla wybranego filtrowania lub wybranego urządzenia</td>
+    </tr>
+</ng-template>
+<ng-template pTemplate="rowexpansion" let-sample>
+    <tr>
+    <td colspan="6">
+        <div class="p-p-3">
+            <p-table [value]="sample.details" dataKey="sampleId" >
                 <ng-template pTemplate="header">
                     <tr>
                         <th pSortableColumn="symbol">Symbol <p-sortIcon field="symbol"></p-sortIcon></th>
@@ -67,7 +97,11 @@
                         <td>{{detail.name}}</td>
                         <td>{{detail.standard}}</td>
                         <td>{{detail.resultAlfa}}</td>
-                        
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="emptymessage">
+                    <tr>
+                        <td colspan="6">Brak wyników dla tej próbki</td>
                     </tr>
                 </ng-template>
             </p-table>
