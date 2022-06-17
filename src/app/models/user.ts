@@ -4,7 +4,8 @@ export interface User{
     surname?:string,
     login:string,
     email?:string,
-    telephone?:string,
     clientId?:number,
-    clientName?:string
+    clientSymbol?:string
+    clientName?:string,
+    lastLoginDate?:Date
 }

@@ -37,12 +37,6 @@ export class AuthService {
    refreshToken(refreshToken:string):Observable<LoginResultMd>{
     return this.http.post<LoginResultMd>(endpointPath+"/User/RefreshToken",refreshToken)
                 .pipe(tap(console.log),catchError(this.sharedService.handleError));
-    //  this.http.post<LoginResultMd>(endpointPath+"/User/RefreshToken",refreshToken)
-    //           .subscribe({
-    //             next:(res:LoginResultMd)=>(
-    //                this.SaveJwtToken(res)
-    //             )
-    //           })
   }
 
   getLoginMdObj(obj: Login):LoginMd {

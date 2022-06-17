@@ -38,7 +38,8 @@ export const AdminMenu:RouteInfo[] = [
                 collapse:"Administracja",
                 children: [
                     {path:"/users", title:"Użytkownicy", ab:"AU"},
-                    {path:"/statistics", title:"Statystyki", ab:"AS"},
+                    {path:"/clients", title:"Klienci", ab:"AC"},
+                    {path:"/statistics", title:"Historie logowań", ab:"AS"},
                 ]
             }
         ];
@@ -52,7 +53,8 @@ export const UserMenu:RouteInfo[] = [
         icontype:"",
         collapse:"",
         children: [
-            {path:"user/myProfile", title:"Mój Profil", ab:"MP"}
+            {path:"user/myProfile", title:"Mój Profil", ab:"MP"},
+            {path:"user/myLoginHistories", title:"Historia logowania", ab:"MH"},
         ]
     }
 ]

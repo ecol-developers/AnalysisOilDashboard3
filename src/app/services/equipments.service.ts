@@ -1,8 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { TreeNode } from 'primeng/api';
-import { catchError, Observable, tap } from 'rxjs';
-import { Sample } from '../models/sample';
+import { Observable } from 'rxjs';
 import { endpointPath } from '../shared/globals';
 
 @Injectable({

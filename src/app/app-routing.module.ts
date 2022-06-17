@@ -19,7 +19,7 @@ const routes: Routes = [
     {path:'equipments', component:EquipmentsComponent, canActivate:[AuthGuard]},
     {path:'user/myProfile', component:MyProfileComponent, canActivate:[AuthGuard]},
     {path:'group/:id', component:SamplesComponent, canActivate:[AuthGuard]}
-    ]},
+  ]},
   {path:'**', component:NotFoundComponent}
  ];
 

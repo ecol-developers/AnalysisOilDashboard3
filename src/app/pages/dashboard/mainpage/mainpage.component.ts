@@ -16,7 +16,7 @@ export class MainpageComponent implements OnInit {
   private samplesCountByLastYearData :DataChart;
   private samplesCountPositiveLastYearData :DataChart;
   private samplesCountNegativeLastYearData :DataChart;
-  public mainPageSummaryClient:MainPageSummaryClient;
+  public mainPageSummaryClient:MainPageSummaryClient = {};
 
 
 //   startAnimationForBarChart(chart: any) {

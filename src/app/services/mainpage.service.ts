@@ -99,7 +99,7 @@ GetSummaryInfoAboutSampleStateByClient():Observable<MainPageSummarySampleStatusI
 GetSummaryInfoAboutSampleNoteByClient():Observable<MainPageSamplePercentInfo[]>{
   let clientId = localStorage.getItem("clientId");
   let endpoint = endpointPath+"/MainPage/GetSummaryInfoAboutSampleNoteByClient/"+clientId;
-  return this.http.get<MainPageSamplePercentInfo[]>(endpoint).pipe(tap(console.log));
+  return this.http.get<MainPageSamplePercentInfo[]>(endpoint);
 }
 
 }

@@ -1,5 +1,8 @@
 .sample-badge {
     padding: 5px;
+    width: 70%;
+    text-align: center;
+    border-radius: 8px;
 }
 
 .sample-badge-advice{
@@ -8,6 +11,7 @@
 
 .sample-badge-warning{
     background-color:#f77970;
+    font-weight: bold;
 }
 
 .sample-badge-normal{
