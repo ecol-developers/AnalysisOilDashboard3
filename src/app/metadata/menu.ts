@@ -23,23 +23,23 @@ export const Menu:RouteInfo[] = [
     icontype:'apps',
     collapse:"Pogrupowanie",
     children: [
-        {path:"warning", title:"Raporty ze statusem UWAGA", ab:"RU"},
-        {path:"advice", title:"Raporty ze statusem WSKAZÓWKA", ab:"RW"},
-        {path:"normal", title:"Raporty ze statusem W NORMIE", ab:"RN"},
+        {path:"warning", title:"Próbki status UWAGA", ab:"RU"},
+        {path:"advice", title:"Próbki status WSKAZÓWKA", ab:"RW"},
+        {path:"normal", title:"Próbki status W NORMIE", ab:"RN"},
     ]
 }]
 
 export const AdminMenu:RouteInfo[] = [
             {
-                path:"/",
+                path:"/dashboard/admin",
                 title: "Administracja",
                 type:"sub",
                 icontype:'apps',
                 collapse:"Administracja",
                 children: [
-                    {path:"/users", title:"Użytkownicy", ab:"AU"},
-                    {path:"/clients", title:"Klienci", ab:"AC"},
-                    {path:"/statistics", title:"Historie logowań", ab:"AS"},
+                    {path:"users", title:"Użytkownicy", ab:"AU"},
+                    {path:"clients", title:"Klienci", ab:"AC"},
+                    {path:"logHistories", title:"Historie logowań", ab:"AS"},
                 ]
             }
         ];
@@ -54,7 +54,7 @@ export const UserMenu:RouteInfo[] = [
         collapse:"",
         children: [
             {path:"user/myProfile", title:"Mój Profil", ab:"MP"},
-            {path:"user/myLoginHistories", title:"Historia logowania", ab:"MH"},
+            {path:"user/myLogHistories", title:"Historia logowania", ab:"MH"},
         ]
     }
 ]

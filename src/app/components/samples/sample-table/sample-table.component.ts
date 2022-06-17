@@ -1,12 +1,11 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Table } from 'primeng/table';
 import { Sample } from 'src/app/models/sample';
 import { SampleAttachment } from 'src/app/models/sampleAttachment';
 import { SampleDetail } from 'src/app/models/sampleDetail';
 import { SamplesService } from 'src/app/services/samples.service';
 import { SampleDetailService } from 'src/app/services/sample-detail.service';
-import { sample } from 'rxjs';
 
 @Component({
   selector: 'app-sample-table',
@@ -53,7 +52,6 @@ export class SampleTableComponent implements OnChanges {
     this.tableLoading = true;
     this.sampleService.GetListByClientId().subscribe({
       next:(res:Sample[])=>{
-        console.log(res);
         this.samples = res;
         switch (type) {
           case "warning":
@@ -71,7 +69,6 @@ export class SampleTableComponent implements OnChanges {
         }
       },
       complete:()=>{
-        console.log(this.samples);
         this.tableLoading= false;
       }
     });

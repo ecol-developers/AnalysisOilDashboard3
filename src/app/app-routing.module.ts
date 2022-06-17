@@ -1,9 +1,13 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { ClientsComponent } from './pages/dashboard/admin/clients/clients.component';
+import { LogHistoriesComponent } from './pages/dashboard/admin/log-histories/log-histories.component';
+import { UsersComponent } from './pages/dashboard/admin/users/users.component';
 import { EquipmentsComponent } from './pages/dashboard/equipments/equipments.component';
 import { LayoutComponent } from './pages/dashboard/layout/layout.component';
 import { MainpageComponent } from './pages/dashboard/mainpage/mainpage.component';
 import { SamplesComponent } from './pages/dashboard/samples/samples/samples.component';
+import { MyLogHistoriesComponent } from './pages/dashboard/user/my-log-histories/my-log-histories.component';
 import { MyProfileComponent } from './pages/dashboard/user/my-profile/my-profile.component';
 import { LoginComponent } from './pages/login/login.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
@@ -17,8 +21,12 @@ const routes: Routes = [
     {path:'mainpage', component:MainpageComponent, canActivate:[AuthGuard]},
     {path:'samples', component:SamplesComponent, canActivate:[AuthGuard]},
     {path:'equipments', component:EquipmentsComponent, canActivate:[AuthGuard]},
+    {path:'group/:id', component:SamplesComponent, canActivate:[AuthGuard]},
     {path:'user/myProfile', component:MyProfileComponent, canActivate:[AuthGuard]},
-    {path:'group/:id', component:SamplesComponent, canActivate:[AuthGuard]}
+    {path:'user/myLogHistories', component:MyLogHistoriesComponent, canActivate:[AuthGuard]},
+    {path:'admin/users', component:UsersComponent, canActivate:[AuthGuard]},
+    {path:'admin/clients', component:ClientsComponent, canActivate:[AuthGuard]},
+    {path:'admin/logHistories', component:LogHistoriesComponent, canActivate:[AuthGuard]},
   ]},
   {path:'**', component:NotFoundComponent}
  ];

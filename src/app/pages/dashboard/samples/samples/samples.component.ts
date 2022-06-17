@@ -8,6 +8,7 @@ import { ActivatedRoute } from '@angular/router';
 })
 export class SamplesComponent implements  DoCheck {
   type:string;
+  title:string = "Lista wszystkich próbek laboratoryjnych";
 
   constructor(
     private route:ActivatedRoute) {}

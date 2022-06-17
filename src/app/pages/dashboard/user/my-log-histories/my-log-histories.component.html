@@ -7,12 +7,13 @@
                 <div class="card-icon">
                   <i class="material-icons">storage</i>
                 </div>
-                <h4 class="card-title">{{title}}</h4>
+                <h4 class="card-title">Historia logowań</h4>
               </div>
                 <div class="card-body">
                   <div class="row">
                     <div class="col-md-12">
-                      <app-sample-table [showAll]="true" [type]="type"></app-sample-table>
+                      <app-universal-table sourceType="LogHistoryByUserId"></app-universal-table>
+                    
                     </div>
                   </div>
                 </div>

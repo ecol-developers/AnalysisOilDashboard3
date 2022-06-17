@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, tap } from 'rxjs';
+import { LogHistory } from '../models/logHistory';
 import { User } from '../models/user';
 import { endpointPath } from '../shared/globals';
 
@@ -8,7 +9,6 @@ import { endpointPath } from '../shared/globals';
   providedIn: 'root'
 })
 export class UserService {
-  
 
   constructor(
     private http:HttpClient
@@ -17,7 +17,7 @@ export class UserService {
   GetUserDataById():Observable<User>{
     let userId = localStorage.getItem("userId");
     let endpoint = endpointPath+"/User/GetById/"+userId;
-    var res = this.http.get<User>(endpoint).pipe(tap(console.log));
+    var res = this.http.get<User>(endpoint);
     return res;   
 }
 
@@ -47,5 +47,11 @@ async GetUserDataByIdSync(){
     }
     return user; 
 
+  }
+
+  GetLogHistoryByUserId(id:number):Observable<LogHistory[]>
+  {
+    let endpoint = endpointPath+"/User/GetLogHistoryByUserId/"+id;
+    return this.http.get<LogHistory[]>(endpoint);
   }
 }

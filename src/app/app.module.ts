@@ -29,6 +29,11 @@ import { SummarySampleTableComponent } from './components/mainpage/summary-sampl
 import { SummarySampleDoughnutCahrtComponent } from './components/mainpage/summary-sample-doughnut-cahrt/summary-sample-doughnut-cahrt.component';
 import { SampleTableComponent } from './components/samples/sample-table/sample-table.component';
 import { MyProfileComponent } from './pages/dashboard/user/my-profile/my-profile.component';
+import { UniversalTableComponent } from './components/universal-table/universal-table.component';
+import { MyLogHistoriesComponent } from './pages/dashboard/user/my-log-histories/my-log-histories.component';
+import { LogHistoriesComponent } from './pages/dashboard/admin/log-histories/log-histories.component';
+import { ClientsComponent } from './pages/dashboard/admin/clients/clients.component';
+import { UsersComponent } from './pages/dashboard/admin/users/users.component';
 
 @NgModule({
     declarations: [
@@ -46,7 +51,12 @@ import { MyProfileComponent } from './pages/dashboard/user/my-profile/my-profile
         SummarySampleTableComponent,
         SummarySampleDoughnutCahrtComponent,
         SampleTableComponent,
-        MyProfileComponent
+        MyProfileComponent,
+        UniversalTableComponent,
+        MyLogHistoriesComponent,
+        LogHistoriesComponent,
+        ClientsComponent,
+        UsersComponent
      ],
     imports:[
         BrowserModule,
