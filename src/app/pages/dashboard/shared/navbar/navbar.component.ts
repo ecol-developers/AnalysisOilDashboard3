@@ -25,7 +25,6 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
       this.clientName = localStorage.getItem("clientName");
-      console.log("__Odswiezenie navbar: klientid 1:"+ localStorage.getItem("clientId"));
   }
 
 

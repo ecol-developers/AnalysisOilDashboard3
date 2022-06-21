@@ -13,6 +13,8 @@ import { ButtonModule } from 'primeng/button';
 import { ChartModule } from 'primeng/chart';
 import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
+import { DynamicDialogModule } from 'primeng/dynamicdialog'
+import { ToastModule } from 'primeng/toast';
 
 import { LoginComponent } from './pages/login/login.component';
 import { LayoutComponent } from './pages/dashboard/layout/layout.component';
@@ -21,7 +23,6 @@ import { SidebarComponent } from './pages/dashboard/sidebar/sidebar.component';
 import { FooterComponent } from './pages/dashboard/shared/footer/footer.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component';
 import { SamplesComponent } from './pages/dashboard/samples/samples/samples.component';
-import { SampleDetailComponent } from './pages/dashboard/samples/sample-detail/sample-detail.component';
 import { MainpageComponent } from './pages/dashboard/mainpage/mainpage.component';
 import { FixedpluginModule } from './pages/dashboard/shared/fixedplugin/fixedplugin.module';
 import { EquipmentsComponent } from './pages/dashboard/equipments/equipments.component';
@@ -34,6 +35,7 @@ import { MyLogHistoriesComponent } from './pages/dashboard/user/my-log-histories
 import { LogHistoriesComponent } from './pages/dashboard/admin/log-histories/log-histories.component';
 import { ClientsComponent } from './pages/dashboard/admin/clients/clients.component';
 import { UsersComponent } from './pages/dashboard/admin/users/users.component';
+import { UniversalDictComponent } from './components/universal-dict/universal-dict.component';
 
 @NgModule({
     declarations: [
@@ -45,7 +47,6 @@ import { UsersComponent } from './pages/dashboard/admin/users/users.component';
         FooterComponent,
         NotFoundComponent,
         SamplesComponent,
-        SampleDetailComponent,
         MainpageComponent,
         EquipmentsComponent,
         SummarySampleTableComponent,
@@ -56,12 +57,14 @@ import { UsersComponent } from './pages/dashboard/admin/users/users.component';
         MyLogHistoriesComponent,
         LogHistoriesComponent,
         ClientsComponent,
-        UsersComponent
+        UsersComponent,
+        UniversalDictComponent
      ],
     imports:[
         BrowserModule,
         AppRoutingModule,
         FixedpluginModule,
+        DynamicDialogModule,
         FormsModule,
         HttpClientModule,
         BrowserAnimationsModule,
@@ -70,7 +73,9 @@ import { UsersComponent } from './pages/dashboard/admin/users/users.component';
         ButtonModule,
         ChartModule,
         InputTextModule,
-        DropdownModule
+        DropdownModule,
+        ToastModule
+        
     ],
     providers : [
         {
@@ -79,6 +84,9 @@ import { UsersComponent } from './pages/dashboard/admin/users/users.component';
             multi:true
         }
     ],
-    bootstrap:    [ AppComponent ]
+    bootstrap:    [ AppComponent ],
+    entryComponents: [
+        ClientsComponent
+    ]
 })
 export class AppModule { }

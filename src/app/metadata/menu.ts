@@ -27,6 +27,11 @@ export const Menu:RouteInfo[] = [
         {path:"advice", title:"Próbki status WSKAZÓWKA", ab:"RW"},
         {path:"normal", title:"Próbki status W NORMIE", ab:"RN"},
     ]
+},{
+    path:"/-",
+    title: "Instrukcja obsługi",
+    type:"link",
+    icontype:'school'
 }]
 
 export const AdminMenu:RouteInfo[] = [

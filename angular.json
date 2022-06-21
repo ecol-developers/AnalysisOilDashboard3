@@ -23,7 +23,8 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/web.config"
             ],
             "styles": [
               "node_modules/primeicons/primeicons.css",
@@ -106,7 +107,7 @@
             "production": {
               "browserTarget": "demo:build:production",
               "proxyConfig": "src/proxy.conf.json"
-            },
+            },  
             "development": {
               "browserTarget": "demo:build:development",
               "proxyConfig": "src/proxy.conf.json"

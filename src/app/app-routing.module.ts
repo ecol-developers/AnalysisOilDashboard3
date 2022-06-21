@@ -26,7 +26,7 @@ const routes: Routes = [
     {path:'user/myLogHistories', component:MyLogHistoriesComponent, canActivate:[AuthGuard]},
     {path:'admin/users', component:UsersComponent, canActivate:[AuthGuard]},
     {path:'admin/clients', component:ClientsComponent, canActivate:[AuthGuard]},
-    {path:'admin/logHistories', component:LogHistoriesComponent, canActivate:[AuthGuard]},
+    {path:'admin/logHistories', component:LogHistoriesComponent, canActivate:[AuthGuard]}
   ]},
   {path:'**', component:NotFoundComponent}
  ];

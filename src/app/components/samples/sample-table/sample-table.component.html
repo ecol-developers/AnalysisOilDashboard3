@@ -36,7 +36,7 @@
             <p-sortIcon field="reason"></p-sortIcon>
             <p-columnFilter type="text" field="reason" display="menu" ></p-columnFilter>
         </th>
-        <th pSortableColumn="lubricantName">Nazwa oleju 
+        <th pSortableColumn="lubricantName">Nazwa śr. smarnego
             <p-sortIcon field="lubricantName"></p-sortIcon>
             <p-columnFilter type="text" field="lubricantName" display="menu" ></p-columnFilter>
         </th>
@@ -66,7 +66,7 @@
  <td>{{sample.lubricantName}}</td>
  <td>{{sample.equipmentName}}</td>
  <td>{{sample.nodeName}}</td>
- <td><div [class]="'sample-badge sample-badge-' + sample.noteNameEn.toLowerCase()"><span>{{sample.noteName.toLowerCase()}}</span></div></td>
+ <td><div [class]="'sample-badge sample-badge-' + sample.noteNameEn.toLowerCase()">{{sample.noteName.toLowerCase()}}</div></td>
  <td><p-button type="button" (click)="downloadReport(sample.id)" icon="pi pi-file-pdf"></p-button></td>
 </tr>
 </ng-template>

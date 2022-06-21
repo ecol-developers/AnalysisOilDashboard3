@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DynamicDialogConfig, DynamicDialogRef } from 'primeng/dynamicdialog';
 
 @Component({
   selector: 'app-clients',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ClientsComponent implements OnInit {
   title:string = "Lista klientów";
-  constructor() { }
+
+  constructor(
+  ) { }
 
   ngOnInit(): void {
   }

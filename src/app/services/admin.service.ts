@@ -10,7 +10,6 @@ import { Client } from '../models/client';
   providedIn: 'root'
 })
 export class AdminService {
-
   constructor(
     private http:HttpClient
   ) { }
@@ -31,5 +30,15 @@ export class AdminService {
   {
     let endpoint = endpointPath+"/Client/GetList";
     return this.http.get<Client[]>(endpoint);  
+  }
+
+  addClientToUser(clientId: number, userId: number):Observable<boolean> {
+    let endpoint = endpointPath+"/User/AddClientToUser";
+    let userObj:User = {
+      clientId: clientId,
+      id:userId
+    }
+    console.log(userObj);
+    return this.http.post<boolean>(endpoint, userObj);  
   }
 }

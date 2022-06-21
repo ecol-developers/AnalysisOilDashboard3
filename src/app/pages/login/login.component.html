@@ -3,13 +3,13 @@
     <div class="col-lg-3 col-md-6 col-sm-6 ml-auto mr-auto">
       <form class="form" #loginForm = "ngForm" (ngSubmit)="login()">
         <div class="card card-login">
-          <div class="card-header card-header-info text-center">
-            <h4 class="card-title"> 
-              
-              <span style="float: left;">
-                <img src="/assets/img/Ecol_logo_white_transparent.png" style="width: 50px;">
-              </span>
-              analizyolejowe.pl</h4>
+          <div class="card-header card-header-info">
+            <div class="col-md-12 text-left">
+              <img src="/assets/img/Ecol_logo_white_transparent.png" style="width: 50px;">
+            </div>
+            <div class="col-md-12 text-center">
+              <span class="main_login_header">analizyolejowe.pl</span>
+            </div>
           </div>
           <div class="card-body ">
             <p class="card-description text-center">Logowanie do panelu klienta</p>
@@ -46,8 +46,14 @@
               <span style="color: red; font-size: small;">{{errorMessage}}</span>
           </div>
           <div class="card-footer justify-content-center">
-            <p-button label="Zaloguj" type="submit"[disabled]="loginForm.invalid"></p-button>
-            <p-button label="Zapomniałem hasła" styleClass="p-button-link"></p-button>
+            <div class="col-md-4">
+                <img class="flags" src="./assets/img/flags/PL.png"alt="" style="padding-right: 8px;" />
+                <img class="flags" src="./assets/img/flags/GB.png"alt="" style="padding-right: 8px;" />
+                <img class="flags" src="./assets/img/flags/DE.png"alt="" style="padding-right: 8px;" />
+                <img class="flags" src="./assets/img/flags/CZ.png"alt="" style="padding-right: 8px;" />
+            </div>
+            <div class="col-md-4 text-center"><p-button label="Zaloguj" type="submit"[disabled]="loginForm.invalid"></p-button></div>
+            <div class="col-md-4 text-right"><p-button label="Zapomniałem hasła" styleClass="p-button-link"></p-button></div>
           </div>
         </div>
       </form>

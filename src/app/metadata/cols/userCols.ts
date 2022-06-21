@@ -40,5 +40,15 @@ export const UserCols:tableColsStructure[] = [
         field:"lastLoginDate",
         header:"Data ost. logowania",
         dataType:"date"
+    },
+    {
+        field:"Action",
+        header:"Akcje",
+        dataType:"button",
+        function:"addClient",
+        icon:"pi pi-plus-circle",
+        description:"Przypisz klienta",
+        sortable:false,
+        filter:false
     }
 ]
