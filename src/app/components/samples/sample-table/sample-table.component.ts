@@ -6,6 +6,7 @@ import { SampleAttachment } from 'src/app/models/sampleAttachment';
 import { SampleDetail } from 'src/app/models/sampleDetail';
 import { SamplesService } from 'src/app/services/samples.service';
 import { SampleDetailService } from 'src/app/services/sample-detail.service';
+import { MessageService } from 'primeng/api';
 
 @Component({
   selector: 'app-sample-table',
@@ -23,7 +24,9 @@ import { SampleDetailService } from 'src/app/services/sample-detail.service';
         })),
         transition('* <=> *', animate('400ms cubic-bezier(0.86, 0, 0.07, 1)'))
     ])
-]
+  ],
+  providers:[MessageService]
+
 })
 export class SampleTableComponent implements OnChanges {
   samples:Sample[];
@@ -36,7 +39,8 @@ export class SampleTableComponent implements OnChanges {
 
   constructor(  
     private sampleService:SamplesService,
-    private sampleDetailService:SampleDetailService
+    private sampleDetailService:SampleDetailService,
+    private messageService:MessageService
     ) { }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -70,6 +74,14 @@ export class SampleTableComponent implements OnChanges {
       },
       complete:()=>{
         this.tableLoading= false;
+      },
+      error:()=>{
+        this.samples=[];
+        this.messageService.add({
+          severity:"warn",
+          summary:"Brak próbek laboratoryjnych"
+        });
+        this.tableLoading = false;
       }
     });
   }
@@ -82,6 +94,14 @@ export class SampleTableComponent implements OnChanges {
       },
       complete:()=>{
         this.tableLoading= false;
+      },
+      error:()=>{
+        this.samples = [];
+        this.messageService.add({
+          severity:"warn",
+          summary:"Brak próbek dla wybranego urządzenia!"
+        });
+        this.tableLoading = false;
       }
     });
   }
@@ -94,6 +114,12 @@ export class SampleTableComponent implements OnChanges {
         link.href = source;
         link.download = `${res.name}.pdf`
         link.click();
+      },
+      error:()=>{
+        this.messageService.add({
+          severity:"error",
+          summary:"Brak raportu dla wybranej próbki"
+        })
       }
     })
   }

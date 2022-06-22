@@ -8,7 +8,6 @@ import { UserCols } from 'src/app/metadata/cols/userCols';
 import { Client } from 'src/app/models/client';
 import { LogHistory } from 'src/app/models/logHistory';
 import { User } from 'src/app/models/user';
-import { ClientsComponent } from 'src/app/pages/dashboard/admin/clients/clients.component';
 import { AdminService } from 'src/app/services/admin.service';
 import { UserService } from 'src/app/services/user.service';
 import { UniversalDictComponent } from '../universal-dict/universal-dict.component';

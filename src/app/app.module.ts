@@ -3,7 +3,7 @@ import { AppComponent } from './app.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { FormsModule} from "@angular/forms";
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClient, HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { AuthconfigInterceptor } from './shared/authconfig.interceptor';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
@@ -15,6 +15,9 @@ import { InputTextModule } from 'primeng/inputtext';
 import { DropdownModule } from 'primeng/dropdown';
 import { DynamicDialogModule } from 'primeng/dynamicdialog'
 import { ToastModule } from 'primeng/toast';
+
+import { TranslateLoader, TranslateModule} from "@ngx-translate/core";
+import { TranslateHttpLoader } from "@ngx-translate/http-loader";
 
 import { LoginComponent } from './pages/login/login.component';
 import { LayoutComponent } from './pages/dashboard/layout/layout.component';
@@ -36,6 +39,11 @@ import { LogHistoriesComponent } from './pages/dashboard/admin/log-histories/log
 import { ClientsComponent } from './pages/dashboard/admin/clients/clients.component';
 import { UsersComponent } from './pages/dashboard/admin/users/users.component';
 import { UniversalDictComponent } from './components/universal-dict/universal-dict.component';
+
+export function httpTranslateLoaderFactory(http:HttpClient){
+    return new TranslateHttpLoader(http);
+}
+
 
 @NgModule({
     declarations: [
@@ -74,7 +82,14 @@ import { UniversalDictComponent } from './components/universal-dict/universal-di
         ChartModule,
         InputTextModule,
         DropdownModule,
-        ToastModule
+        ToastModule,
+        TranslateModule.forRoot({
+            loader:{
+                provide:TranslateLoader,
+                useFactory:httpTranslateLoaderFactory,
+                deps:[HttpClient]
+            }
+        })
         
     ],
     providers : [

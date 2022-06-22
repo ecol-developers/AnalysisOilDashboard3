@@ -1,46 +1,20 @@
-import { Component, OnInit, SimpleChange } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
 import { MainpageService } from 'src/app/services/mainpage.service';
 import { DataChart } from 'src/app/metadata/dataChart';
 import { MainPageSummaryClient } from 'src/app/models/mainPageSummaryClient';
-import { Observable } from 'rxjs';
+import { MainPageChart } from 'src/app/models/mainPageChart';
 
 @Component({
   selector: 'app-mainpage',
   templateUrl: './mainpage.component.html',
   styleUrls: ['./mainpage.component.css']
 })
-export class MainpageComponent implements OnInit {
-
-
+export class MainpageComponent implements OnInit{
   private samplesCountByLastYearData :DataChart;
   private samplesCountPositiveLastYearData :DataChart;
   private samplesCountNegativeLastYearData :DataChart;
   public mainPageSummaryClient:MainPageSummaryClient = {};
-
-
-//   startAnimationForBarChart(chart: any) {
-//     let seq2: any, delays2: any, durations2: any;
-//     seq2 = 0;
-//     delays2 = 80;
-//     durations2 = 500;
-//     chart.on('draw', function(data: any) {
-//       if (data.type === 'bar') {
-//           seq2++;
-//           data.element.animate({
-//             opacity: {
-//               begin: seq2 * delays2,
-//               dur: durations2,
-//               from: 0,
-//               to: 1,
-//               easing: 'ease'
-//             }
-//           });
-//       }
-//     });
-
-//     seq2 = 0;
-// }
 
 startAnimationForLineChart(chart: any) {
   let seq: any, delays: any, durations: any;
@@ -80,22 +54,60 @@ startAnimationForLineChart(chart: any) {
     private service:MainpageService
   ) { }
 
+
   ngOnInit(): void {
     var clientId = Number.parseInt(localStorage.getItem("clientId"));
+    
+    this.service.GetSampleCountByLastYear(clientId).subscribe(
+      {
+        next:(res:MainPageChart[])=>{
+          this.samplesCountByLastYearData = {
+            labels:res.map((obj)=>obj.title.substring(0,3)),
+            series: [
+              res.map((obj)=>obj.value)
+            ]}
+        },
+        complete:()=>{
+          const samplesCountByMonthChart = new Chartist.Line('#samplesCountByMonthChart',this.samplesCountByLastYearData);
+          this.startAnimationForLineChart(samplesCountByMonthChart);
+        }
+    });           
+      
+    this.service.GetSampleCountPositiveNoteLastYear(clientId).subscribe(
+      {
+        next:(res:MainPageChart[])=>{
+          this.samplesCountPositiveLastYearData = {
+            labels:res.map((obj)=>obj.title.substring(0,3)),
+            series: [
+              res.map((obj)=>obj.value)
+            ]}
+      },
+      complete:()=>{
+        const samplesSuccessCountByMonthChart = new Chartist.Line('#samplesSuccessCountByMonthChart', this.samplesCountPositiveLastYearData);
+        this.startAnimationForLineChart(samplesSuccessCountByMonthChart);
+      }
+    })
 
-    this.samplesCountByLastYearData = this.service.GetSampleCountByLastYear(clientId);
-    const samplesCountByMonthChart = new Chartist.Line('#samplesCountByMonthChart',this.samplesCountByLastYearData);
-    this.startAnimationForLineChart(samplesCountByMonthChart);
+    this.service.GetSampleCountNegativeNoteLastYear(clientId).subscribe(
+      {
+        next:(res:MainPageChart[])=>{
+          this.samplesCountNegativeLastYearData = {
+            labels:res.map((obj)=>obj.title.substring(0,3)),
+            series: [
+              res.map((obj)=>obj.value)
+            ]}
+          },
+          complete:()=>{
+            const samplesWarningCountByMonthChart = new Chartist.Line('#samplesWarningCountByMonthChart', this.samplesCountNegativeLastYearData);
+            this.startAnimationForLineChart(samplesWarningCountByMonthChart);
+          }
+    })
 
-    this.samplesCountPositiveLastYearData = this.service.GetSampleCountPositiveNoteLastYear(clientId);
-    const samplesSuccessCountByMonthChart = new Chartist.Line('#samplesSuccessCountByMonthChart', this.samplesCountPositiveLastYearData);
-    this.startAnimationForLineChart(samplesSuccessCountByMonthChart);
-
-    this.samplesCountNegativeLastYearData = this.service.GetSampleCountNegativeNoteLastYear(clientId);
-    const samplesWarningCountByMonthChart = new Chartist.Line('#samplesWarningCountByMonthChart', this.samplesCountNegativeLastYearData);
-    this.startAnimationForLineChart(samplesWarningCountByMonthChart);
-
-    this.mainPageSummaryClient = this.service.GetSummaryInfoAboutByClient(clientId);
+    this.service.GetSummaryInfoAboutByClient(clientId).subscribe({
+      next:(res:MainPageSummaryClient)=>{
+        this.mainPageSummaryClient = res;
+      }
+    })
   }
 
 }

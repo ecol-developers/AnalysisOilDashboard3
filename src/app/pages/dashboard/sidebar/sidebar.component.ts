@@ -1,5 +1,6 @@
 import { AfterContentInit, AfterViewChecked, AfterViewInit, ApplicationRef, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { tap } from 'rxjs';
 import { AdminMenu, Menu, UserMenu } from 'src/app/metadata/menu';
 import { RouteInfo } from 'src/app/metadata/RouteInfo';
@@ -21,13 +22,23 @@ export class SidebarComponent implements OnInit{
 
   constructor(
     private authService:AuthService,
-    private userService:UserService
+    private userService:UserService,
+    private translateService:TranslateService
     ) { }
 
 
 
   ngOnInit(): void {
+    // this.translateService.setDefaultLang('en');
+    // this.translateService.use('en');
+    // let test = this.translateService.instant("title_page");
+    // console.log("nazwa strony: "+test+ "jezyk "+ this.translateService.getDefaultLang());
     this.menuItems = Menu;
+    // this.menuItems.forEach(el => {
+    //   el.title = this.translateService.instant(el.key);
+    // });
+
+    //console.log(this.menuItems);
     this.user = this.userService.GetLocalStorageUserData();
     
     //  if( this.userRole === "Admin"){

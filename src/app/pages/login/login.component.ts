@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { Login } from 'src/app/models/login';
 import { LoginResultMd } from 'src/app/models/loginResultMd';
 import { AuthService } from 'src/app/services/auth.service';
@@ -17,8 +18,8 @@ export class LoginComponent {
 
   constructor( 
     private auth:AuthService,
-    private service:LoginService) {
-
+    private service:LoginService,
+    private translateService:TranslateService) {
    }
 
    login(){ 
@@ -34,6 +35,7 @@ export class LoginComponent {
      );
    }
 
-  
-
+   setLanguage(language:string){
+    this.translateService.use(language);
+   }
 }

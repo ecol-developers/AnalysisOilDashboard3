@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { AuthService } from 'src/app/services/auth.service';
 
 const misc: any = {
@@ -21,7 +22,10 @@ export class NavbarComponent implements OnInit {
   clientName:string;
 
 
-  constructor( private authService:AuthService) { }
+  constructor( 
+    private authService:AuthService,
+    private transalteService:TranslateService
+    ) { }
 
   ngOnInit(): void {
       this.clientName = localStorage.getItem("clientName");
@@ -54,9 +58,6 @@ export class NavbarComponent implements OnInit {
     }, 1000);
   }
 
-  getTitle(){
-    return "Strona główna";
-  }
 
   sidebarOpen() {
     var $toggle = document.getElementsByClassName('navbar-toggler')[0];
@@ -133,6 +134,7 @@ export class NavbarComponent implements OnInit {
 }
 
 public logout(){
+  console.log("wylogowanie");
     this.authService.Logout();
   }
 

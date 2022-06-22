@@ -10,9 +10,9 @@
 <div class="sidebar-wrapper">
 
     <div class="user">
-        <div class="photo">
-            <img src="./assets/img/faces/avatar.jpg" />
-        </div>
+        <!-- <div class="photo">
+             <img src="./assets/img/faces/avatar.jpg" />
+        </div> -->
         <div class="user-info">
             <a data-toggle="collapse" href="#collapseExample" class="collapsed">
                 <span>
@@ -41,7 +41,7 @@
             </div>
         </div>
     </div>
-    <div *ngIf="isMobileMenu()">
+    <!-- <div *ngIf="isMobileMenu()">
       <form class="navbar-form">
         <span class="bmd-form-group"><div class="input-group no-border">
           <input type="text" value="" class="form-control" placeholder="Search...">
@@ -85,7 +85,7 @@
           </a>
         </li>
       </ul>
-    </div> 
+    </div>  -->
     <ul class="nav">
         <li routerLinkActive="active" *ngFor="let menuitem of menuItems" class="nav-item">
             <a [routerLink]="[menuitem.path]" *ngIf="menuitem.type === 'link'" class="nav-link">

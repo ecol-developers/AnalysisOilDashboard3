@@ -1,0 +1,18 @@
+{
+    "title_page":"Analizy olejowe - wersja beta",
+    "notifications":"Powiadomienia",
+    "my_profile":"Mój prófil",
+    "login_history":"Historia logowania",
+    "logout":"Wyloguj",
+    "mainpage":"Strona główna",
+    "login_page":{
+        "username":"Nazwa użytkownika",
+        "password": "Hasło",
+        "title":"Logowanie do panelu klienta",
+        "login":"Zaloguj",
+        "forget_password":"Zapomniałem hasła"
+    },
+    "sidebarmenu":{
+        "mainpage":"Strona główna"
+    }
+}

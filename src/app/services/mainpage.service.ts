@@ -1,12 +1,11 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, tap } from 'rxjs';
+import { Observable} from 'rxjs';
 import { DataChart } from '../metadata/dataChart';
 import { MainPageChart } from '../models/mainPageChart';
 import { MainPageSamplePercentInfo } from '../models/mainPageSamplePercentInfo';
 import { MainPageSummaryClient } from '../models/mainPageSummaryClient';
 import { MainPageSummarySampleStatusInfo } from '../models/mainPageSummarySampleStatusInfo';
-import { User } from '../models/user';
 import { endpointPath } from '../shared/globals';
 
 @Injectable({
@@ -17,77 +16,27 @@ export class MainpageService {
   public sampleCountByLastYearData:DataChart;
   public sampleCountPositiveLastYearData:DataChart;
   public sampleCountNegativeLastYearData:DataChart;
-  private mainPageSummaryClient:MainPageSummaryClient;
- 
 
   constructor(private http:HttpClient ) { }
 
-  GetSampleCountByLastYear(clientId:number):DataChart{
+GetSampleCountByLastYear(clientId:number):Observable<MainPageChart[]>{
+  let endpoint = endpointPath+"/MainPage/GetSampleCountByLastYear/"+clientId;
+  return this.http.get<MainPageChart[]>(endpoint);
+}
 
-    let endpoint = endpointPath+"/MainPage/GetSampleCountByLastYear/"+clientId;
-    this.http.get<MainPageChart[]>(endpoint)
-    .subscribe(
-      {
-        next:(res:MainPageChart[])=>{
-          this.sampleCountByLastYearData = {
-            labels:res.map((obj)=>obj.title.substring(0,3)),
-            series: [
-              res.map((obj)=>obj.value)
-            ]
-        }
-      }
-    })
-      
-   return this.sampleCountByLastYearData;
- }
-
- GetSampleCountPositiveNoteLastYear(clientId:number):DataChart{
-    
+ GetSampleCountPositiveNoteLastYear(clientId:number):Observable<MainPageChart[]>{
   let endpoint = endpointPath+"/MainPage/GetSampleCountPositiveNoteLastYear/"+clientId;
-  this.http.get<MainPageChart[]>(endpoint)
-  .subscribe(
-    {
-      next:(res:MainPageChart[])=>{
-        this.sampleCountPositiveLastYearData = {
-          labels:res.map((obj)=>obj.title.substring(0,3)),
-          series: [
-            res.map((obj)=>obj.value)
-          ]
-      }
-    }
-  })
-    
- return this.sampleCountPositiveLastYearData;
+  return this.http.get<MainPageChart[]>(endpoint);
 }
 
-GetSampleCountNegativeNoteLastYear(clientId:number):DataChart{
-    
+GetSampleCountNegativeNoteLastYear(clientId:number):Observable<MainPageChart[]>{   
   let endpoint = endpointPath+"/MainPage/GetSampleCountNegativeNoteLastYear/"+clientId;
-  this.http.get<MainPageChart[]>(endpoint)
-  .subscribe(
-    {
-      next:(res:MainPageChart[])=>{
-        this.sampleCountNegativeLastYearData = {
-          labels:res.map((obj)=>obj.title.substring(0,3)),
-          series: [
-            res.map((obj)=>obj.value)
-          ]
-      }
-    }
-  })
-    
- return this.sampleCountNegativeLastYearData;
+  return this.http.get<MainPageChart[]>(endpoint);
 }
 
-GetSummaryInfoAboutByClient(clientId: number): MainPageSummaryClient {
+GetSummaryInfoAboutByClient(clientId: number): Observable<MainPageSummaryClient> {
   let endpoint = endpointPath+"/MainPage/GetSummaryInfoAboutByClient/"+clientId;
-  this.http.get<MainPageSummaryClient>(endpoint)
-  .pipe(tap(console.log))
-            .subscribe({
-              next:(res:MainPageSummaryClient)=>this.mainPageSummaryClient = res
-            });
-
-  return this.mainPageSummaryClient;
+  return this.http.get<MainPageSummaryClient>(endpoint);
 }
 
 GetSummaryInfoAboutSampleStateByClient():Observable<MainPageSummarySampleStatusInfo>{

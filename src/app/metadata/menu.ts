@@ -1,11 +1,13 @@
+import { TranslateService } from "@ngx-translate/core";
 import { RouteInfo } from "./RouteInfo";
 
 export const Menu:RouteInfo[] = [
 {
     path:"/dashboard/mainpage",
-    title: "Strona Głowna",
+    title:  "Strona Głowna",
     type:"link",
-    icontype:'dashboard'
+    icontype:'dashboard',
+    key:"mainpage"
 },{
     path:"/dashboard/samples",
     title: "Lista wszystkich próbek",
@@ -32,7 +34,8 @@ export const Menu:RouteInfo[] = [
     title: "Instrukcja obsługi",
     type:"link",
     icontype:'school'
-}]
+}
+]
 
 export const AdminMenu:RouteInfo[] = [
             {

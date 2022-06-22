@@ -12,7 +12,7 @@
             </div>
           </div>
           <div class="card-body ">
-            <p class="card-description text-center">Logowanie do panelu klienta</p>
+            <p class="card-description text-center">{{ "login_page.title" | translate}}</p>
             <div class="row form-group">
               <div class="col-sm">
                 <div class="p-inputgroup">
@@ -21,7 +21,7 @@
                   </span>
                   <span class="p-float-label">
                       <input type="text" id="inputgroup" pInputText [(ngModel)]="loginObj.login" name="userName"  required> 
-                      <label for="inputgroup">Nazwa użytkownika</label>
+                      <label for="inputgroup">{{ "login_page.username" | translate }}</label>
                   </span>
               </div>
               </div>
@@ -35,7 +35,7 @@
                   </span>
                   <span class="p-float-label">
                       <input type="password" id="inputgroup" pInputText [(ngModel)]="loginObj.password" name="password"  required> 
-                      <label for="inputgroup">Hasło</label>
+                      <label for="inputgroup">{{ "login_page.password" | translate }}</label>
                   </span>
               </div>
               </div>
@@ -47,13 +47,13 @@
           </div>
           <div class="card-footer justify-content-center">
             <div class="col-md-4">
-                <img class="flags" src="./assets/img/flags/PL.png"alt="" style="padding-right: 8px;" />
-                <img class="flags" src="./assets/img/flags/GB.png"alt="" style="padding-right: 8px;" />
-                <img class="flags" src="./assets/img/flags/DE.png"alt="" style="padding-right: 8px;" />
-                <img class="flags" src="./assets/img/flags/CZ.png"alt="" style="padding-right: 8px;" />
+                <img class="flags set_language" src="./assets/img/flags/PL.png" (click)="setLanguage('pl')"/>
+                <img class="flags set_language" src="./assets/img/flags/GB.png" (click)="setLanguage('en')" />
+                <img class="flags set_language" src="./assets/img/flags/DE.png" (click)="setLanguage('de')" />
+                <img class="flags set_language" src="./assets/img/flags/CZ.png" (click)="setLanguage('cz')" />
             </div>
-            <div class="col-md-4 text-center"><p-button label="Zaloguj" type="submit"[disabled]="loginForm.invalid"></p-button></div>
-            <div class="col-md-4 text-right"><p-button label="Zapomniałem hasła" styleClass="p-button-link"></p-button></div>
+            <div class="col-md-4 text-center"><p-button type="submit"[disabled]="loginForm.invalid">{{ "login_page.login" | translate }}</p-button></div>
+            <div class="col-md-4 text-right"><p-button styleClass="p-button-link">{{ "login_page.forget_password" | translate }}</p-button></div>
           </div>
         </div>
       </form>

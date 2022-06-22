@@ -75,7 +75,7 @@ export class AuthService {
     if(localStorage.getItem("refreshToken")){
       let exp =parseInt(localStorage.getItem("tokenExp"));
       let actualDate = (new Date().getTime()+1)/1000;
-      console.log("exp: "+exp+" actualDate:"+actualDate+" różnica: "+(exp-actualDate).toString());
+      //console.log("exp: "+exp+" actualDate:"+actualDate+" różnica: "+(exp-actualDate).toString());
       if(exp>=actualDate)
           return true;
       else
