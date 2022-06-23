@@ -1,7 +1,5 @@
-import { AfterContentInit, AfterViewChecked, AfterViewInit, ApplicationRef, Component, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { Router } from '@angular/router';
+import { Component,  OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
-import { tap } from 'rxjs';
 import { AdminMenu, Menu, UserMenu } from 'src/app/metadata/menu';
 import { RouteInfo } from 'src/app/metadata/RouteInfo';
 import { User } from 'src/app/models/user';
@@ -46,6 +44,8 @@ export class SidebarComponent implements OnInit{
     //  }
 
     this.userMenuItems = UserMenu;
+
+   
   }
 
 
@@ -59,5 +59,7 @@ export class SidebarComponent implements OnInit{
   public logout(){
     this.authService.Logout();
   }
+
+
 
 }

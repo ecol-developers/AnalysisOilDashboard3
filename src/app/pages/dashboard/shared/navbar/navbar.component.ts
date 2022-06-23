@@ -1,6 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { Client } from 'src/app/models/client';
 import { AuthService } from 'src/app/services/auth.service';
+import { UserService } from 'src/app/services/user.service';
 
 const misc: any = {
   navbar_menu_visible: 0,
@@ -20,15 +22,23 @@ export class NavbarComponent implements OnInit {
   mobile_menu_visible: any = 0;
   private toggleButton: any;
   clientName:string;
+  public clients:Client[];
+  public selectedClient:number;
 
 
   constructor( 
     private authService:AuthService,
-    private transalteService:TranslateService
+    private transalteService:TranslateService,
+    private userService:UserService
     ) { }
 
   ngOnInit(): void {
       this.clientName = localStorage.getItem("clientName");
+      this.userService.GetClients().subscribe({
+        next:(res:Client[])=>this.clients = res
+      })
+  
+      this.selectedClient = Number.parseInt(localStorage.getItem("clientId"));
   }
 
 
@@ -134,8 +144,13 @@ export class NavbarComponent implements OnInit {
 }
 
 public logout(){
-  console.log("wylogowanie");
     this.authService.Logout();
+  }
+
+  onChange(id:number, name:string){
+       this.userService.SetLocalStorageClientData(id, name).then(()=>{
+         window.location.reload();
+       });
   }
 
 }

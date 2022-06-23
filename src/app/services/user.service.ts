@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of, tap } from 'rxjs';
+import { Client } from '../models/client';
 import { LogHistory } from '../models/logHistory';
 import { User } from '../models/user';
 import { endpointPath } from '../shared/globals';
@@ -9,6 +10,11 @@ import { endpointPath } from '../shared/globals';
   providedIn: 'root'
 })
 export class UserService {
+
+  GetClients():Observable<Client[]> {
+    let endpoint = endpointPath+"/Client/GetList/";
+    return this.http.get<Client[]>(endpoint);
+  }
 
   constructor(
     private http:HttpClient
@@ -34,7 +40,11 @@ async GetUserDataByIdSync(){
         localStorage.setItem("userEmail", res.email);
         localStorage.setItem("clientId", res.clientId.toString());
         localStorage.setItem("clientName", res.clientName);
+  }
 
+  async SetLocalStorageClientData(id:number, name:string){
+      localStorage.setItem("clientId", id.toString());
+      localStorage.setItem("clientName", name);
   }
 
   GetLocalStorageUserData():User{
