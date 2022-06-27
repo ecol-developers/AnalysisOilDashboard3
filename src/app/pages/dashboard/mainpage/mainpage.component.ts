@@ -4,6 +4,7 @@ import { MainpageService } from 'src/app/services/mainpage.service';
 import { DataChart } from 'src/app/metadata/dataChart';
 import { MainPageSummaryClient } from 'src/app/models/mainPageSummaryClient';
 import { MainPageChart } from 'src/app/models/mainPageChart';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-mainpage',
@@ -15,6 +16,12 @@ export class MainpageComponent implements OnInit{
   private samplesCountPositiveLastYearData :DataChart;
   private samplesCountNegativeLastYearData :DataChart;
   public mainPageSummaryClient:MainPageSummaryClient = {};
+
+  constructor(
+    private service:MainpageService,
+    private translateService:TranslateService
+  ) { }
+
 
 startAnimationForLineChart(chart: any) {
   let seq: any, delays: any, durations: any;
@@ -50,9 +57,6 @@ startAnimationForLineChart(chart: any) {
   seq = 0;
 }
 
-  constructor(
-    private service:MainpageService
-  ) { }
 
 
   ngOnInit(): void {

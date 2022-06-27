@@ -7,6 +7,7 @@ import { SampleDetail } from 'src/app/models/sampleDetail';
 import { SamplesService } from 'src/app/services/samples.service';
 import { SampleDetailService } from 'src/app/services/sample-detail.service';
 import { MessageService } from 'primeng/api';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-sample-table',
@@ -40,7 +41,8 @@ export class SampleTableComponent implements OnChanges {
   constructor(  
     private sampleService:SamplesService,
     private sampleDetailService:SampleDetailService,
-    private messageService:MessageService
+    private messageService:MessageService,
+    private translateService:TranslateService
     ) { }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -59,13 +61,13 @@ export class SampleTableComponent implements OnChanges {
         this.samples = res;
         switch (type) {
           case "warning":
-              this.samples = res.filter((obj)=>obj.noteName === 'UWAGA');
+              this.samples = res.filter((obj)=>obj?.noteName === 'UWAGA');
           break;
           case "advice":
-                this.samples = res.filter((obj)=>obj.noteName === 'WSKAZÓWKA');
+                this.samples = res.filter((obj)=>obj?.noteName === 'WSKAZÓWKA');
           break;
           case "normal":
-            this.samples = res.filter((obj)=>obj.noteName === 'W NORMIE');
+            this.samples = res.filter((obj)=>obj?.noteName === 'W NORMIE');
           break;
           default:
             this.samples = res;

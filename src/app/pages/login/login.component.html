@@ -19,10 +19,7 @@
                   <span class="p-inputgroup-addon">
                       <i class="pi pi-user"></i>
                   </span>
-                  <span class="p-float-label">
-                      <input type="text" id="inputgroup" pInputText [(ngModel)]="loginObj.login" name="userName"  required> 
-                      <label for="inputgroup">{{ "login_page.username" | translate }}</label>
-                  </span>
+                    <input type="text" id="inputgroup" pInputText [(ngModel)]="loginObj.login" [placeholder]="'login_page.username' | translate" name="userName"  required> 
               </div>
               </div>
               
@@ -33,10 +30,7 @@
                   <span class="p-inputgroup-addon">
                       <i class="pi pi-lock"></i>
                   </span>
-                  <span class="p-float-label">
-                      <input type="password" id="inputgroup" pInputText [(ngModel)]="loginObj.password" name="password"  required> 
-                      <label for="inputgroup">{{ "login_page.password" | translate }}</label>
-                  </span>
+                      <input type="password" id="inputgroup" pInputText [(ngModel)]="loginObj.password" [placeholder]="'login_page.password' | translate " name="password"  required> 
               </div>
               </div>
               
@@ -49,11 +43,11 @@
             <div class="col-md-4">
                 <img class="flags set_language" src="./assets/img/flags/PL.png" (click)="setLanguage('pl')"/>
                 <img class="flags set_language" src="./assets/img/flags/GB.png" (click)="setLanguage('en')" />
-                <!-- <img class="flags set_language" src="./assets/img/flags/DE.png" (click)="setLanguage('de')" />
-                <img class="flags set_language" src="./assets/img/flags/CZ.png" (click)="setLanguage('cz')" /> -->
+                <!-- <img class="flags set_language" src="./assets/img/flags/DE.png" (click)="setLanguage('de')" /> -->
+                <!-- <img class="flags set_language" src="./assets/img/flags/CZ.png" (click)="setLanguage('cz')" /> -->
             </div>
-            <div class="col-md-4 text-center"><p-button type="submit"[disabled]="loginForm.invalid">{{ "login_page.login" | translate }}</p-button></div>
-            <div class="col-md-4 text-right"><p-button styleClass="p-button-link">{{ "login_page.forget_password" | translate }}</p-button></div>
+            <div class="col-md-4"><p-button type="submit"[disabled]="loginForm.invalid">{{ "btn.login" | translate }}</p-button></div>
+            <div class="col-md-4"><p-button styleClass="p-button-link"><small>{{ "btn.forget_password" | translate }}</small></p-button></div>
           </div>
         </div>
       </form>

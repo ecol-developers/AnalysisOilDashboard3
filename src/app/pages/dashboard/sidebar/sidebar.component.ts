@@ -27,23 +27,32 @@ export class SidebarComponent implements OnInit{
 
 
   ngOnInit(): void {
-    // this.translateService.setDefaultLang('en');
-    // this.translateService.use('en');
-    // let test = this.translateService.instant("title_page");
-    // console.log("nazwa strony: "+test+ "jezyk "+ this.translateService.getDefaultLang());
-    this.menuItems = Menu;
-    // this.menuItems.forEach(el => {
-    //   el.title = this.translateService.instant(el.key);
-    // });
-
-    //console.log(this.menuItems);
     this.user = this.userService.GetLocalStorageUserData();
-    
-    //  if( this.userRole === "Admin"){
-        this.menuItems = this.menuItems.concat(AdminMenu);
-    //  }
+    this.menuItems = Menu;
+        //  if( this.userRole === "Admin"){
+    this.menuItems = this.menuItems.concat(AdminMenu);
+          //  }
+    this.menuItems.forEach(el => {
+      el.title = this.translateService.instant(el.key);
+      if(el.children)
+      {
+        el.children.forEach(ch=>{
+          ch.title = this.translateService.instant(ch.key);
+        });
+      }
+      
+    });
 
     this.userMenuItems = UserMenu;
+    this.userMenuItems.forEach(el => {
+      el.title = this.translateService.instant(el.key);
+      if(el.children){
+        el.children.forEach(ch=>{
+          ch.title = this.translateService.instant(ch.key);
+        });
+      }
+     
+    });
 
    
   }

@@ -1,18 +1,74 @@
 {
-    "title_page":"Analizy olejowe - beta version",
+    "title_page":"Analysis oil - beta version",
     "notifications":"Notifications",
-    "my_profile":"My profile",
-    "login_history":"Logs history",
-    "logout":"Logout",
-    "mainpage":"Main page",
+    "language":"Language",
+    "minimal_menu":"Minimalization menu",
+    "btn":{
+        "save":"Save",
+        "cancel":"Cancel",
+        "ok":"OK",
+        "add":"Add",
+        "login":"Login",
+        "logout":"Logout",
+        "show_details":"Show details...",
+        "forget_password":"I forget my password"
+    },
     "login_page":{
         "username":"User name",
         "password": "Password",
-        "title":"Login to customer panel",
-        "login":"Login",
-        "forget_password":"Forget password"
+        "title":"Login to customer panel"
     },
     "sidebarmenu":{
-        "mainpage":"Mainpage"
+        "mainpage":"Main page",
+        "all_labors":"All samples",
+        "labors_by_equipment":"Samples for equipment",
+        "groupped":"Grouped",
+        "labors_warning_state":"Samples with status 'Warning'",
+        "labors_hint_state":"Samples with status 'Hint'",
+        "labors_normal_state":"Samples with status 'Normal'",
+        "manual":"Get manual",
+        "administrators":"Administraction",
+        "users":"Users",
+        "clients":"Customers",
+        "login_history":"Login history",
+        "my_profile":"My profile"
+    },
+    "mainpage_page":{
+        "title":"Main page",
+        "summary_chart":{
+            "title":"Total number of samples",
+            "sample_insert_count":"Samples accepted for implementation",
+            "sample_in_laboratory_count":"Samples in laboratory",
+            "sample_in_interpretation_count":"Samples in interpretation",
+            "sample_confirmed_count":"Samples approved"
+        },
+        "doughnut_chart":{
+            "title":"Percent result samples groupped by note",
+            "whithout":"Without note",
+            "warning":"Warning",
+            "normal":"Normal",
+            "hint":"Hint"
+        },
+        "samples_count_by_month_chart":"Sample number in the last year",
+        "samples_success_count_by_month_chart":"Number of positive samples",
+        "samples_warning_count_by_month_chart":"Number of samples with the status 'Warning'",
+        "equipment_count":"Total number of equipments",
+        "sample_count":"Total number of samples",
+        "sample_report_not_read_count":"Number of unread laboratory reports with note:'Hint'",
+        "sample_report_not_read_for_warning_sample_count":"Number of unread laboratory reports with note:'Warning'"
+    },
+    "all_table":{
+        "clear":"Clear filters",
+        "search":"Search..."
+    },
+    "sample_table":{
+        "number": "Number",
+        "date":"Date",
+        "reason":"Reason",
+        "lubricant":"Lubricant",
+        "equipment":"Equipment",
+        "node":"Node",
+        "note":"Note"
     }
+    
 }

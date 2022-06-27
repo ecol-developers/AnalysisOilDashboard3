@@ -1,6 +1,7 @@
 import { Component,OnInit } from '@angular/core';
 import { EquipmentsService } from 'src/app/services/equipments.service';
 import { TreeNode} from 'primeng/api';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-equipments',
@@ -15,7 +16,8 @@ export class EquipmentsComponent implements OnInit  {
   equipmentId:number;
 
   constructor(
-    private service:EquipmentsService
+    private service:EquipmentsService,
+    private translateService:TranslateService
   ) { }
 
 

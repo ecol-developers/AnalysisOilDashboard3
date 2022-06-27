@@ -36,6 +36,7 @@ export class LoginComponent {
    }
 
    setLanguage(language:string){
-    this.translateService.use(language);
+     this.translateService.use(language);
+     localStorage.setItem("language",language);
    }
 }

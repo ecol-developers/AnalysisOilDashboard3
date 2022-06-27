@@ -8,13 +8,10 @@
 </div>
 
 <div class="sidebar-wrapper">
- 
     <div class="user">
-     
-        <!-- <div class="photo">
-             <img src="./assets/img/faces/avatar.jpg" />
-        </div> -->
-
+        <div class="photo photo_icon">
+          <i class="material-icons">person</i>
+        </div>
         <div class="user-info">
             <a data-toggle="collapse" href="#collapseExample" class="collapsed">
                 <span>
@@ -43,7 +40,7 @@
             </div>
         </div>
     </div>
-    <!-- <div *ngIf="isMobileMenu()">
+    <div *ngIf="isMobileMenu()">
       <form class="navbar-form">
         <span class="bmd-form-group"><div class="input-group no-border">
           <input type="text" value="" class="form-control" placeholder="Search...">
@@ -87,14 +84,14 @@
           </a>
         </li>
       </ul>
-    </div>  -->
+    </div> 
     <ul class="nav">
         <li routerLinkActive="active" *ngFor="let menuitem of menuItems" class="nav-item">
             <a [routerLink]="[menuitem.path]" *ngIf="menuitem.type === 'link'" class="nav-link">
                 <i class="material-icons">{{menuitem.icontype}}</i>
                 <p>{{menuitem.title}}</p>
             </a>
-            <a data-toggle="collapse" href="#{{menuitem.collapse}}" *ngIf="menuitem.type === 'sub'" (click)="updatePS()" class="nav-link">
+            <a data-toggle="collapse" href="#{{menuitem.collapse}}" *ngIf="menuitem.type === 'sub'" class="nav-link">
                 <i class="material-icons">{{menuitem.icontype}}</i>
                 <p>{{menuitem.title}}<b class="caret"></b></p>
             </a>
@@ -110,5 +107,4 @@
             </div>
         </li>
     </ul>
-
 </div>

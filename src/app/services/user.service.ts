@@ -1,6 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Observable, of, tap } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Client } from '../models/client';
 import { LogHistory } from '../models/logHistory';
 import { User } from '../models/user';
@@ -30,7 +30,7 @@ export class UserService {
 async GetUserDataByIdSync(){
   let userId = localStorage.getItem("userId");
   let endpoint = endpointPath+"/User/GetById/"+userId;
-  return await this.http.get<User>(endpoint).pipe(tap(console.log)).toPromise();  
+  return await this.http.get<User>(endpoint);  
 }
   
   SetLocalStorageUserData(res: User) {

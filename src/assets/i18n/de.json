@@ -1,23 +1,22 @@
 {
-    "title_page":"Analizy olejowe - wersja beta",
-    "notifications":"Powiadomienia",
-    "language":"Język",
-    "minimal_menu":"Minimalizacja menu",
-    "change_customer":"Zmień klienta...",
+    "title_page":"Ölanalysen - Beta-Version",
+    "notifications":"Benachrichtigungen",
+    "language":"Vertaling",
+    "minimal_menu":"Menu minimalisatie",
     "btn":{
-        "save":"Zapisz",
-        "cancel":"Anuluj",
+        "save":"Speichern",
+        "cancel":"Absagen",
         "ok":"OK",
-        "add":"Dodaj",
-        "login":"Zaloguj",
-        "logout":"Wyloguj",
-        "show_details":"Pokaż szczegóły...",
-        "forget_password":"Forget password"
+        "add":"Hinzufügen",
+        "login":"Anmeldung",
+        "logout":"Ausloggen",
+        "show_details":"Zeig mir die Details...",
+        "forget_password":"Ich habe mein Passwort vergessen"
     },
     "login_page":{
-        "username":"Nazwa użytkownika",
-        "password": "Hasło",
-        "title":"Logowanie do panelu klienta"
+        "username":"Benutzer",
+        "password": "Passwort",
+        "title":"Einloggen in das Kundenpanel"
     },
     "sidebarmenu":{
         "mainpage":"Strona główna",
@@ -35,16 +34,16 @@
         "my_profile":"Mój profil"
     },
     "mainpage_page":{
-        "title":"Strona główna",
+        "title":"Index",
         "summary_chart":{
-            "title":"Podsumowanie wykonanych próbek laboratoryjnych",
+            "title":"Total number of samples",
             "sample_insert_count":"Próbki przyjęte",
             "sample_in_laboratory_count":"Próbki w laboratorium",
             "sample_in_interpretation_count":"Próbki w interpretacji",
             "sample_confirmed_count":"Próbki zatwierdzone"
         },
         "doughnut_chart":{
-            "title":"Procentowy podział wyników próbek wg ich oceny",
+            "title":"Percent result samples groupped by note",
             "whithout":"Brak oceny",
             "warning":"Uwaga",
             "normal":"W normie",
@@ -60,8 +59,7 @@
     },
     "all_table":{
         "clear":"Wyczyść filtry",
-        "search":"Szukaj...",
-        "empty_data":"Brak danych"
+        "search":"Szukaj..."
     },
     "sample_table":{
         "number": "Numer",

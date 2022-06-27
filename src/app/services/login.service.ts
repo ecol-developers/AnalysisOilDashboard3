@@ -26,7 +26,6 @@ export class LoginService {
             this.userService.SetLocalStorageUserData(res);
           },
           complete:()=> {
-            console.log("__navigate to mainpage");
             this.router.navigate(["/dashboard/mainpage"])
           }
         } );

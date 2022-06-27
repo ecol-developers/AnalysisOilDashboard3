@@ -3,5 +3,6 @@ export interface ChildrenItems {
     title: string;
     ab: string;
     type?: string;
-    action?:any
+    action?:any,
+    key:string
 }

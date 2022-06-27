@@ -14,41 +14,41 @@
     >
 <ng-template pTemplate="caption">
         <div class="p-d-flex">
-            <button pButton label="Wyczyść filtry" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clear(dt1)"></button>
+            <button pButton [label]="'all_table.clear' | translate" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clear(dt1)"></button>
             <span class="p-input-icon-left p-ml-auto">
                 <i class="pi pi-search"></i>
-                <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Szukaj..." />
+                <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')" [placeholder]="'all_table.search' | translate" />
             </span>
         </div>
 </ng-template>
 <ng-template pTemplate="header">
     <tr>
         <th style="width: 3rem"></th>
-        <th pSortableColumn="sampleNumber">Numer 
+        <th pSortableColumn="sampleNumber">{{"sample_table.number" | translate}}
             <p-sortIcon field="sampleNumber"></p-sortIcon>
             <p-columnFilter type="text" field="sampleNumber" display="menu" ></p-columnFilter>
         </th>
-        <th pSortableColumn="sampleDate">Data 
+        <th pSortableColumn="sampleDate">{{"sample_table.date" | translate}}
             <p-sortIcon field="sampleDate"></p-sortIcon>
             <p-columnFilter type="date" field="sampleDate" display="menu" ></p-columnFilter>
         </th>
-        <th pSortableColumn="reason">Powód wykonania 
+        <th pSortableColumn="reason">{{"sample_table.reason" | translate}}
             <p-sortIcon field="reason"></p-sortIcon>
             <p-columnFilter type="text" field="reason" display="menu" ></p-columnFilter>
         </th>
-        <th pSortableColumn="lubricantName">Nazwa śr. smarnego
+        <th pSortableColumn="lubricantName">{{"sample_table.lubricant" | translate}}
             <p-sortIcon field="lubricantName"></p-sortIcon>
             <p-columnFilter type="text" field="lubricantName" display="menu" ></p-columnFilter>
         </th>
-        <th pSortableColumn="equipmentName">Nazwa urządzenia 
+        <th pSortableColumn="equipmentName">{{"sample_table.equipment" | translate}}
             <p-sortIcon field="equipmentName"></p-sortIcon>
             <p-columnFilter type="text" field="equipmentName" display="menu" ></p-columnFilter>
         </th>
-        <th pSortableColumn="nodeName">Nazwa oddziału 
+        <th pSortableColumn="nodeName">{{"sample_table.node" | translate}}
             <p-sortIcon field="nodeName"></p-sortIcon>
             <p-columnFilter type="text" field="nodeName" display="menu" ></p-columnFilter>
         </th>
-        <th pSortableColumn="noteName">Uwagi 
+        <th pSortableColumn="noteName">{{"sample_table.note" | translate}}
             <p-sortIcon field="noteName"></p-sortIcon>
             <p-columnFilter type="text" field="noteName" display="menu" ></p-columnFilter>
         </th>
@@ -66,13 +66,13 @@
  <td>{{sample.lubricantName}}</td>
  <td>{{sample.equipmentName}}</td>
  <td>{{sample.nodeName}}</td>
- <td><div [class]="'sample-badge sample-badge-' + sample.noteNameEn.toLowerCase()">{{sample.noteName.toLowerCase()}}</div></td>
+ <td><div [class]="'sample-badge sample-badge-' + sample.noteNameEn.toLowerCase()">{{sample?.noteName.toLowerCase()}}</div></td>
  <td><p-button type="button" (click)="downloadReport(sample.id)" icon="pi pi-file-pdf"></p-button></td>
 </tr>
 </ng-template>
 <ng-template pTemplate="emptymessage">
     <tr>
-        <td colspan="6">Brak próbek dla wybranego filtrowania lub wybranego urządzenia</td>
+        <td colspan="6">{{"sample_table.empty_data" | translate}}</td>
     </tr>
 </ng-template>
 <ng-template pTemplate="rowexpansion" let-sample>

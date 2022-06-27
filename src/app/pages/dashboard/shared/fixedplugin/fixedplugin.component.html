@@ -5,21 +5,21 @@
             <i class="fa fa-cog fa-2x"> </i>
         </a>
         <ul class="dropdown-menu">
-            <li class="header-title">Język</li>
+            <li class="header-title">{{ "language" | translate }}</li>
             <li class="adjustments-line">
                 <a href="javascript:void(0)" class="switch-trigger background-color">
                     <div class="ml-auto mr-auto">
-                        <img class="flags" src="./assets/img/flags/PL.png"alt="" />
-                        <img class="flags" src="./assets/img/flags/GB.png"alt="" />
-                        <img class="flags" src="./assets/img/flags/DE.png"alt="" />
-                        <img class="flags" src="./assets/img/flags/CZ.png"alt="" />
+                        <img class="flags" src="./assets/img/flags/PL.png"alt="" (click)="setLanguage('pl')" />
+                        <img class="flags" src="./assets/img/flags/GB.png"alt="" (click)="setLanguage('en')" />
+                        <!-- <img class="flags" src="./assets/img/flags/DE.png"alt="" />
+                        <img class="flags" src="./assets/img/flags/CZ.png"alt="" /> -->
                     </div>
                     <div class="clearfix"></div>
                 </a>
             </li>
             <li class="adjustments-line">
               <a href="javascript:void(0)" class="switch-trigger">
-                  <p>Minimalizacja menu</p>
+                  <p>{{ "minimal_menu" | translate }}</p>
                   <label class="ml-auto">
                     <div class="togglebutton switch-sidebar-mini">
                       <label>
@@ -32,8 +32,6 @@
                   <div class="ripple-container"></div>
               </a>
             </li>
-           
-         
         </ul>
         
     </div> 

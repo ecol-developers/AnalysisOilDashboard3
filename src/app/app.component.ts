@@ -11,8 +11,12 @@ export class AppComponent{
   constructor(
     private translateService:TranslateService
   ) { 
-    translateService.addLangs(['pl','en']);
-    translateService.setDefaultLang('pl');
-    translateService.use('pl');
+    translateService.addLangs(['pl','en','de']);
+    let lan = localStorage.getItem("language")
+
+    if(lan)
+      translateService.use(lan);
+    else 
+      translateService.setDefaultLang('pl');
   }
 }

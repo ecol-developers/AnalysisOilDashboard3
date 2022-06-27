@@ -7,7 +7,7 @@
                 <div class="card-icon">
                   <i class="material-icons"></i>
                 </div>
-                <h4 class="card-title">Podsumowanie wykonanych próbek laboratoryjnych</h4>
+                <h2 class="header_page">{{"mainpage_page.title" | translate}}</h2>
               </div>
                 <div class="card-body">
                     <div class="row">
@@ -29,14 +29,14 @@
               <div class="ct-chart" id="samplesCountByMonthChart"></div>
             </div>
             <div class="card-body">
-              <h4 class="card-title">Liczba próbek w systemie w ciągu ostatniego roku</h4>
+              <h4 class="card-title">{{ "mainpage_page.samples_count_by_month_chart" | translate}}</h4>
               <p class="card-category">
-                <span class="text-success"><i class="fa fa-long-arrow-up"></i> 12% </span> różnica w stosunku do ostatniego miesiąca
+                <span class="text-success"><i class="fa fa-long-arrow-up"></i> 12% </span> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
               </p>
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">access_time</i> zaktualizowano 24h temu
+                <i class="material-icons">access_time</i> Lorem ipsum dolor sit amet
               </div>
             </div>
           </div>
@@ -47,13 +47,13 @@
               <div class="ct-chart" id="samplesSuccessCountByMonthChart"></div>
             </div>
             <div class="card-body">
-              <h4 class="card-title">Liczba próbek z wynikiem pozytywnym</h4>
+              <h4 class="card-title">{{ "mainpage_page.samples_success_count_by_month_chart" | translate }}</h4>
               <p class="card-category">
-                <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> różnica w stostunku do ostatniego roku</p>
+                <span class="text-success"><i class="fa fa-long-arrow-up"></i> 55% </span> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt</p>
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">access_time</i> zaktualizowano 24h temu
+                <i class="material-icons">access_time</i> Lorem ipsum dolor sit amet
               </div>
             </div>
           </div>
@@ -64,14 +64,14 @@
               <div class="ct-chart" id="samplesWarningCountByMonthChart"></div>
             </div>
             <div class="card-body">
-              <h4 class="card-title">Liczba próbek w statusie 'Uwaga'</h4>
+              <h4 class="card-title">{{"mainpage_page.samples_warning_count_by_month_chart"|translate}}</h4>
               <p class="card-category">
-                <span class="text-success"><i class="fa fa-long-arrow-down"></i> 12% </span> różnica w stostunku do ostatniego roku
+                <span class="text-success"><i class="fa fa-long-arrow-down"></i> 12% </span> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt
               </p>
             </div>
             <div class="card-footer">
               <div class="stats">
-                <i class="material-icons">access_time</i> zaktualizowano 24h temu
+                <i class="material-icons">access_time</i> Lorem ipsum dolor sit amet
               </div>
             </div>
           </div>
@@ -84,13 +84,13 @@
               <div class="card-icon">
                 <i class="material-icons">storage</i>
               </div>
-              <p class="card-category">Ilość wszystkich urządzeń</p>
+              <p class="card-category">{{ "mainpage_page.equipment_count" | translate}}</p>
               <h3 class="card-title">{{mainPageSummaryClient?.equipmentCount}}</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
                 <i class="material-icons text-info">zoom_in</i>
-                <a href="/#/dashboard/equipments">Pokaż szczegóły...</a>
+                <a href="/#/dashboard/equipments">{{ "btn.show_details" | translate}}</a>
               </div>
             </div>
           </div>
@@ -101,13 +101,13 @@
                 <div class="card-icon">
                   <i class="material-icons">view_headline</i>
                 </div>
-                <p class="card-category">Ilość wszystkich przebadanych próbek</p>
+                <p class="card-category">{{ "mainpage_page.sample_count" | translate}}</p>
                 <h3 class="card-title">{{mainPageSummaryClient?.sampleCount}}</h3>
               </div>
               <div class="card-footer">
                 <div class="stats">
                   <i class="material-icons text-info">zoom_in</i>
-                  <a href="/#/dashboard/samples">Pokaż szczegóły...</a>
+                  <a href="/#/dashboard/samples">{{ "btn.show_details" | translate}}</a>
                 </div>
               </div>
             </div>
@@ -118,13 +118,13 @@
               <div class="card-icon">
                 <i class="material-icons">volume_down</i>
               </div>
-              <p class="card-category">Ilość nieprzeczytanych raportów laboratoryjnych w statusie 'WSKAZÓWKA'</p>
+              <p class="card-category">{{ "mainpage_page.sample_report_not_read_count" | translate}}</p>
               <h3 class="card-title">{{mainPageSummaryClient?.sampleReportNotReadCount}}</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
                 <i class="material-icons text-info">zoom_in</i>
-                <a href="/#/dashboard/group/advice">Pokaż szczegóły...</a>
+                <a href="/#/dashboard/group/advice">{{ "btn.show_details" | translate}}</a>
               </div>
             </div>
           </div>
@@ -135,13 +135,13 @@
               <div class="card-icon">
                 <i class="material-icons">volume_up</i>
               </div>
-              <p class="card-category">Ilość nieprzeczytanych raportów laboratoryjnych w statusie 'UWAGA'</p>
+              <p class="card-category">{{ "mainpage_page.sample_report_not_read_for_warning_sample_count" | translate}}</p>
               <h3 class="card-title">{{mainPageSummaryClient?.sampleReportNotReadForWarningSampleCount}}</h3>
             </div>
             <div class="card-footer">
               <div class="stats">
                 <i class="material-icons text-info">zoom_in</i>
-                <a href="/#/dashboard/group/warning">Pokaż szczegóły...</a>
+                <a href="/#/dashboard/group/warning">{{ "btn.show_details" | translate}}</a>
               </div>
             </div>
           </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 
 
 declare const $: any;
@@ -18,7 +19,8 @@ const md: any = {
 })
 export class FixedpluginComponent implements OnInit {
 
-  constructor() { }
+    constructor(private translateService:TranslateService) {
+    }
 
  
   ngOnInit() {
@@ -180,5 +182,10 @@ export class FixedpluginComponent implements OnInit {
 
     });
 }
+
+setLanguage(language:string){
+    this.translateService.use(language);
+    localStorage.setItem("language",language);
+  }
 
 }

@@ -1,17 +1,18 @@
-import { Component, DoCheck } from '@angular/core';
+import { Component, DoCheck, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
+import { transcode } from 'buffer';
 
 @Component({
   selector: 'app-samples',
   templateUrl: './samples.component.html',
   styleUrls: ['./samples.component.css']
 })
-export class SamplesComponent implements  DoCheck {
+export class SamplesComponent implements  DoCheck{
   type:string;
-  title:string = "Lista wszystkich próbek laboratoryjnych";
-
   constructor(
-    private route:ActivatedRoute) {}
+    private route:ActivatedRoute,
+    private translateService:TranslateService) {}
 
   ngDoCheck(): void {
     this.type=this.route.snapshot.paramMap.get("id");

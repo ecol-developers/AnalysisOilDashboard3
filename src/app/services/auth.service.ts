@@ -36,7 +36,7 @@ export class AuthService {
 
    refreshToken(refreshToken:string):Observable<LoginResultMd>{
     return this.http.post<LoginResultMd>(endpointPath+"/User/RefreshToken",refreshToken)
-                .pipe(tap(console.log),catchError(this.sharedService.handleError));
+                .pipe(catchError(this.sharedService.handleError));
   }
 
   getLoginMdObj(obj: Login):LoginMd {
@@ -48,9 +48,11 @@ export class AuthService {
   }
 
   Logout(){
+      let ln = localStorage.getItem("language");
       localStorage.removeItem("token");
       localStorage.removeItem("refreshToken");
       localStorage.clear();
+      localStorage.setItem("language",ln);
   }
 
 
