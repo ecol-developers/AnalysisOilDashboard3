@@ -1,4 +1,4 @@
-import { Component,  OnInit } from '@angular/core';
+import { AfterContentChecked, AfterContentInit, AfterViewChecked, AfterViewInit, Component,  DoCheck,  OnChanges,  OnDestroy,  OnInit, SimpleChanges } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { AdminMenu, Menu, UserMenu } from 'src/app/metadata/menu';
 import { RouteInfo } from 'src/app/metadata/RouteInfo';
@@ -13,10 +13,11 @@ declare const $: any;
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
-export class SidebarComponent implements OnInit{
+export class SidebarComponent implements OnInit, DoCheck{
   public menuItems:RouteInfo[];
   public userMenuItems:RouteInfo[];
   public user:User;
+  ln:string;
 
   constructor(
     private authService:AuthService,
@@ -24,15 +25,23 @@ export class SidebarComponent implements OnInit{
     private translateService:TranslateService
     ) { }
 
+  ngDoCheck(): void {
+      this.generateMenu();       
+  }
 
 
   ngOnInit(): void {
+    this.ln = localStorage.getItem("language");
+    this.generateMenu();
+  }
+
+  generateMenu(){
     this.user = this.userService.GetLocalStorageUserData();
     this.menuItems = Menu;
         //  if( this.userRole === "Admin"){
     this.menuItems = this.menuItems.concat(AdminMenu);
           //  }
-    this.menuItems.forEach(el => {
+    this.menuItems.forEach(el => {  
       el.title = this.translateService.instant(el.key);
       if(el.children)
       {
@@ -53,8 +62,6 @@ export class SidebarComponent implements OnInit{
       }
      
     });
-
-   
   }
 
 

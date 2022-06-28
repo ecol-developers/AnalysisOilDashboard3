@@ -4,12 +4,14 @@ export const ClientCols:tableColsStructure[] = [
     {
         field:"id",
         header:"Id",
-        dataType:"numeric"
+        dataType:"numeric",
+        key:"client_table.id"
     },
     {
         field:"name",
         header:"Nazwa klienta",
-        dataType:"text"
+        dataType:"text",
+        key:"client_table.name"
     },
     {
         field:"Action",
@@ -19,6 +21,7 @@ export const ClientCols:tableColsStructure[] = [
         icon:"pi pi-plus-circle",
         description:"Wybierz klienta",
         sortable:false,
-        filter:false
+        filter:false,
+        key:"client_table.action"
     }
 ]

@@ -69,6 +69,31 @@
         "equipment":"Urządzenie",
         "node":"Oddział",
         "note":"Uwagi"
+    },
+    "sample_table_detail":{
+        "symbol": "Symbol",
+        "name":"Nazwa",
+        "standard":"Norma",
+        "result":"Wynik"
+    },
+    "log_history_table":{
+        "id":"Id",
+        "login":"Nazwa użytkownika",
+        "name":"Imię",
+        "surname":"Nazwisko",
+        "client":"Nazwa klienta",
+        "date":"Data logowania"
+    },
+    "user_table":{
+        "id":"Id",
+        "email":"Email",
+        "name":"Imię",
+        "surname":"Nazwisko",
+        "login":"Nazwa użytkownika",
+        "client_symbol":"Symbol klienta",
+        "client_name":"Nazwa klienta",
+        "last_login_date":"Ostatnie logowanie",
+        "action":"Akcje"
     }
     
 }

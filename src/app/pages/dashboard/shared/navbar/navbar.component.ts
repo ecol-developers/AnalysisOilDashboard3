@@ -1,4 +1,4 @@
-import { Component, DoCheck, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
 import { Client } from 'src/app/models/client';
 import { AuthService } from 'src/app/services/auth.service';
@@ -24,6 +24,7 @@ export class NavbarComponent implements OnInit {
   clientName:string;
   public clients:Client[];
   public selectedClient:number;
+  public change_customer:string;
 
 
   constructor( 
@@ -34,6 +35,7 @@ export class NavbarComponent implements OnInit {
 
   ngOnInit(): void {
       this.clientName = localStorage.getItem("clientName");
+      this.change_customer = this.transalteService.instant("change_customer");
       this.userService.GetClients().subscribe({
         next:(res:Client[])=>this.clients = res
       })

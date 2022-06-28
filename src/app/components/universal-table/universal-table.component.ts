@@ -1,4 +1,5 @@
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { MessageService } from 'primeng/api';
 import { DialogService, DynamicDialogConfig } from 'primeng/dynamicdialog';
 import {DynamicDialogRef} from 'primeng/dynamicdialog';
@@ -8,6 +9,7 @@ import { UserCols } from 'src/app/metadata/cols/userCols';
 import { Client } from 'src/app/models/client';
 import { LogHistory } from 'src/app/models/logHistory';
 import { User } from 'src/app/models/user';
+
 import { AdminService } from 'src/app/services/admin.service';
 import { UserService } from 'src/app/services/user.service';
 import { UniversalDictComponent } from '../universal-dict/universal-dict.component';
@@ -30,7 +32,8 @@ export class UniversalTableComponent implements OnChanges {
     public dialogService:DialogService,
     private userService:UserService,
     private adminService:AdminService,
-    private messageService:MessageService
+    private messageService:MessageService,
+    private translateService:TranslateService
   ) { }
 
   ngOnChanges(changes: SimpleChanges): void {
@@ -40,6 +43,7 @@ export class UniversalTableComponent implements OnChanges {
   populateDataSource(){
     if(this.sourceType === null)
     return;
+
     switch (this.sourceType) {
       case "UsersLogHistory":
         this.GetUsersLogHistory();
@@ -76,6 +80,10 @@ export class UniversalTableComponent implements OnChanges {
       this.adminService.GetUsersLogHistory().subscribe({
       next: (res: LogHistory[]) => this.dataSource = res,
       complete: () => {
+        
+        LogHistoryCols.forEach(el => {
+          el.header = this.translateService.instant(el.key);
+        });
         this.cols = LogHistoryCols;
         this.dataLoading = false;
       }

@@ -3,8 +3,8 @@ import * as Chartist from 'chartist';
 import { MainpageService } from 'src/app/services/mainpage.service';
 import { DataChart } from 'src/app/metadata/dataChart';
 import { MainPageSummaryClient } from 'src/app/models/mainPageSummaryClient';
-import { MainPageChart } from 'src/app/models/mainPageChart';
 import { TranslateService } from '@ngx-translate/core';
+import { MainPageChart } from 'src/app/models/mainPageChart';
 
 @Component({
   selector: 'app-mainpage',

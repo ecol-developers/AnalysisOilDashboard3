@@ -9,14 +9,13 @@
 [showCurrentPageReport]="true"
 [globalFilterFields]=""
 styleClass="p-datatable-striped"
-currentPageReportTemplate="Przedstawiono {first} do {last} z {totalRecords} rekordów"
 responsiveLayout="scroll">
 <ng-template pTemplate="caption">
     <div class="p-d-flex">
-        <button pButton label="Wyczyść filtry" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clear(dt1)"></button>
+        <button pButton [label]="'all_table.clear' | translate" class="p-button-outlined" icon="pi pi-filter-slash" (click)="clear(dt1)"></button>
         <span class="p-input-icon-left p-ml-auto">
             <i class="pi pi-search"></i>
-            <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')" placeholder="Szukaj..." />
+            <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')"  [placeholder]="'all_table.search' | translate" />
         </span>
     </div>
 </ng-template>

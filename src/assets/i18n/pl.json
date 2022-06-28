@@ -1,4 +1,51 @@
 {
+    "primeng": {
+        "startsWith": "Zacyzna się od",
+        "contains": "Zawiera",
+        "notContains": "Nie zawiera",
+        "endsWith": "Kończy się",
+        "equals": "Równy",
+        "notEquals": "Nie równy",
+        "noFilter": "Nie filtruj",
+        "lt": "Mniejsze niż",
+        "lte": "Mniejsze lub równe",
+        "gt": "Większe niż",
+        "gte": "Większe lub równe",
+        "is": "Jest",
+        "isNot": "Nie jest",
+        "before": "Przed",
+        "after": "Po",
+        "dateIs": "Data jest",
+        "dateIsNot": "Data nie jest",
+        "dateBefore": "Data od",
+        "dateAfter": "Data po",
+        "clear": "Wyczyść",
+        "apply": "Zatwierdź",
+        "matchAll": "Dopasuj wszystko",
+        "matchAny": "Match Any",
+        "addRule": "Dopasuj dowolne",
+        "removeRule": "Usuń filtry",
+        "accept": "Tak",
+        "reject": "Nie",
+        "choose": "Wybierz",
+        "upload": "Wgraj",
+        "cancel": "Anuluj",
+        "dayNames": ["Niedziela", "Poniedziałek", "Wtorek", "Środa", "Czwartek", "Piątek", "Sobota"],
+        "dayNamesShort": ["Ndz", "Pon", "Wto", "Śro", "Czw", "Pią", "Sob"],
+        "dayNamesMin": ["Nd","Po","Wt","Śr","Cz","Pi","So"],
+        "monthNames": ["Styczeń","Luty","Marzec","Kwiecień","Maj","Czerwiec","Lipiec","Sierpień","Wrzesień","Październik","Listopad","Grudzień"],
+        "monthNamesShort": ["Sty", "Lut", "Mar", "Kwi", "Maj", "Cze","Lip", "Sie", "Wrz", "Paź", "Lis", "Gru"],
+        "dateFormat": "mm/dd/yy",
+        "firstDayOfWeek": 1,
+        "today": "Dzisiaj",
+        "weekHeader": "Wk",
+        "weak": "Tydzień",
+        "medium": "Srednio",
+        "strong": "Mocny",
+        "passwordPrompt": "Wpisz hasło",
+        "emptyMessage": "Brak wyników",
+        "emptyFilterMessage": "Nie znaleziono wyników"
+    },
     "title_page":"Analizy olejowe - wersja beta",
     "notifications":"Powiadomienia",
     "language":"Język",
@@ -71,6 +118,36 @@
         "equipment":"Urządzenie",
         "node":"Oddział",
         "note":"Uwagi"
+    },
+    "sample_table_detail":{
+        "symbol": "Symbol",
+        "name":"Nazwa",
+        "standard":"Norma",
+        "result":"Wynik"
+    },
+    "log_history_table":{
+        "id":"Id",
+        "login":"Nazwa użytkownika",
+        "name":"Imię",
+        "surname":"Nazwisko",
+        "client":"Nazwa klienta",
+        "date":"Data logowania"
+    },
+    "user_table":{
+        "id":"Id",
+        "email":"Email",
+        "name":"Imię",
+        "surname":"Nazwisko",
+        "login":"Nazwa użytkownika",
+        "client_symbol":"Symbol klienta",
+        "client_name":"Nazwa klienta",
+        "last_login_date":"Ostatnie logowanie",
+        "action":"Akcje"
+    },
+    "client_table":{
+        "id":"Id",
+        "name":"Nazwa",
+        "action":"Akcje"
     }
     
 }

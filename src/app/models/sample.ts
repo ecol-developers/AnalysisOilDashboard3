@@ -1,4 +1,4 @@
-import { SampleDetail } from "./sampleDetail";
+import { SampleDetail } from "./sampleDetail"
 
 export interface Sample{
     id: number,

@@ -20,7 +20,7 @@
        
         <ul class="navbar-nav">
           <li>
-            <p-dropdown [options]="clients" optionLabel="name" [placeholder]="'change_customer'|translate" filter="true">
+            <p-dropdown [options]="clients" optionLabel="name" filter="true" >
               <ng-template let-client pTemplate="item" >
                 <span (click)="onChange(client.id, client.name)">{{client.name}}</span>
               </ng-template>

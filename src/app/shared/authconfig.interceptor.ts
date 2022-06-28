@@ -8,7 +8,6 @@ import {
 } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { AuthService } from '../services/auth.service';
-import { LoginResultMd } from '../models/loginResultMd';
 
 @Injectable()
 export class AuthconfigInterceptor implements HttpInterceptor {

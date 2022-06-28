@@ -1,13 +1,15 @@
 import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Table } from 'primeng/table';
-import { Sample } from 'src/app/models/sample';
-import { SampleAttachment } from 'src/app/models/sampleAttachment';
+
+
 import { SampleDetail } from 'src/app/models/sampleDetail';
 import { SamplesService } from 'src/app/services/samples.service';
 import { SampleDetailService } from 'src/app/services/sample-detail.service';
 import { MessageService } from 'primeng/api';
 import { TranslateService } from '@ngx-translate/core';
+import { Sample } from 'src/app/models/sample';
+import { SampleAttachment } from 'src/app/models/sampleAttachment';
 
 @Component({
   selector: 'app-sample-table',

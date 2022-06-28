@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TranslateService } from '@ngx-translate/core';
+import { PrimeNGConfig } from 'primeng/api';
 
 
 declare const $: any;
@@ -19,7 +20,10 @@ const md: any = {
 })
 export class FixedpluginComponent implements OnInit {
 
-    constructor(private translateService:TranslateService) {
+    constructor(
+        private translateService:TranslateService,
+        private primeNgConfig:PrimeNGConfig
+        ) {
     }
 
  
@@ -186,6 +190,10 @@ export class FixedpluginComponent implements OnInit {
 setLanguage(language:string){
     this.translateService.use(language);
     localStorage.setItem("language",language);
+
+    this.translateService.get('primeng').subscribe(res=> {
+        this.primeNgConfig.setTranslation(res);
+    }) 
   }
 
 }

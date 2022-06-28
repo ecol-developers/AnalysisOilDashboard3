@@ -7,5 +7,6 @@ export interface tableColsStructure {
     description?:string,
     sortable?:boolean,
     filter?:boolean,
-    visible?:boolean
+    visible?:boolean,
+    key:string
 }
