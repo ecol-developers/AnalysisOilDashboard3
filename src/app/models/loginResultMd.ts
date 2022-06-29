@@ -1,4 +1,4 @@
-import { AuthorizationTokenMd } from "./authorizationTokenMD";
+import { AuthorizationTokenMd } from "./authorizationTokenMd";
 
 export interface LoginResultMd{
     userId:number;

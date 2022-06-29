@@ -13,6 +13,7 @@ declare const $: any;
   templateUrl: './sidebar.component.html',
   styleUrls: ['./sidebar.component.css']
 })
+
 export class SidebarComponent implements OnInit, DoCheck{
   public menuItems:RouteInfo[];
   public userMenuItems:RouteInfo[];
@@ -31,7 +32,6 @@ export class SidebarComponent implements OnInit, DoCheck{
 
 
   ngOnInit(): void {
-    this.ln = localStorage.getItem("language");
     this.generateMenu();
   }
 
