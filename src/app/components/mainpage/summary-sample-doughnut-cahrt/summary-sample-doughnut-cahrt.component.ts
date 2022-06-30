@@ -33,22 +33,22 @@ export class SummarySampleDoughnutCahrtComponent implements OnInit {
               {
                   data: [res[0].percent, res[1].percent, res[2].percent, res[3].percent],
                   backgroundColor: [
-                      "#FF6384",
-                      "#36A2EB",
-                      "#FFCE56",
-                      "#cccccc"
+                      "#cccccc",//szary
+                      "#FF6384",//czerwien
+                      "#FFCE56",//żółty
+                      "#36A2EB"//niebieski
                   ],
                   hoverBackgroundColor: [
-                      "#FF6384",
-                      "#36A2EB",
-                      "#FFCE56",
-                      "#999999"
+                    "#cccccc",//szary
+                    "#FF6384",//czerwien
+                    "#FFCE56",//żółty
+                    "#36A2EB"//niebieski
                   ]
               }
           ]
       };
       }
-    })
+    });
   
   }
 

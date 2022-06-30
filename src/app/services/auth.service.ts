@@ -25,7 +25,7 @@ export class AuthService {
   constructor(
     private http: HttpClient,
     private sharedService: SharedService,
-    private router:Router
+    private router: Router
     ) { }
 
   Login(loginObj: Login): Observable<LoginResultMd>  {
@@ -35,18 +35,12 @@ export class AuthService {
                   .pipe(catchError(this.sharedService.handleError));
    }
 
-   refreshToken(refreshToken: string): LoginResultMd {
+   refreshToken(refreshToken: string): Observable<LoginResultMd> {
     const httpOptions = {
       headers: new HttpHeaders({'Content-Type': 'text/json'})
     };
 
-    let ret:LoginResultMd;
-    this.http.post<LoginResultMd>(endpointPath + '/User/RefreshToken', '"' + refreshToken + '"', httpOptions)
-                    .subscribe({
-                      next:(res:LoginResultMd)=> ret = res
-                    });
-
-    return ret;
+    return this.http.post<LoginResultMd>(endpointPath + '/User/RefreshToken', '"' + refreshToken + '"', httpOptions);
 
   }
 
@@ -84,12 +78,20 @@ export class AuthService {
 
       const decodate = JSON.parse(window.atob(res.accessToken.value.split('.')[1]));
       localStorage.setItem('tokenExp', decodate['exp']);
-      localStorage.setItem('userId', res.userId.toString());
+      localStorage.setItem('userId', decodate['user']);
+      const rights: string[] =  decodate['http://schemas.microsoft.com/ws/2008/06/identity/claims/role'];
+      if (rights)
+      {
+        const admin  = rights.filter(x => x.includes('AO-Admin'));
+        if (admin) {
+          localStorage.setItem('admin', 'true');
+        }
+      }
   }
 
   public isExpired(): boolean {
     if (localStorage.getItem('refreshToken')) {
-      const exp = parseInt(localStorage.getItem('tokenExp'))-820;
+      const exp = parseInt(localStorage.getItem('tokenExp')) - 820;
       const actualDate = (new Date().getTime() + 1) / 1000;
       console.log('exp: ' + exp + ' actualDate:' + actualDate + ' różnica: ' + (exp - actualDate).toString());
       if (exp >= actualDate) {

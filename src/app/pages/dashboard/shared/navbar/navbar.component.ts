@@ -25,6 +25,7 @@ export class NavbarComponent implements OnInit {
   public clients:Client[];
   public selectedClient:number;
   public change_customer:string;
+  public showClients:boolean;
 
 
   constructor( 
@@ -36,6 +37,7 @@ export class NavbarComponent implements OnInit {
   ngOnInit(): void {
       this.clientName = localStorage.getItem("clientName");
       this.change_customer = this.transalteService.instant("change_customer");
+      this.showClients = (localStorage.getItem('admin') === 'true'? true:false);
       this.userService.GetClients().subscribe({
         next:(res:Client[])=>this.clients = res
       })
@@ -134,8 +136,6 @@ export class NavbarComponent implements OnInit {
 
       this.mobile_menu_visible = 0;
   };
-
-
 
   sidebarToggle() {
     if (this.sidebarVisible === false) {

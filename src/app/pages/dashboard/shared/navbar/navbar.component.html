@@ -19,7 +19,7 @@
       <div class="collapse navbar-collapse justify-content-end" id="navigation">
        
         <ul class="navbar-nav">
-          <li>
+          <li *ngIf="showClients">
             <p-dropdown [options]="clients" optionLabel="name" filter="true" >
               <ng-template let-client pTemplate="item" >
                 <span (click)="onChange(client.id, client.name)">{{client.name}}</span>
