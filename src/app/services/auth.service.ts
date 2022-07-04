@@ -21,7 +21,6 @@ export class AuthService {
     return localStorage.getItem('userLogin');
   }
 
-
   constructor(
     private http: HttpClient,
     private sharedService: SharedService,
@@ -29,7 +28,6 @@ export class AuthService {
     ) { }
 
   Login(loginObj: Login): Observable<LoginResultMd>  {
-
       const loginMdObj = this.getLoginMdObj(loginObj);
       return this.http.post<LoginResultMd>(endpointPath + '/User/LoginUR', loginMdObj)
                   .pipe(catchError(this.sharedService.handleError));
@@ -54,8 +52,6 @@ export class AuthService {
 
   Logout() {
       const ln = localStorage.getItem('language');
-     // localStorage.removeItem('token');
-     // localStorage.removeItem('refreshToken');
       localStorage.clear();
       localStorage.setItem('language', ln);
       this.router.navigate(['/']);
@@ -72,7 +68,7 @@ export class AuthService {
       return !this.isLoggedIn();
   }
 
-  async SaveJwtToken(res: LoginResultMd) {
+  SaveJwtToken(res: LoginResultMd) {
       localStorage.setItem('token', res.accessToken.value);
       localStorage.setItem('refreshToken', res.refreshToken.value);
 
@@ -91,7 +87,7 @@ export class AuthService {
 
   public isExpired(): boolean {
     if (localStorage.getItem('refreshToken')) {
-      const exp = parseInt(localStorage.getItem('tokenExp')) - 820;
+      const exp = parseInt(localStorage.getItem('tokenExp'));
       const actualDate = (new Date().getTime() + 1) / 1000;
       console.log('exp: ' + exp + ' actualDate:' + actualDate + ' różnica: ' + (exp - actualDate).toString());
       if (exp >= actualDate) {

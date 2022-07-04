@@ -17,7 +17,7 @@ export class LoginService {
 
   login(loginResult:LoginResultMd){
     if(loginResult.userId>0){
-
+console.log("Zalogowany!!!!!!");
       this.auth.SaveJwtToken(loginResult);
 
       if(this.auth.isLoggedIn()){
