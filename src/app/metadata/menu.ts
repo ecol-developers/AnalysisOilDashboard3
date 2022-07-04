@@ -3,7 +3,6 @@ import { RouteInfo } from './RouteInfo';
 export const Menu: RouteInfo[] = [
 {
     path: '/dashboard/mainpage',
-    title:  'Strona Głowna',
     type: 'link',
     icontype: 'dashboard',
     key: 'sidebarmenu.mainpage'
@@ -31,12 +30,6 @@ export const Menu: RouteInfo[] = [
         {path: 'advice', title: 'Próbki status WSKAZÓWKA', ab: 'RW', key: 'sidebarmenu.labors_hint_state'},
         {path: 'normal', title: 'Próbki status W NORMIE', ab: 'RN', key: 'sidebarmenu.labors_normal_state'},
     ]
-}, {
-    path: '/-',
-    title: 'Instrukcja obsługi',
-    type: 'link',
-    icontype: 'school',
-    key: 'sidebarmenu.manual'
 }
 ];
 
@@ -68,6 +61,7 @@ export const UserMenu: RouteInfo[] = [
         children: [
             {path: 'user/myProfile', title: 'Mój Profil', ab: 'MP', key: 'sidebarmenu.my_profile'},
             {path: 'user/myLogHistories', title: 'Historia logowania', ab: 'MH', key: 'sidebarmenu.login_history'},
+            {path: '/-', title: 'Instrukcja obsługi', ab: 'IO', key: 'sidebarmenu.manual'}
         ]
     }
 ];

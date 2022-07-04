@@ -22,8 +22,8 @@
         "clear": "Wyczyść",
         "apply": "Zatwierdź",
         "matchAll": "Dopasuj wszystko",
-        "matchAny": "Match Any",
-        "addRule": "Dopasuj dowolne",
+        "matchAny": "Dopasuj dowolne",
+        "addRule": "Dodaj filtr",
         "removeRule": "Usuń filtry",
         "accept": "Tak",
         "reject": "Nie",
@@ -59,12 +59,13 @@
         "login":"Zaloguj",
         "logout":"Wyloguj",
         "show_details":"Pokaż szczegóły...",
-        "forget_password":"Forget password"
+        "forget_password":"Zapomniałeś hasła?"
     },
     "login_page":{
         "username":"Nazwa użytkownika",
         "password": "Hasło",
-        "title":"Logowanie do panelu klienta"
+        "title":"Logowanie do panelu klienta",
+        "error":"Niepoprawny login lub hasło!"
     },
     "sidebarmenu":{
         "mainpage":"Strona główna",
@@ -126,6 +127,7 @@
         "result":"Wynik"
     },
     "log_history_table":{
+        "title_page":"Historia logowań",
         "id":"Id",
         "login":"Nazwa użytkownika",
         "name":"Imię",
@@ -134,6 +136,7 @@
         "date":"Data logowania"
     },
     "user_table":{
+        "title_page":"Lista użytkowników",
         "id":"Id",
         "email":"Email",
         "name":"Imię",
@@ -141,13 +144,21 @@
         "login":"Nazwa użytkownika",
         "client_symbol":"Symbol klienta",
         "client_name":"Nazwa klienta",
-        "last_login_date":"Ostatnie logowanie",
+        "last_log_date":"Ostatnie logowanie",
         "action":"Akcje"
     },
     "client_table":{
+        "title_page":"Lista klientów",
         "id":"Id",
         "name":"Nazwa",
         "action":"Akcje"
+    },
+    "my-profile_page":{
+        "title_page":"Profil użytkownika",
+        "name":"Imię",
+        "surname":"Nazwisko",
+        "client_name":"Nazwa klienta",
+        "email":"Email"
     }
     
 }

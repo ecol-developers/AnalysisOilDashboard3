@@ -7,13 +7,12 @@
                 <div class="card-icon">
                   <i class="material-icons">storage</i>
                 </div>
-                <h4 class="card-title">{{title}}</h4>
+                <h4 class="card-title">{{"client_table.title_page" | translate}}</h4>
               </div>
                 <div class="card-body">
                   <div class="row">
                     <div class="col-md-12">
-                      <app-universal-table sourceType="Clients"></app-universal-table>
-                    
+                      <app-universal-table [outsideData]="dataSource" [outsideCols]="cols"></app-universal-table>
                     </div>
                   </div>
                 </div>

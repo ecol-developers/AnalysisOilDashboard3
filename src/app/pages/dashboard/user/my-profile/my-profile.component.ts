@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { TranslateService } from '@ngx-translate/core';
 import { User } from 'src/app/models/user';
 import { UserService } from 'src/app/services/user.service';
 
@@ -10,7 +11,10 @@ import { UserService } from 'src/app/services/user.service';
 export class MyProfileComponent implements OnInit {
   user:User;
 
-  constructor(private service:UserService) { }
+  constructor(
+    private service:UserService,
+    private translateService:TranslateService
+    ) { }
 
   ngOnInit(): void {
       this.user = this.service.GetLocalStorageUserData();

@@ -20,8 +20,8 @@
        
         <ul class="navbar-nav">
           <li *ngIf="showClients">
-            <p-dropdown [options]="clients" optionLabel="name" filter="true" >
-              <ng-template let-client pTemplate="item" >
+            <p-dropdown [options]="clients" optionLabel="name" filter="true"  >
+              <ng-template let-client pTemplate="item"  >
                 <span (click)="onChange(client.id, client.name)">{{client.name}}</span>
               </ng-template>
             </p-dropdown>

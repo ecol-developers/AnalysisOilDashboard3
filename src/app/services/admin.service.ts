@@ -11,34 +11,31 @@ import { Client } from '../models/client';
 })
 export class AdminService {
   constructor(
-    private http:HttpClient
+    private http: HttpClient
   ) { }
 
-  GetUsersLogHistory():Observable<LogHistory[]>
-  {
-    let endpoint = endpointPath+"/User/GetUsersLogHistory";
-    return this.http.get<LogHistory[]>(endpoint);  
+  GetUsersLogHistory(): Observable<LogHistory[]> {
+    const endpoint = endpointPath +'/User/GetUsersLogHistory';
+    return this.http.get<LogHistory[]>(endpoint);
   }
 
-  GetUserList():Observable<User[]>
-  {
-    let endpoint = endpointPath+"/User/GetList";
-    return this.http.get<User[]>(endpoint);  
+  GetUserList(): Observable<User[]> {
+    const endpoint = endpointPath +'/User/GetList';
+    return this.http.get<User[]>(endpoint);
   }
 
-  GetClientList():Observable<Client[]>
-  {
-    let endpoint = endpointPath+"/Client/GetList";
-    return this.http.get<Client[]>(endpoint);  
+  GetClientList(): Observable<Client[]> {
+    const endpoint = endpointPath +'/Client/GetList';
+    return this.http.get<Client[]>(endpoint);
   }
 
-  addClientToUser(clientId: number, userId: number):Observable<boolean> {
-    let endpoint = endpointPath+"/User/AddClientToUser";
-    let userObj:User = {
+  addClientToUser(clientId: number, userId: number): Observable<boolean> {
+    const endpoint = endpointPath +'/User/AddClientToUser';
+    const userObj: User = {
       clientId: clientId,
-      id:userId
-    }
+      id: userId
+    };
     console.log(userObj);
-    return this.http.post<boolean>(endpoint, userObj);  
+    return this.http.post<boolean>(endpoint, userObj);
   }
 }

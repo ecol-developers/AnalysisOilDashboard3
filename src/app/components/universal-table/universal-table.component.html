@@ -21,7 +21,7 @@ responsiveLayout="scroll">
 </ng-template>
 <ng-template pTemplate="header" let-columns>
 <tr>
-    <th *ngFor="let col of columns" pSortableColumn="{{col.field}}">{{col.header}} 
+    <th *ngFor="let col of columns" pSortableColumn="{{col.field}}">{{col.header | translate}} 
         <p-sortIcon field="{{col.field}}" *ngIf="col.sortable !== false"></p-sortIcon>
         <p-columnFilter type="{{col.dataType}}" *ngIf="col.filter !== false" field="{{col.field}}" display="menu" ></p-columnFilter>
     </th>
@@ -31,7 +31,8 @@ responsiveLayout="scroll">
         <tr>
             <td *ngFor="let row of columns" >
                 <div *ngIf="row.dataType !== 'button'">
-                    {{rowData[row.field]}}
+                   <span *ngIf="row.dataType === 'date'">{{rowData[row.field] | date:"yyyy-MM-dd hh:mm:ss"}}</span>
+                   <span *ngIf="row.dataType !== 'date'">{{rowData[row.field]}}</span>
                 </div> 
                 <div *ngIf="row.dataType === 'button'">
                     <p-button type="button" title="{{row.description}}" icon="{{row.icon}}" (click)="this[row.function](rowData)"></p-button>

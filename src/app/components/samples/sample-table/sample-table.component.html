@@ -9,7 +9,6 @@
     [globalFilterFields]="['sampleNumber','sampleDate','reason','lubricantName','equipmentName','nodeName', 'noteName']"
     dataKey="id"
     styleClass="p-datatable-striped"
-    currentPageReportTemplate="Przedstawiono {first} do {last} z {totalRecords} próbek laboratoryjnych"
     responsiveLayout="scroll"
     >
 <ng-template pTemplate="caption">
@@ -74,7 +73,7 @@
 </ng-template>
 <ng-template pTemplate="emptymessage">
     <tr>
-        <td colspan="6">{{"sample_table.empty_data" | translate}}</td>
+        <td colspan="6">{{"all_table.empty_data" | translate}}</td>
     </tr>
 </ng-template>
 <ng-template pTemplate="rowexpansion" let-sample>
@@ -101,7 +100,7 @@
                 </ng-template>
                 <ng-template pTemplate="emptymessage">
                     <tr>
-                        <td colspan="6">{{"sample_table.empty_data"}}</td>
+                        <td colspan="6">{{"sample_table.empty_data" | translate}}</td>
                     </tr>
                 </ng-template>
             </p-table>

@@ -49,7 +49,7 @@
     "title_page":"Analysis oil - beta version",
     "notifications":"Notifications",
     "language":"Language",
-    "minimal_menu":"Minimalization menu",
+    "minimal_menu":"Minimize sidebar",
     "btn":{
         "save":"Save",
         "cancel":"Cancel",
@@ -58,17 +58,18 @@
         "login":"Login",
         "logout":"Logout",
         "show_details":"Show details...",
-        "forget_password":"I forget my password"
+        "forget_password":"Forgot password?"
     },
     "login_page":{
         "username":"User name",
         "password": "Password",
-        "title":"Login to customer panel"
+        "title":"Login to customer panel",
+        "error":"Wrong login or password!"
     },
     "sidebarmenu":{
         "mainpage":"Main page",
         "all_labors":"All samples",
-        "labors_by_equipment":"Samples for equipment",
+        "labors_by_equipment":"Samples by equipment",
         "groupped":"Grouped",
         "labors_warning_state":"Samples with status 'Warning'",
         "labors_hint_state":"Samples with status 'Hint'",
@@ -76,18 +77,18 @@
         "manual":"Get manual",
         "administrators":"Administraction",
         "users":"Users",
-        "clients":"Customers",
+        "clients":"Clients",
         "login_history":"Login history",
         "my_profile":"My profile"
     },
     "mainpage_page":{
         "title":"Main page",
         "summary_chart":{
-            "title":"Total number of samples",
+            "title":"Samples summary",
             "sample_insert_count":"Samples accepted for implementation",
             "sample_in_laboratory_count":"Samples in laboratory",
             "sample_in_interpretation_count":"Samples in interpretation",
-            "sample_confirmed_count":"Samples approved"
+            "sample_confirmed_count":"Approved samples "
         },
         "doughnut_chart":{
             "title":"Percent result samples groupped by note",
@@ -96,17 +97,18 @@
             "normal":"Normal",
             "hint":"Hint"
         },
-        "samples_count_by_month_chart":"Sample number in the last year",
-        "samples_success_count_by_month_chart":"Number of positive samples",
-        "samples_warning_count_by_month_chart":"Number of samples with the status 'Warning'",
-        "equipment_count":"Total number of equipments",
-        "sample_count":"Total number of samples",
+        "samples_count_by_month_chart":"Number of samples last year",
+        "samples_success_count_by_month_chart":"Number of samples with positive samples",
+        "samples_warning_count_by_month_chart":"Number of samples with status 'Warning'",
+        "equipment_count":"Total of equipment",
+        "sample_count":"Total of samples",
         "sample_report_not_read_count":"Number of unread laboratory reports with note:'Hint'",
         "sample_report_not_read_for_warning_sample_count":"Number of unread laboratory reports with note:'Warning'"
     },
     "all_table":{
         "clear":"Clear filters",
-        "search":"Search..."
+        "search":"Search...",
+        "empty_data":"No data"
     },
     "sample_table":{
         "number": "Number",
@@ -114,7 +116,7 @@
         "reason":"Reason",
         "lubricant":"Lubricant",
         "equipment":"Equipment",
-        "node":"Node",
+        "node":"Department",
         "note":"Note"
     },
     "sample_table_detail":{
@@ -124,6 +126,7 @@
         "result":"Result"
     },
     "log_history_table":{
+        "title_page":"Login history",
         "id":"Id",
         "login":"Username",
         "name":"Name",
@@ -132,6 +135,7 @@
         "date":"Log date"
     },
     "user_table":{
+        "title_page":"Users",
         "id":"Id",
         "email":"Email",
         "name":"Name",
@@ -139,8 +143,21 @@
         "login":"Username",
         "client_symbol":"Customer symbol",
         "client_name":"Customer name",
-        "last_login_date":"Last log date",
+        "last_log_date":"Last log date",
         "action":"Action"
+    },
+    "client_table":{
+        "title_page":"Clients",
+        "id":"Id",
+        "name":"Name",
+        "action":"Action"
+    },
+    "my-profile_page":{
+        "title_page":"User profile",
+        "name":"Name",
+        "surname":"Surname",
+        "client_name":"Client name",
+        "email":"Email"
     }
     
 }

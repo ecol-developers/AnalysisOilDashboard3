@@ -15,25 +15,25 @@ import { AuthGuard } from './shared/auth.guard';
 import { LoginGuard } from './shared/login.guard';
 
 const routes: Routes = [
-  {path:'', redirectTo:'login', pathMatch:'full'},
-  {path:'login', component:LoginComponent,canActivate:[LoginGuard]},
-  {path:'dashboard', component:LayoutComponent, canActivate:[AuthGuard], children:[
-    {path:'mainpage', component:MainpageComponent, canActivate:[AuthGuard]},
-    {path:'samples', component:SamplesComponent, canActivate:[AuthGuard]},
-    {path:'equipments', component:EquipmentsComponent, canActivate:[AuthGuard]},
-    {path:'group/:id', component:SamplesComponent, canActivate:[AuthGuard]},
-    {path:'user/myProfile', component:MyProfileComponent, canActivate:[AuthGuard]},
-    {path:'user/myLogHistories', component:MyLogHistoriesComponent, canActivate:[AuthGuard]},
-    {path:'admin/users', component:UsersComponent, canActivate:[AuthGuard]},
-    {path:'admin/clients', component:ClientsComponent, canActivate:[AuthGuard]},
-    {path:'admin/logHistories', component:LogHistoriesComponent, canActivate:[AuthGuard]}
+  {path: '', redirectTo: 'login', pathMatch: 'full'},
+  {path: 'login', component: LoginComponent, canActivate: [LoginGuard]},
+  {path: 'dashboard', component: LayoutComponent, canActivate: [AuthGuard], children: [
+    {path: 'mainpage', component: MainpageComponent, canActivate: [AuthGuard]},
+    {path: 'samples', component: SamplesComponent, canActivate: [AuthGuard]},
+    {path: 'equipments', component: EquipmentsComponent, canActivate: [AuthGuard]},
+    {path: 'group/:id', component: SamplesComponent, canActivate: [AuthGuard]},
+    {path: 'user/myProfile', component: MyProfileComponent, canActivate: [AuthGuard]},
+    {path: 'user/myLogHistories', component: MyLogHistoriesComponent, canActivate: [AuthGuard]},
+    {path: 'admin/users', component: UsersComponent, canActivate: [AuthGuard]},
+    {path: 'admin/clients', component: ClientsComponent, canActivate: [AuthGuard]},
+    {path: 'admin/logHistories', component: LogHistoriesComponent, canActivate: [AuthGuard]}
   ]},
-  {path:'**', component:NotFoundComponent}
+  {path: '**', component: NotFoundComponent}
  ];
 
   @NgModule({
-    imports:[RouterModule.forRoot(routes, {useHash:true})],
-    exports:[RouterModule]
+    imports: [RouterModule.forRoot(routes, {useHash: true})],
+    exports: [RouterModule]
   })
 
 export class AppRoutingModule { }

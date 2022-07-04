@@ -1,10 +1,12 @@
 <div class="logo">
     <a class="simple-text logo-mini">
       <div class="logo-img">
-          <img src="/assets/img/Ecol_logo_white_transparent.png"/>
+          <a href="#/dashboard/mainpage">
+            <img src="/assets/img/Ecol_logo_white_transparent.png"/>
+          </a> 
       </div>  
     </a>
-      <a href="/dashboard" class="simple-text logo-normal"></a>
+      <a href="#/dashboard/mainpage" class="simple-text logo-normal"></a>
 </div>
 
 <div class="sidebar-wrapper">
@@ -32,7 +34,7 @@
                 <li class="nav-item">
                   <a routerLink="" (click)="logout()" class="nav-link">
                       <span class="sidebar-mini"></span>
-                      <span class="sidebar-normal">Wyloguj</span>
+                      <span class="sidebar-normal">{{"btn.logout" | translate}}</span>
                   </a>
               </li>
                    

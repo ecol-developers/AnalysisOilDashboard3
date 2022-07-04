@@ -7,20 +7,20 @@
                 <div class="card-icon">
                   <i class="material-icons">person</i>
                 </div>
-                <h4 class="card-title">Profil użytkownika</h4>
+                <h4 class="card-title">{{"my-profile_page.user_profile" | translate}}</h4>
               </div>
                 <div class="card-body">
                         <div class="row form-group">
                                 <div class="col-sm">
                                     <span class="p-float-label">
                                         <input type="text" id="userName" pInputText readonly="true" [(ngModel)]="user.name" class="input-full-width">
-                                        <label for="userName">Imię</label>
+                                        <label for="userName">{{"my-profile_page.name" | translate}}</label>
                                     </span>
                                   </div>
                                   <div class="col-sm">
                                     <span class="p-float-label">
                                         <input type="text" id="userSurname" pInputText readonly="true" [(ngModel)]="user.surname" class="input-full-width">
-                                        <label for="userSurname">Nazwisko</label>
+                                        <label for="userSurname">{{"my-profile_page.surname" | translate}}</label>
                                     </span>
                                   </div>
                         </div>
@@ -28,13 +28,13 @@
                             <div class="col-sm">
                                 <span class="p-float-label">
                                     <input type="text" id="userClientName" pInputText readonly="true" [(ngModel)]="user.clientName" class="input-full-width">
-                                    <label for="userClientName">Nazwa klienta</label>
+                                    <label for="userClientName">{{"my-profile_page.client_name" | translate}}</label>
                                 </span>
                             </div>
                             <div class="col-sm">
                                 <span class="p-float-label">
                                     <input type="text" id="userEmail" pInputText readonly="true" [(ngModel)]="user.email" class="input-full-width">
-                                    <label for="userEmail">Email</label>
+                                    <label for="userEmail">{{"my-profile_page.email" | translate}}</label>
                                 </span>
                             </div>
                           </div>
