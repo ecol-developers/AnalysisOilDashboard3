@@ -17,18 +17,6 @@ export class SamplesComponent implements  DoCheck, OnInit {
     private translateService: TranslateService,
     private authService: AuthService) {}
   ngOnInit(): void {
-
-    // const refresh = localStorage.getItem('refreshToken');
-
-    // this.authService.refreshToken(refresh).subscribe({
-    //   next: (res: LoginResultMd) => {
-    //     this.authService.SaveJwtToken(res);
-    //   },
-    //   error: (err) => {
-    //     console.log('Błąd odswiezania tokenu: ', err);
-    //     this.authService.Logout();
-    //   }
-    // });
   }
 
   ngDoCheck(): void {

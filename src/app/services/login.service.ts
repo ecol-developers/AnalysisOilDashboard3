@@ -11,22 +11,21 @@ import { UserService } from './user.service';
 export class LoginService {
 
   constructor(
-    private auth:AuthService,
-    private router:Router,
-    private userService:UserService) { }
+    private auth: AuthService,
+    private router: Router,
+    private userService: UserService) { }
 
-  login(loginResult:LoginResultMd){
-    if(loginResult.userId>0){
-console.log("Zalogowany!!!!!!");
+  login(loginResult: LoginResultMd) {
+    if (loginResult.userId > 0) {
       this.auth.SaveJwtToken(loginResult);
 
-      if(this.auth.isLoggedIn()){
+      if (this.auth.isLoggedIn()) {
         this.userService.GetUserDataById().subscribe({
-          next:(res:User)=>{
+          next: (res: User) => {
             this.userService.SetLocalStorageUserData(res);
           },
-          complete:()=> {
-            this.router.navigate(["/dashboard/mainpage"])
+          complete: () => {
+            this.router.navigate(['/dashboard/mainpage']);
           }
         } );
      }
